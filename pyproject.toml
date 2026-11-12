@@ -1,0 +1,17 @@
+[project]
+name = "vesres"
+version = "0.1.0"
+description = "Vesuvius Autonomous Research — chaîne de lecture virtuelle reproductible"
+requires-python = ">=3.12,<3.14"
+license = "MIT"
+dependencies = ["numpy", "requests", "tifffile", "zarr>=3", "fsspec", "aiohttp", "pillow", "scikit-learn", "pyyaml"]
+
+[project.optional-dependencies]
+gpu = ["torch>=2.11"]  # installer depuis https://download.pytorch.org/whl/cu128 (RTX 50xx / sm_120)
+test = ["pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+markers = ["network: nécessite un accès Internet"]
+addopts = "-p no:cacheprovider"

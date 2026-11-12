@@ -1,0 +1,19 @@
+# Données et artefacts lourds : jamais dans Git (cache local C:, artefacts uniques sur NAS hors dépôt)
+data/
+cache/
+artifacts/
+*.tif
+*.tiff
+*.zarr/
+*.ppm
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz
+__pycache__/
+.venv/
+.pytest_cache/
+*.egg-info/
+# Images d'encre de rouleaux non publiés : interdites de diffusion (licence données)
+**/ink_preview*/
