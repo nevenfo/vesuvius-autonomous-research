@@ -1,0 +1,46 @@
+id,type,n_scans,best_um,scans,n_volumes,volume_licenses,n_segments,n_seg_ink_detection,n_seg_layers,segment_data_types,volume_formats,legacy_data_url
+PHerc0500P2,fragment,4,0.55,0.55um/65.35keV@ESRF; 2.215um/111.0keV@ESRF; 9.362um/113.0keV@ESRF; Noneum/NonekeV@ESRF,4,CC BY-NC 4.0,46,48,138,ink-detection:48; ink-detection-downsampled:47; ink-labels:1; layers-zarr:138; obj:46; obj-flattened:46; obj-legacy-units:13; obj-normalized:46; tifxyz:46; tifxyz-normalized:46; tifxyz-transformed:139,normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0009B,fragment,2,2.401,2.401um/77.0keV@ESRF; 8.64um/116.0keV@ESRF,3,CC BY-NC 4.0,19,18,36,ink-detection:18; ink-detection-downsampled:18; ink-labels:1; layers-zarr:36; obj:19; obj-flattened:18; obj-normalized:18; tifxyz:18; tifxyz-normalized:18; tifxyz-transformed:36,normal-grids; ome-zarr; surface-prediction-zarr,
+PHercMANBp,fragment,2,1.129,1.129um/59.0keV@ESRF; 2.399um/78.0keV@ESRF,2,CC BY-NC 4.0,11,0,0,obj:11; obj-flattened:11; tifxyz:11,normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0343P,fragment,2,2.215,2.215um/111.0keV@ESRF; 8.64um/116.0keV@ESRF,2,CC BY-NC 4.0,8,8,16,ink-detection:8; ink-detection-downsampled:8; layers-zarr:16; obj:8; obj-flattened:8; obj-normalized:8; tifxyz:8; tifxyz-normalized:8; tifxyz-transformed:16,normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc1667Cr1Fr3,fragment,0,,,0,,0,0,0,,,https://dl.ash2txt.org/fragments/Frag5/PHerc1667Cr1Fr3.volpkg/
+PHerc51Cr4Fr8,fragment,0,,,0,,0,0,0,,,https://dl.ash2txt.org/fragments/Frag6/PHerc51Cr4Fr8.volpkg/
+PHercParis1Fr34,fragment,0,,,0,,0,0,0,,,https://dl.ash2txt.org/fragments/Frag3/PHercParis1Fr34.volpkg/
+PHercParis1Fr39,fragment,0,,,0,,0,0,0,,,https://dl.ash2txt.org/fragments/Frag4/PHercParis1Fr39.volpkg/
+PHercParis2Fr143,fragment,0,,,0,,0,0,0,,,https://dl.ash2txt.org/fragments/Frag2/PHercParis2Fr143.volpkg/
+PHercParis2Fr47,fragment,0,,,0,,0,0,0,,,https://dl.ash2txt.org/fragments/Frag1/PHercParis2Fr47.volpkg/
+PHercParis4,scroll,7,1.129,1.129um/78.0keV@ESRF; 2.4um/137.0keV@ESRF; 2.4um/78.0keV@ESRF; 45.532um/110.0keV@ESRF; 45.532um/74.0keV@ESRF; 7.91um/54.0keV@DLS; 7.91um/54.0keV@DLS,7,CC BY-NC 4.0; EduceLab Data License,82,117,198,3d-ink-prediction:82; 3d-ink-prediction-tif:1; 3d-ink-prediction-tif-downsampled:1; alpha-render:66; alpha-render-downsampled:66; ink-detection:117; ink-detection-composite:1; ink-detection-downsampled:117; ink-detection-zarr:1; ink-labels:8; layers-zarr:198; obj:39; obj-flattened:81; obj-normalized:81; spiral-fit:1; tifxyz:39; tifxyz-flattened:42; tifxyz-normalized:82; tifxyz-transformed:256,ink-detection-3d-zarr; lasagna; normal-grids; ome-zarr; ome-zarr-vcd3d; spiral-dataset; surface-prediction-zarr; umbilicus,https://dl.ash2txt.org/full-scrolls/Scroll1/PHercParis4.volpkg/
+PHerc0172,scroll,1,7.91,7.91um/53.0keV@DLS,2,CC BY-NC 4.0,53,108,53,ink-detection:108; ink-detection-downsampled:108; layers-zarr:53; obj:1; obj-flattened:53; obj-normalized:53; tifxyz:1; tifxyz-flattened:52; tifxyz-normalized:53; tifxyz-transformed:106,ome-zarr,https://dl.ash2txt.org/full-scrolls/Scroll5/PHerc172.volpkg/
+PHerc0139,scroll,5,1.129,1.129um/59.0keV@ESRF; 2.399um/78.0keV@ESRF; 2.403um/77.0keV@ESRF; 2.403um/77.0keV@ESRF; 9.362um/113.0keV@ESRF,10,CC BY-NC 4.0,39,75,114,ink-detection:75; ink-detection-downsampled:75; ink-labels:13; layers-zarr:114; obj:38; obj-flattened:38; obj-normalized:38; tifxyz:38; tifxyz-flattened:1; tifxyz-normalized:38; tifxyz-transformed:189,lasagna; normal-grids; ome-zarr; surface-prediction-zarr; umbilicus,
+PHerc1667,scroll,4,1.129,1.129um/59.0keV@ESRF; 2.399um/78.0keV@ESRF; 3.24um/88.0keV@DLS; 7.91um/53.0keV@DLS,4,CC BY-NC 4.0; EduceLab Data License,20,38,46,ink-detection:38; ink-detection-downsampled:38; ink-labels:6; layers-zarr:46; obj-flattened:20; obj-normalized:20; tifxyz-flattened:20; tifxyz-normalized:20; tifxyz-transformed:79,lasagna; ome-zarr,https://dl.ash2txt.org/full-scrolls/Scroll4/PHerc1667.volpkg/
+PHerc0814,scroll,3,1.129,1.129um/59.0keV@ESRF; 2.399um/78.0keV@ESRF; 9.362um/113.0keV@ESRF,3,CC BY-NC 4.0,19,37,64,ink-detection:37; ink-detection-downsampled:37; ink-labels:1; layers-zarr:64; obj:12; obj-flattened:19; obj-normalized:19; tifxyz:12; tifxyz-flattened:7; tifxyz-normalized:19; tifxyz-transformed:56,lasagna; normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc1447,scroll,1,8.64,8.64um/116.0keV@ESRF,1,CC BY-NC 4.0,15,0,19,layers-tif:4; layers-zarr:15; obj:15; obj-flattened:15; obj-normalized:15; tifxyz:15; tifxyz-normalized:15; tifxyz-transformed:15,lasagna; normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0800,scroll,1,8.64,8.64um/116.0keV@ESRF,1,CC BY-NC 4.0,6,0,6,layers-zarr:6; obj:6; obj-flattened:6; obj-normalized:6; tifxyz:6; tifxyz-normalized:6; tifxyz-transformed:6,lasagna; normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0841,scroll,2,2.403,2.403um/77.0keV@ESRF; 9.366um/113.0keV@ESRF,2,CC BY-NC 4.0,3,3,6,ink-detection:3; ink-detection-downsampled:3; ink-labels:3; layers-zarr:6; obj:3; obj-flattened:3; obj-normalized:3; tifxyz:3; tifxyz-normalized:3; tifxyz-transformed:6,normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0332,scroll,4,2.399,2.399um/78.0keV@ESRF; 3.24um/53.0keV@DLS; 3.24um/70.0keV@DLS; 7.91um/53.0keV@DLS,4,CC BY-NC 4.0; EduceLab Data License,2,0,0,obj:2; obj-flattened:2; obj-legacy-units:2; tifxyz:2,lasagna; normal-grids; ome-zarr; surface-prediction-zarr; umbilicus,https://dl.ash2txt.org/full-scrolls/Scroll3/PHerc332.volpkg/
+PHercMAN5,scroll,1,2.399,2.399um/78.0keV@ESRF,1,CC BY-NC 4.0,1,0,0,obj-flattened:1; tifxyz-flattened:1,normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0125,scroll,1,9.362,9.362um/113.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,lasagna; normal-grids; ome-zarr; surface-prediction-zarr; umbilicus,
+PHerc0175A,scroll,1,8.64,8.64um/116.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0175B,scroll,1,8.64,8.64um/116.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0191,scroll,1,9.362,9.362um/113.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,lasagna; normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0211,scroll,1,9.362,9.362um/113.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,lasagna; normal-grids; ome-zarr; surface-prediction-zarr; umbilicus,
+PHerc0257,scroll,1,9.362,9.362um/113.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,lasagna; normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0268,scroll,1,8.64,8.64um/116.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,lasagna; normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0306B,scroll,1,8.64,8.64um/116.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0343,scroll,1,8.64,8.64um/116.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,lasagna; normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0358,scroll,1,9.362,9.362um/113.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,lasagna; normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0483A,scroll,1,8.64,8.64um/116.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0483B,scroll,1,8.64,8.64um/116.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0490A,scroll,1,8.64,8.64um/116.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0490B,scroll,1,8.64,8.64um/116.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0813,scroll,1,9.362,9.362um/113.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,lasagna; normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0826,scroll,1,9.362,9.362um/113.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,lasagna; normal-grids; ome-zarr; surface-prediction-zarr; umbilicus,
+PHerc0846A,scroll,2,2.403,2.403um/77.0keV@ESRF; 9.362um/113.0keV@ESRF,2,CC BY-NC 4.0,0,0,0,,normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc0846B,scroll,1,9.362,9.362um/113.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc1203,scroll,2,2.403,2.403um/77.0keV@ESRF; 9.362um/113.0keV@ESRF,2,CC BY-NC 4.0,0,0,0,,lasagna; normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc1218,scroll,1,8.64,8.64um/116.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,lasagna; normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc1299,scroll,1,2.399,2.399um/78.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,lasagna; normal-grids; ome-zarr; surface-prediction-zarr,
+PHerc1451,scroll,2,2.399,2.399um/78.0keV@ESRF; 8.64um/116.0keV@ESRF,2,CC BY-NC 4.0,0,0,0,,lasagna; normal-grids; ome-zarr; surface-prediction-zarr; umbilicus,
+PHerc1545,scroll,1,9.362,9.362um/113.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,lasagna; normal-grids; ome-zarr; surface-prediction-zarr,
+PHercMANB,scroll,1,2.399,2.399um/78.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,normal-grids; ome-zarr; surface-prediction-zarr,
+PHercParis3,scroll,1,2.4,2.4um/78.0keV@ESRF,1,CC BY-NC 4.0,0,0,0,,lasagna; ome-zarr,

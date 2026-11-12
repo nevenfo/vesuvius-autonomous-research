@@ -1,7 +1,7 @@
 # Données et artefacts lourds : jamais dans Git (cache local C:, artefacts uniques sur NAS hors dépôt)
-data/
-cache/
-artifacts/
+/data/
+/cache/
+/artifacts/
 *.tif
 *.tiff
 *.zarr/
