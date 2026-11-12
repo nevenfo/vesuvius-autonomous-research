@@ -8,7 +8,7 @@ E1.4 — Hecate 9,6 µm sur PHerc0841.
 
 ## Dernière tâche validée
 B2.3 — `docs/data/splits.md` : seul PHerc0841 est un rouleau étiqueté tenu à l'écart des modèles 9 µm publiés (recoupé avec ink_9um model card, reader-v2 `train_config.json`, Hecate model card).
-Validation (dernières preuves techniques) :
+Validation :
 - `python -m pytest -q` → 10 passed (2026-11-12).
 - EXP-001 : reader-v2 et ink_9um s43 sur PHerc0841 × 3 segments → 12/12 AUC publiées reproduites (écart max 1e-4) ; ~30 s/inférence, +1 Go VRAM.
 - EXP-002 : fusion reader-v2+ink_9um rejetée (3/3 segments en baisse) ; H-008 soutenue (labels zone `validation` probablement incomplets).
