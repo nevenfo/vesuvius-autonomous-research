@@ -4,11 +4,11 @@
 Phase E — baseline scientifique (A, B1.1, B2.1-2, B3, C, D1, G1, G2.1 validés).
 
 ## Tâche actuelle
-B2.3 — matrice de parenté modèles↔données (préalable à E1.1 et H-009).
+E1.4 — Hecate 9,6 µm sur PHerc0841.
 
 ## Dernière tâche validée
-D1 + E1.1 partiel (EXP-001/001b) et EXP-002, veille G1/G2.1.
-Validation :
+B2.3 — `docs/data/splits.md` : seul PHerc0841 est un rouleau étiqueté tenu à l'écart des modèles 9 µm publiés (recoupé avec ink_9um model card, reader-v2 `train_config.json`, Hecate model card).
+Validation (dernières preuves techniques) :
 - `python -m pytest -q` → 10 passed (2026-11-12).
 - EXP-001 : reader-v2 et ink_9um s43 sur PHerc0841 × 3 segments → 12/12 AUC publiées reproduites (écart max 1e-4) ; ~30 s/inférence, +1 Go VRAM.
 - EXP-002 : fusion reader-v2+ink_9um rejetée (3/3 segments en baisse) ; H-008 soutenue (labels zone `validation` probablement incomplets).
@@ -31,4 +31,4 @@ Aucun.
 - Code reader-v2 (référence protocole) : `github.com/DomRusso2/reader-v2` `scripts/v2_run.py`
 
 ## NEXT ACTION
-B2.3 — Écrire `docs/data/splits.md` : pour reader-v2 (`train_config.json`), ink_9um (model card) et Hecate, lister rouleaux/segments d'entraînement ; en déduire les segments étiquetés réellement tenus à l'écart par modèle ; valider en recoupant chaque entrée avec sa source.
+E1.4 — Télécharger `scrollprize/hecate` (checkpoint 9,6 µm), rééchantillonner les 3 surface-volumes 0841 de 9,366 à 9,6 µm (XY et Z, comme reader-v2 `scripts/infer_with_hecate.py`), inférer, ramener sur la grille 9,366 µm, évaluer avec `vesres.eval_ink` ; valider contre les AUC publiées par reader-v2 pour Hecate (revue 0,8887/0,8013/0,8752 ; supervision 0,9119/0,7841/0,8936), puis fusion reader-v2+Hecate (H-003).
