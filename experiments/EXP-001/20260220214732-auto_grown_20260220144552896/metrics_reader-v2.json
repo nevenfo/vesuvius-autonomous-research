@@ -1,0 +1,49 @@
+{
+ "pred": "C:\\Users\\FlowUP\\vesuvius-work\\runs\\E1\\20260220214732-auto_grown_20260220144552896\\pred_reader-v2.tif",
+ "segment_dir": "C:\\Users\\FlowUP\\vesuvius-work\\cache\\segments\\PHerc0841\\20260220214732-auto_grown_20260220144552896",
+ "pred_dtype": "uint8",
+ "pred_shape": [
+  4640,
+  4720
+ ],
+ "metrics": {
+  "reviewed": {
+   "n_pos": 318729,
+   "n_neg": 13944796,
+   "auc_protocol": 0.8387,
+   "auc_exact": 0.839,
+   "ap": 0.1476,
+   "best_f1": 0.256,
+   "best_f1_threshold": 166.0,
+   "prevalence": 0.0223,
+   "bootstrap": {
+    "n_blocks": 253,
+    "block_px": 256,
+    "n_boot": 200,
+    "ci95": [
+     0.7633,
+     0.8845
+    ]
+   }
+  },
+  "in_supervision": {
+   "n_pos": 318133,
+   "n_neg": 665418,
+   "auc_protocol": 0.8263,
+   "auc_exact": 0.8261,
+   "ap": 0.6901,
+   "best_f1": 0.6789,
+   "best_f1_threshold": 92.0,
+   "prevalence": 0.3235,
+   "bootstrap": {
+    "n_blocks": 28,
+    "block_px": 256,
+    "n_boot": 200,
+    "ci95": [
+     0.7479,
+     0.8678
+    ]
+   }
+  }
+ }
+}

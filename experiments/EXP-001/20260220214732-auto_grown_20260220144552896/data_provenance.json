@@ -1,0 +1,58 @@
+{
+ "scroll": "PHerc0841",
+ "segment": "20260220214732-auto_grown_20260220144552896",
+ "fetched_utc": "2026-11-12T22:35:05Z",
+ "items": {
+  "sv": {
+   "url": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0841/segments/20260220214732-auto_grown_20260220144552896/surface-volumes/9.366um-1.2m-113keV-volume-20250821151531.zarr/0",
+   "shape": [
+    28,
+    4640,
+    4720
+   ],
+   "dtype": "uint8",
+   "chunks": [
+    28,
+    128,
+    128
+   ]
+  },
+  "inklabels": {
+   "url": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0841/segments/20260220214732-auto_grown_20260220144552896/ink-labels/2.403um-volume-20260319124803/20260918/inklabels.zarr/0",
+   "shape": [
+    18080,
+    18400
+   ],
+   "dtype": "uint8",
+   "chunks": [
+    512,
+    512
+   ]
+  },
+  "supervision": {
+   "url": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0841/segments/20260220214732-auto_grown_20260220144552896/ink-labels/2.403um-volume-20260319124803/20260918/supervision.zarr/0",
+   "shape": [
+    18080,
+    18400
+   ],
+   "dtype": "uint8",
+   "chunks": [
+    512,
+    512
+   ]
+  },
+  "validation": {
+   "url": "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/PHerc0841/segments/20260220214732-auto_grown_20260220144552896/ink-labels/2.403um-volume-20260319124803/20260918/validation.zarr/0",
+   "shape": [
+    18080,
+    18400
+   ],
+   "dtype": "uint8",
+   "chunks": [
+    512,
+    512
+   ]
+  }
+ },
+ "seconds": 38.3
+}

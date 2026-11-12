@@ -59,7 +59,7 @@ Dépôt Git versionné, poussé sur un remote GitHub privé, avec plan/progress 
 A1.
 ### Tâches
 - [x] A2.1 `git init`, `.gitignore` (données/poids/images d'encre exclus), `LICENSE` MIT, structure `src/ tests/ docs/ experiments/ watch/`.
-- [ ] A2.2 Créer le remote GitHub privé `nevenfo/vesuvius-autonomous-research`, pousser `main` puis travailler sur `ai/<phase>`.
+- [x] A2.2 Créer le remote GitHub privé `nevenfo/vesuvius-autonomous-research`, pousser `main` puis travailler sur `ai/<phase>`.
 ### Validation
 `bash ~/.agents/continuity-check.sh .` PASS ; `gh repo view --json visibility` = PRIVATE ; `git status` propre après push.
 
@@ -107,7 +107,7 @@ Environnement isolé, réversible, versionné, compatible sm_120.
 A1.
 ### Tâches
 - [x] C1.1 venv uv Python 3.12 hors NAS (`C:\Users\FlowUP\vesuvius-work\.venv`), torch 2.11.0+cu128, matmul GPU OK.
-- [ ] C1.2 `pyproject.toml` (fait) + `requirements.lock` (fait) ; + `requirements.lock` (uv pip freeze) ; installer `vesuvius` (PyPI, MIT) si nécessaire à l'inférence.
+- [x] C1.2 `pyproject.toml` + `requirements.lock` ; env d'inférence séparé `.venv-koine` (torch 2.10.0+cu128, koine_machines + vesuvius 0.2.4 en --no-deps) figé dans `experiments/EXP-001/env-koine.lock`.
 ### Validation
 `python -c "import torch; torch.cuda.is_available()"` True ; `pytest` PASS ; lockfile commité.
 
@@ -118,8 +118,8 @@ Lire des crops de surface-volumes distants (TIFF Range / OME-Zarr) avec cache at
 C1.
 ### Tâches
 - [x] C2.1 `src/vesres/remote_tiff.py` (bandes de lignes via HTTP Range sur TIFF non compressés).
-- [ ] C2.2 Lecteur OME-Zarr distant (zarr/fsspec, S3 anonyme) pour `layers-zarr` et `ink-labels`.
-- [ ] C2.3 Tests unitaires (fichier TIFF synthétique local + petit appel réseau marqué `network`).
+- [x] C2.2 Lecteur OME-Zarr distant (zarr/fsspec, S3 anonyme) pour `layers-zarr` et `ink-labels`.
+- [x] C2.3 Tests unitaires (TIFF synthétique local, cache, bornes) ; test réseau manuel validé (crop Frag1).
 ### Validation
 `pytest -m "not network"` PASS ; lecture d'un crop réel identique à la lecture complète sur une petite zone.
 
@@ -131,9 +131,9 @@ Petit échantillon réel → chargement vérifié → modèle existant → carte
 ### Dépendances
 C1, C2.
 ### Tâches
-- [ ] D1.1 Choisir le crop (PHerc0841, rouleau déclaré non vu par reader-v2 ; layers-zarr 9.366 µm + ink-labels 2.403 µm rééchantillonnés) et figer les coordonnées.
-- [ ] D1.2 Télécharger le checkpoint (reader-v2 et/ou scrollprize/ink_9um), vérifier licence et empreinte.
-- [ ] D1.3 Inférence locale (VRAM/temps mesurés), AUC/AP/F1 vs labels, manifeste `experiments/EXP-001/`.
+- [x] D1.1 Choisir le crop (PHerc0841, rouleau déclaré non vu par reader-v2 ; layers-zarr 9.366 µm + ink-labels 2.403 µm rééchantillonnés) et figer les coordonnées.
+- [x] D1.2 Télécharger le checkpoint (reader-v2 et/ou scrollprize/ink_9um), vérifier licence et empreinte.
+- [x] D1.3 Inférence locale (VRAM/temps mesurés), AUC/AP/F1 vs labels, manifeste `experiments/EXP-001/`.
 ### Validation
 Manifeste complet ; métriques recalculables par `python -m vesres.eval` ; comparaison chiffrée à la valeur auto-déclarée (AUC 0,824 vs labels humains sur PHerc0841).
 
@@ -145,7 +145,7 @@ Reproduire une méthode officielle et comparer aux résultats connus, limites ma
 ### Dépendances
 D1.
 ### Tâches
-- [ ] E1.1 Étendre D1 à plusieurs segments/rouleaux étiquetés (0139, 0814, 1667, Paris4) en respectant les parentés d'entraînement.
+- [ ] E1.1 Étendre D1 à plusieurs segments/rouleaux étiquetés (0139, 0814, 1667, Paris4) en respectant les parentés d'entraînement. (0841 × 3 segments fait : EXP-001b.)
 - [ ] E1.2 Comparer ink_9um vs reader-v2 vs pipeline 2,4 µm (`vesuvius.ink_detection`) sur mêmes crops.
 - [ ] E1.3 Reproduction partielle PHerc. 1667 (crop représentatif, 2,4 µm) vs prédictions publiées.
 ### Validation
@@ -172,8 +172,8 @@ Script déterministe idempotent qui détecte les nouveautés (villa, HF scrollpr
 ### Dépendances
 C1.
 ### Tâches
-- [ ] G1.1 `src/vesres/watch.py` : état `watch/state.json`, rapport `watch/reports/YYYY-MM-DD.md`, erreurs réseau tolérées, verrou anti-concurrence.
-- [ ] G1.2 Tests (idempotence : deux passages successifs → aucun doublon).
+- [x] G1.1 `src/vesres/watch.py` : état `watch/state.json`, rapport `watch/reports/YYYY-MM-DD.md`, erreurs réseau tolérées, verrou anti-concurrence.
+- [x] G1.2 Tests (idempotence : deux passages successifs → aucun doublon).
 ### Validation
 Deux exécutions consécutives : la seconde ne rapporte aucune nouveauté ; rapport écrit atomiquement.
 
@@ -183,7 +183,7 @@ Déclenchement hebdomadaire réel, rattrapage des exécutions manquées, transfo
 ### Dépendances
 G1.
 ### Tâches
-- [ ] G2.1 Tâche planifiée utilisateur Windows (hebdo, « exécuter dès que possible si manquée », instance unique).
+- [x] G2.1 Tâche planifiée utilisateur Windows `VesuviusResearchWatch` (lundi 09:00, StartWhenAvailable, IgnoreNew) → `watch/run_watch.ps1` ; déclenchement planifié vérifié 2026-11-12 23:37:36, LastTaskResult 0.
 - [ ] G2.2 Vérifier un déclenchement réel et son rapport ; synthèse mensuelle `docs/state-of-the-art/` + mise à jour `docs/hypotheses.md`.
 ### Validation
 `schtasks /query /tn` montre Last Result 0 et un rapport daté produit par le déclenchement planifié.
