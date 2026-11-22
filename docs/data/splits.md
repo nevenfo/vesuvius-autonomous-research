@@ -12,7 +12,7 @@ Vérifié le 2026-11-12 sur les sources citées. « vu » = au moins un segment 
 | PHercParis4 (rouleau) | 8 | vu (8) | vu | vu (3D Paris4) | non |
 | PHerc0814 (rouleau) | 1 | vu (1) | vu | NV | non |
 | PHerc0009B (fragment) | 1 (+ labels reader-v2) | non vu | vu (segments hors 4 tenus à l'écart) | NV | intra-objet seulement pour reader-v2 |
-| PHerc0500P2 (fragment) | 1 | non vu | vu (`data/v2/0500P2`) | NV | oui pour ink_9um seulement |
+| PHerc0500P2 (fragment) | 1 | non vu | vu (`data/v2/0500P2`, 17 segments ; le segment étiqueté `20250825181859--1` est tenu à l'écart) | NV | oui pour ink_9um ; intra-objet seulement pour reader-v2 (EXP-008) |
 | PHerc0343P (fragment) | 0 publié | non vu | vu | NV | — |
 | PHerc0172 (rouleau) | 0 publié (prédictions seulement) | non vu | vu (`data/v2/0172`, cartes d'équipe) | NV | — |
 
