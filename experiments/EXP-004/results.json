@@ -1,0 +1,140 @@
+{
+ "segment": "20250919125754-auto_grown_20250919055754487_inp_hr",
+ "shape": [
+  7040,
+  5700
+ ],
+ "pearson_rv2_hecate": 0.6154,
+ "models": {
+  "reader-v2": {
+   "reviewed": {
+    "n_pos": 763301,
+    "auc_protocol": 0.9266,
+    "auc_exact": 0.9264,
+    "ap": 0.8257,
+    "best_f1": 0.7532,
+    "prevalence": 0.2234,
+    "ci95": [
+     0.8869,
+     0.9484
+    ]
+   },
+   "in_supervision": {
+    "n_pos": 763301,
+    "auc_protocol": 0.9266,
+    "auc_exact": 0.9264,
+    "ap": 0.8257,
+    "best_f1": 0.7532,
+    "prevalence": 0.2234,
+    "ci95": [
+     0.8869,
+     0.9484
+    ]
+   }
+  },
+  "ink9um_s43": {
+   "reviewed": {
+    "n_pos": 763301,
+    "auc_protocol": 0.813,
+    "auc_exact": 0.8131,
+    "ap": 0.6095,
+    "best_f1": 0.5756,
+    "prevalence": 0.2234,
+    "ci95": [
+     0.7742,
+     0.8429
+    ]
+   },
+   "in_supervision": {
+    "n_pos": 763301,
+    "auc_protocol": 0.813,
+    "auc_exact": 0.8131,
+    "ap": 0.6095,
+    "best_f1": 0.5756,
+    "prevalence": 0.2234,
+    "ci95": [
+     0.7742,
+     0.8429
+    ]
+   }
+  },
+  "hecate": {
+   "reviewed": {
+    "n_pos": 763301,
+    "auc_protocol": 0.8844,
+    "auc_exact": 0.8845,
+    "ap": 0.7796,
+    "best_f1": 0.7101,
+    "prevalence": 0.2234,
+    "ci95": [
+     0.8395,
+     0.9163
+    ]
+   },
+   "in_supervision": {
+    "n_pos": 763301,
+    "auc_protocol": 0.8844,
+    "auc_exact": 0.8845,
+    "ap": 0.7796,
+    "best_f1": 0.7101,
+    "prevalence": 0.2234,
+    "ci95": [
+     0.8395,
+     0.9163
+    ]
+   }
+  },
+  "fusion_rv2_hecate": {
+   "reviewed": {
+    "n_pos": 763301,
+    "auc_protocol": 0.9354,
+    "auc_exact": 0.9353,
+    "ap": 0.8452,
+    "best_f1": 0.7688,
+    "prevalence": 0.2234,
+    "ci95": [
+     0.9013,
+     0.9563
+    ]
+   },
+   "in_supervision": {
+    "n_pos": 763301,
+    "auc_protocol": 0.9354,
+    "auc_exact": 0.9353,
+    "ap": 0.8452,
+    "best_f1": 0.7688,
+    "prevalence": 0.2234,
+    "ci95": [
+     0.9013,
+     0.9563
+    ]
+   }
+  },
+  "fusion_all3": {
+   "reviewed": {
+    "n_pos": 763301,
+    "auc_protocol": 0.927,
+    "auc_exact": 0.9269,
+    "ap": 0.8309,
+    "best_f1": 0.7597,
+    "prevalence": 0.2234,
+    "ci95": [
+     0.8915,
+     0.9501
+    ]
+   },
+   "in_supervision": {
+    "n_pos": 763301,
+    "auc_protocol": 0.927,
+    "auc_exact": 0.9269,
+    "ap": 0.8309,
+    "best_f1": 0.7597,
+    "prevalence": 0.2234,
+    "ci95": [
+     0.8915,
+     0.9501
+    ]
+   }
+  }
+ }
+}

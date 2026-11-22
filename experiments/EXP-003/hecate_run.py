@@ -1,4 +1,5 @@
 """E1.4: Hecate 9.6um maps on native 9.366um grid (method of reader-v2 infer_with_hecate.py).
+Usage: python hecate_run.py <segment> [scroll=PHerc0841] [um=9.366] [outdir=runs/E1.4]
 Run with .venv python (cv2, tifffile, zarr); hecate.py is run by .venv-koine python (torch cu128).
 Resample: XY cv2.INTER_AREA to round(n*um/9.6), Z linear (zs=(k+.5)/f-.5), uint8 round. Back: cv2.INTER_LINEAR to (W,H).
 """
@@ -7,7 +8,6 @@ import cv2, numpy as np, tifffile, zarr
 W0 = 'C:/Users/FlowUP/vesuvius-work'
 HD = W0 + '/models/scrollprize_hecate'
 KPY = W0 + '/.venv-koine/Scripts/python.exe'
-UM = 9.366
 
 def resample_96(vol, um):
     f = um / 9.6
@@ -19,8 +19,11 @@ def resample_96(vol, um):
     return np.stack([np.round((1 - w[k]) * xy[z0[k]] + w[k] * xy[z1[k]]).astype(np.uint8) for k in range(oz)])
 
 seg = sys.argv[1]
-d = f'{W0}/runs/E1.4/{seg}'; os.makedirs(d, exist_ok=True)
-root = zarr.open(f'{W0}/cache/segments/PHerc0841/{seg}/sv.zarr', mode='r')
+SCROLL = sys.argv[2] if len(sys.argv) > 2 else 'PHerc0841'
+UM = float(sys.argv[3]) if len(sys.argv) > 3 else 9.366
+OUT = sys.argv[4] if len(sys.argv) > 4 else 'runs/E1.4'
+d = f'{W0}/{OUT}/{seg}'; os.makedirs(d, exist_ok=True)
+root = zarr.open(f'{W0}/cache/segments/{SCROLL}/{seg}/sv.zarr', mode='r')
 vol = root['0']
 H, W = vol.shape[1:]
 t = time.time()

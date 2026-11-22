@@ -1,17 +1,17 @@
 # PROGRESS
 
 ## Phase actuelle
-Phase E — baseline scientifique (A, B1.1, B2.1-3, B3, C, D1, E1.4, G1, G2.1 validés).
+Phase E — baseline scientifique (A, B1.1, B2.1-3, B3, C, D1, E1.4, G1, G2.1 validés ; E1.1 partiel).
 
 ## Tâche actuelle
-H-009 — reader-v2 / ink_9um / Hecate sur le segment étiqueté PHerc0009B (2e objet, 8,64 µm).
+H-008b — test discriminant de l'incomplétude des labels `validation` PHerc0841 avec Hecate (architecture distincte).
 
 ## Dernière tâche validée
-E1.4 — EXP-003 : Hecate 9,6 µm sur PHerc0841 × 3 segments ; H-003 testée avec la paire reader-v2+Hecate.
+H-009 — EXP-004 : reader-v2 / ink_9um / Hecate sur le segment étiqueté PHerc0009B (8,64 µm, 116 keV).
 Validation :
-- 6/6 AUC Hecate publiées par reader-v2 reproduites (écart max 2e-4) — `experiments/EXP-003/results.json`.
-- Fusion moyenne reader-v2+Hecate : AP sup. moyenne 0,765 vs 0,740 (Hecate seul), 2/3 segments ≥ +0,02 → H-003 soutenue, non confirmée (IC recouvrants, FP/ECE non mesurés, parenté Hecate↔0841 NV).
-- Acquis antérieurs : EXP-001 (12/12 AUC reader-v2/ink_9um), EXP-002, `pytest` 10 passed, veille planifiée opérationnelle (rapport 2026-11-16 trié).
+- AUC sup. reader-v2 0,927 [0,887–0,948] (segment tenu à l'écart, objet vu), Hecate 0,884, ink_9um 0,813 (objet non vu) — `experiments/EXP-004/results.json`.
+- Fusion reader-v2+Hecate 0,935 / AP +0,0195 (sous le seuil H-003 de 0,02) ; EXP-003 : Hecate reproduit 6/6 sur 0841, fusion AP +0,025.
+- `pytest` 10 passed ; veille planifiée opérationnelle.
 
 ## Décisions actives
 - Dépôt sur NAS ; venvs `.venv` (outils, torch 2.11) et `.venv-koine` (inférence officielle, torch 2.10) + cache + modèles + runs sur `C:\Users\FlowUP\vesuvius-work` (hors Git).
@@ -25,10 +25,10 @@ Validation :
 Aucun.
 
 ## Fichiers / zones utiles
-- `experiments/registry.csv`, `experiments/EXP-00{1,2,3}/`, `docs/hypotheses.md`, `docs/data/splits.md`
+- `experiments/registry.csv`, `experiments/EXP-00{1,2,3,4}/`, `docs/hypotheses.md`, `docs/data/splits.md`
 - `src/vesres/{fetch_segment,eval_ink,watch,remote_tiff,catalog}.py`
-- Prédictions locales : `C:\Users\FlowUP\vesuvius-work\runs\{EXP-001,E1,E1.4}` ; modèles : `...\models\`
+- Prédictions locales : `C:\Users\FlowUP\vesuvius-work\runs\{EXP-001,E1,E1.4,EXP-004}` ; modèles : `...\models\`
 - Code reader-v2 (référence protocole) : `github.com/DomRusso2/reader-v2` `scripts/v2_run.py`
 
 ## NEXT ACTION
-H-009 — Récupérer le segment étiqueté PHerc0009B (8,64 µm, labels 2,401 µm ; `docs/data/README.md`) avec `vesres.fetch_segment`, inférer reader-v2, ink_9um s43 et Hecate (`hecate_run.py` paramétré pour 8,64→9,6 µm), évaluer avec `vesres.eval_ink` + fusion reader-v2+Hecate ; consigner en EXP-004 avec la parenté (reader-v2 intra-objet, ink_9um non vu, Hecate NV) ; échec H-009 si AUC sup. reader-v2 < 0,75.
+H-008b — Rejouer le test d'accord H-008 d'EXP-002 (`experiments/EXP-002/analyze.py`) avec Hecate (`runs/E1.4/<seg>/pred_hecate.tif`) comme 2e modèle à la place d'ink_9um sur les 3 segments 0841 ; consigner en EXP-005 ; H-008 renforcée si l'accord en zone `validation \ supervision` reste ≫ taux de base (≥ 5×) avec cette architecture distincte.
