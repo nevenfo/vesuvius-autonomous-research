@@ -147,7 +147,7 @@ D1.
 ### Tâches
 - [ ] E1.1 Étendre D1 à plusieurs segments/rouleaux étiquetés (0139, 0814, 1667, Paris4) en respectant les parentés d'entraînement. (0841 × 3 segments fait : EXP-001b.)
 - [ ] E1.2 Comparer ink_9um vs reader-v2 vs pipeline 2,4 µm (`vesuvius.ink_detection`) sur mêmes crops.
-- [ ] E1.4 Hecate 9,6 µm (MIT) sur les 3 segments 0841 (rééchantillonnage 9,366→9,6 µm exigé par la model card) ; tester H-003 avec ce partenaire.
+- [x] E1.4 Hecate 9,6 µm (MIT) sur les 3 segments 0841 (rééchantillonnage 9,366→9,6 µm exigé par la model card) ; tester H-003 avec ce partenaire. (EXP-003 : 6/6 AUC reproduites ; H-003 soutenue.)
 - [ ] E1.5 Ré-entraînement leave-one-scroll-out (recette `aligned21_hybrid_3d2d.json`) si nécessaire pour disposer de ≥ 3 rouleaux de test indépendants (J5).
 - [ ] E1.3 Reproduction partielle PHerc. 1667 (crop représentatif, 2,4 µm) vs prédictions publiées.
 ### Validation

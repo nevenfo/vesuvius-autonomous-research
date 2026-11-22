@@ -3,6 +3,7 @@
   "villa_releases": {
    "seen": [
     "latest@2026-11-11T13:13:56Z",
+    "latest@2026-11-13T19:37:10Z",
     "stable@2026-11-04T00:08:49Z",
     "v1.0.0-2ccb335@2024-11-21T20:25:30Z",
     "v1.0.0-488fdc8@2025-02-07T19:34:03Z",
@@ -10,12 +11,13 @@
     "v1.0.0-f9ae02b@2024-11-21T20:15:16Z",
     "vc3d-archive-stable-363877681@2026-08-02T19:36:33Z"
    ],
-   "last_ok": "2026-11-12T22:37:39Z",
+   "last_ok": "2026-11-16T08:00:03Z",
    "last_error": null,
    "first_run": false
   },
   "villa_merged_prs": {
    "seen": [
+    "pr1975",
     "pr2212",
     "pr2221",
     "pr2234",
@@ -38,9 +40,15 @@
     "pr2506",
     "pr2507",
     "pr2509",
-    "pr2510"
+    "pr2510",
+    "pr2511",
+    "pr2517",
+    "pr2526",
+    "pr2531",
+    "pr2538",
+    "pr2546"
    ],
-   "last_ok": "2026-11-12T22:37:39Z",
+   "last_ok": "2026-11-16T08:00:03Z",
    "last_error": null,
    "first_run": false
   },
@@ -53,13 +61,17 @@
     "08df18e46303cf7da9803c160217fa6ef8ea3392",
     "0c41691b659a95e6eefaa415c75bd37977ad9e26",
     "118da9efa03eaf2639056ea9669fc6fcde96b39e",
+    "14d4e725df8b569e6fc8ceb3c04d130f705c1565",
     "1bb4619d1ddb07a5a494f093882b297ccee92a65",
     "1c638d715643b6493054940dce03e35484051e97",
     "2144fdd3f32133136159738a9a4d1c843374648a",
     "21d58da8e765014f4a3253b8048642ee377fcd6b",
     "2324849b4ae1a267626d5e390bd18116d6bbd716",
     "24a30234a601c92e9fff626521de5b11c5a615dc",
+    "26aafea000fda45bfc5e7cd4543a22db1447a197",
     "28e0f5f880aaac50e031e116896291d96358b80f",
+    "294ac4cf20834388f5a34b578900b3f71207d07d",
+    "2d3fb38d33a18b257230c0bd23986436c3d4722e",
     "2d4067b5293ddd7825d660739e84ee992b3d1668",
     "37850547d1d1110b07dd205fc9a9348897c2b00a",
     "37c8b3c5e3e1065242cd77f8ea6000e4c78d3a64",
@@ -96,6 +108,7 @@
     "921afc53aa3e390f8778ddb45de423693eb39744",
     "9276d6413f3c59fe48f51b39772909ede4030fbc",
     "97d12d50069ebf1f6fd1079a223af09fa3beb9fb",
+    "97fb9336c8898be27e78eff8cd23ce5e7185ec0a",
     "9a92af33e90037a3c4185dc4f6c6a42d8b56a400",
     "9c31a7a75f31d7f8ca5e259f4aec22ce632138c5",
     "9c343a16494cf61d72727cbc85dc5e12e8773677",
@@ -132,6 +145,7 @@
     "ded54c6ca60aee76a993632c2c57e06212528a66",
     "dfe7a3cbcb828fcdd48474cdfed2dd9c6e5a31aa",
     "e2eb6ad4aa1eadf696da88984c3e2171f3ced997",
+    "e3e690f9a631c3b48c8fcbf6fabac3f2ef4fecf6",
     "e4c6f4b3443ba86f5fefadf01711877462ee3020",
     "e8926fdcd9c1162353392f58498c768317051f18",
     "e89cdf31439fc5aa716a5c8b4afddf20f0bfed9c",
@@ -147,7 +161,7 @@
     "fd1b3a25c5bbb3bec36839d4e9a4be5f96a537bb",
     "fd97a4b60d7e12d9e5aaaa59ebdb42dc93c51946"
    ],
-   "last_ok": "2026-11-12T22:37:39Z",
+   "last_ok": "2026-11-16T08:00:03Z",
    "last_error": null,
    "first_run": false
   },
@@ -597,7 +611,7 @@
     "volumes:PHercParis4:20260411134726:ink-detection-3d-zarr,lasagna,normal-grids,ome-zarr,spiral-dataset,surface-prediction-zarr,umbilicus",
     "volumes:PHercParis4:20260608103018:ome-zarr"
    ],
-   "last_ok": "2026-11-12T22:37:39Z",
+   "last_ok": "2026-11-16T08:00:03Z",
    "last_error": null,
    "first_run": false
   },
@@ -657,7 +671,7 @@
     "scrollprize/toymodel_01122024@2024-12-02T09:25:43.000Z",
     "scrollprize/winding_model_9um@2026-08-14T21:22:27.000Z"
    ],
-   "last_ok": "2026-11-12T22:37:39Z",
+   "last_ok": "2026-11-16T08:00:03Z",
    "last_error": null,
    "first_run": false
   },
@@ -665,7 +679,7 @@
    "seen": [
     "scrollprize/profilometer@2026-09-03T07:15:41.000Z"
    ],
-   "last_ok": "2026-11-12T22:37:39Z",
+   "last_ok": "2026-11-16T08:00:03Z",
    "last_error": null,
    "first_run": false
   },
@@ -682,6 +696,7 @@
     "https://scrollprize.substack.com/p/column-of-text-from-pherc-172-scroll",
     "https://scrollprize.substack.com/p/february-progress-prizes-and-updates",
     "https://scrollprize.substack.com/p/finallyletters-in-scroll-4",
+    "https://scrollprize.substack.com/p/first-letters-emerge-from-pherc-211",
     "https://scrollprize.substack.com/p/from-ct-scan-to-ancient-text-a-first",
     "https://scrollprize.substack.com/p/may-progress-prizes-and-updates-to",
     "https://scrollprize.substack.com/p/multiple-scrolls-now-show-greek-letters",
@@ -692,7 +707,7 @@
     "https://scrollprize.substack.com/p/we-are-cooking",
     "https://scrollprize.substack.com/p/writing-seen-in-pherc-306b-for-the"
    ],
-   "last_ok": "2026-11-12T22:37:39Z",
+   "last_ok": "2026-11-16T08:00:03Z",
    "last_error": null,
    "first_run": false
   },
@@ -708,7 +723,7 @@
     "2606.29085",
     "2607.03778"
    ],
-   "last_ok": "2026-11-12T22:37:39Z",
+   "last_ok": "2026-11-16T08:00:03Z",
    "last_error": null,
    "first_run": false
   },
@@ -718,13 +733,14 @@
     "Hob3rMallow/scrollfiesta_public@2026-10-31T05:08:45Z",
     "WillStevens/scrollreading@2026-11-04T21:24:16Z",
     "jonmarrs/vesuvius-autoresearch@2026-11-12T18:29:55Z",
+    "jonmarrs/vesuvius-autoresearch@2026-11-16T07:07:34Z",
     "mojomast/vesuvius-autoresearch@2026-06-03T13:46:46Z",
     "schillij95/ThaumatoAnakalyptor@2024-11-21T14:39:25Z"
    ],
-   "last_ok": "2026-11-12T22:37:39Z",
+   "last_ok": "2026-11-16T08:00:03Z",
    "last_error": null,
    "first_run": false
   }
  },
- "last_run": "2026-11-12T22:37:39Z"
+ "last_run": "2026-11-16T08:00:03Z"
 }
