@@ -4,15 +4,14 @@
 Phase E — baseline scientifique (A, B1.1, B2.1-3, B3, C, D1, E1.4, G1, G2.1 validés ; E1.1 partiel).
 
 ## Tâche actuelle
-H-006 — indicateur sans label des erreurs locales de reader-v2 (PHerc0841, région supervision).
+H-002 — circularité labels/modèles : différence de différences sur 0500P2.
 
 ## Dernière tâche validée
-H-004 — EXP-006 : fenêtre de 17 couches de reader-v2 décalée de −6 à +5 sur 3 segments 0841 → H-004 réfutée.
+H-006 — EXP-007 : indicateurs sans label (désaccord Hecate, entropie, instabilité ±1 couche) vs erreur locale de reader-v2 sur 0841 → H-006 réfutée dans sa forme informative.
 Validation :
-- 36 inférences exit=0 ; s=0 identique bit à bit à EXP-001/E1 ; défaut optimal sur 2/3 segments, w00 +0,015 à s=+3 (IC recouvrants), oracle moyen +0,005 — `experiments/EXP-006/results.json`.
-- EXP-005 (H-008b) : accord inter-modèles non discriminant → H-008 suspendue.
-- EXP-004 (H-009) : AUC sup. reader-v2 0,927 sur 0009B (segment tenu à l'écart) ; EXP-003 : Hecate reproduit 6/6 sur 0841.
-- `pytest` 10 passed ; veille planifiée opérationnelle.
+- 938 tuiles supervision : entropie ρ 0,74 brut vs Brier, mais |ρ| ≤ 0,25 sur tout segment une fois E[p(1−p)] contrôlé ; désaccord Hecate 0,14 brut poolé — `experiments/EXP-007/results.json` (contrôles ajoutés a posteriori, déclarés).
+- EXP-006 (H-004 réfutée) : fenêtre par défaut optimale sur 2/3 segments, oracle +0,005 AUC.
+- `pytest` 10 passed.
 
 ## Décisions actives
 - Dépôt sur NAS ; venvs `.venv` (outils, torch 2.11) et `.venv-koine` (inférence officielle, torch 2.10) + cache + modèles + runs sur `C:\Users\FlowUP\vesuvius-work` (hors Git).
@@ -27,10 +26,10 @@ Validation :
 Aucun.
 
 ## Fichiers / zones utiles
-- `experiments/registry.csv`, `experiments/EXP-00{1..6}/`, `docs/hypotheses.md`, `docs/data/splits.md`
+- `experiments/registry.csv`, `experiments/EXP-00{1..7}/`, `docs/hypotheses.md`, `docs/data/splits.md`
 - `src/vesres/{fetch_segment,eval_ink,watch,remote_tiff,catalog}.py`
 - Prédictions locales : `C:\Users\FlowUP\vesuvius-work\runs\{EXP-001,E1,E1.4,EXP-004,EXP-006}` ; modèles : `...\models\`
 - Code reader-v2 (référence protocole) : `github.com/DomRusso2/reader-v2` `scripts/v2_run.py`
 
 ## NEXT ACTION
-H-006 — Créer `experiments/EXP-007/analyze.py` : sur les 3 segments 0841, région supervision, tuiles 64×64 px, erreur locale de reader-v2 = Brier vs labels ; indicateurs sans label = |reader-v2 − Hecate|, entropie reader-v2, écart-type reader-v2 sur s∈{−1,0,+1} (EXP-006) ; Spearman indicateur↔erreur par segment → `results.json` + README ; H-006 réfutée si |ρ| < 0,3 pour tous les indicateurs.
+H-002 — Récupérer le segment étiqueté PHerc0500P2 `20250825181859--1` en 9,362 µm (`vesres.fetch_segment`, comme 0009B en EXP-004), inférer reader-v2 et ink_9um, évaluer AUC/AP avec `vesres.eval_ink`, consigner en EXP-008 ; écart d'AUC (reader-v2 − ink_9um) sur 0500P2 moins le même écart sur 0841 (EXP-001) = avantage « vu » ; H-002 réfutée si < 0,03.
