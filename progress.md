@@ -1,16 +1,16 @@
 # PROGRESS
 
 ## Phase actuelle
-Phase E/F — baseline scientifique et boucle expérimentale (A, B1.1, B2.1-3, B3.1, C, D1, E1.4, G1, G2.1 validés ; E1.1 partiel).
+Phase E/F — baseline scientifique et boucle expérimentale (A, B1.1, B2.1-3, B3.1-2, C, D1, E1.4, G1, G2.1 validés ; E1.1 partiel).
 
 ## Tâche actuelle
-B3.2 — audit du protocole après 4 hypothèses réfutées d'affilée (H-004, H-006, H-002, H-007), puis nouvelles hypothèses.
+H-010 — fusion reader-v2+Hecate sur un 3e objet (PHerc0500P2).
 
 ## Dernière tâche validée
-H-007 — EXP-009 : métriques géométriques des tifxyz 9,366 µm (étirement, cisaillement, variation des normales) vs erreur locale de reader-v2 sur 0841 → H-007 réfutée.
+B3.2 — EXP-010 : audit du protocole tuiles/Brier/ρ partiel après 4 réfutations (H-004, H-006, H-002, H-007) ; 4 nouvelles hypothèses H-010…H-013.
 Validation :
-- 938 tuiles : |ρ| < 0,2 pour toutes les métriques, brut et partiel, sur chaque segment — `experiments/EXP-009/results.json`.
-- EXP-008 (H-002 réfutée, DiD −0,001) ; EXP-007 (H-006) ; EXP-006 (H-004) ; `pytest` 10 passed.
+- Contrôle positif retrouvé à ±0,03 pour ρ ≤ 0,45 ; seuil nul 95 % 0,12–0,26 → critère 0,3 testable — `experiments/EXP-010/results.json`.
+- EXP-009 (H-007), EXP-008 (H-002, DiD −0,001), EXP-007 (H-006), EXP-006 (H-004) ; `pytest` 10 passed.
 
 ## Décisions actives
 - Dépôt sur NAS ; venvs `.venv` (outils, torch 2.11) et `.venv-koine` (inférence officielle, torch 2.10) + cache + modèles + runs sur `C:\Users\FlowUP\vesuvius-work` (hors Git).
@@ -26,11 +26,11 @@ Validation :
 Aucun.
 
 ## Fichiers / zones utiles
-- `experiments/registry.csv`, `experiments/EXP-00{1..9}/`, `docs/hypotheses.md`, `docs/data/splits.md`
+- `experiments/registry.csv`, `experiments/EXP-0{01..10}/`, `docs/hypotheses.md`, `docs/data/splits.md`
 - `src/vesres/{fetch_segment,eval_ink,watch,remote_tiff,catalog}.py`
 - Prédictions locales : `C:\Users\FlowUP\vesuvius-work\runs\{EXP-001,E1,E1.4,EXP-004,EXP-006,EXP-008}` ; modèles : `...\models\`
 - Tifxyz 9,366 µm 0841 : `vesuvius-work/cache/segments/PHerc0841/<seg>/tifxyz_9.366/`
 - Code reader-v2 (référence protocole) : `github.com/DomRusso2/reader-v2` `scripts/v2_run.py`
 
 ## NEXT ACTION
-B3.2 — Écrire `docs/audit-2026-11-22.md` : contrôle positif de la chaîne tuiles/Brier/ρ partiel d'EXP-007/009 (indicateur synthétique = Brier bruité à niveaux connus, ρ retrouvé ?) et puissance (ρ minimal détectable avec ~300 tuiles autocorrélées), puis ajouter ≥ 3 nouvelles hypothèses classées dans `docs/hypotheses.md` ; validation : contrôle positif retrouve ρ attendu à ±0,05.
+H-010 — Inférer Hecate sur 0500P2 (`experiments/EXP-003/hecate_run.py 20250825181859--1 PHerc0500P2 9.362 runs/EXP-008`), évaluer reader-v2, Hecate et fusion moyenne (AUC/AP sup. + IC blocs) dans `experiments/EXP-011/` ; H-010 réfutée si gain AP fusion − meilleur seul < 0,02.

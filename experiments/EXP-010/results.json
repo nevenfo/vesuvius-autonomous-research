@@ -1,0 +1,122 @@
+{
+ "20260220213127-w00": {
+  "n_tiles": 389,
+  "positive_control": {
+   "0.0": {
+    "expected": 1.0,
+    "mean": 0.935,
+    "sd": 0.0
+   },
+   "0.5": {
+    "expected": 0.894,
+    "mean": 0.808,
+    "sd": 0.011
+   },
+   "1.0": {
+    "expected": 0.707,
+    "mean": 0.644,
+    "sd": 0.022
+   },
+   "2.0": {
+    "expected": 0.447,
+    "mean": 0.42,
+    "sd": 0.035
+   },
+   "3.0": {
+    "expected": 0.316,
+    "mean": 0.307,
+    "sd": 0.041
+   }
+  },
+  "null_q95_abs_partial": {
+   "entropy": 0.133,
+   "dis_hecate": 0.122,
+   "normal_var": 0.13
+  },
+  "observed_partial": {
+   "entropy": 0.023,
+   "dis_hecate": 0.083,
+   "normal_var": -0.005
+  }
+ },
+ "20260220214732-auto_grown_20260220144552896": {
+  "n_tiles": 239,
+  "positive_control": {
+   "0.0": {
+    "expected": 1.0,
+    "mean": 0.909,
+    "sd": 0.0
+   },
+   "0.5": {
+    "expected": 0.894,
+    "mean": 0.797,
+    "sd": 0.012
+   },
+   "1.0": {
+    "expected": 0.707,
+    "mean": 0.645,
+    "sd": 0.026
+   },
+   "2.0": {
+    "expected": 0.447,
+    "mean": 0.419,
+    "sd": 0.053
+   },
+   "3.0": {
+    "expected": 0.316,
+    "mean": 0.317,
+    "sd": 0.052
+   }
+  },
+  "null_q95_abs_partial": {
+   "entropy": 0.166,
+   "dis_hecate": 0.208,
+   "normal_var": 0.262
+  },
+  "observed_partial": {
+   "entropy": -0.139,
+   "dis_hecate": 0.25,
+   "normal_var": 0.057
+  }
+ },
+ "20260221022814-auto_grown_20260220174252405": {
+  "n_tiles": 310,
+  "positive_control": {
+   "0.0": {
+    "expected": 1.0,
+    "mean": 0.9,
+    "sd": 0.0
+   },
+   "0.5": {
+    "expected": 0.894,
+    "mean": 0.781,
+    "sd": 0.009
+   },
+   "1.0": {
+    "expected": 0.707,
+    "mean": 0.637,
+    "sd": 0.02
+   },
+   "2.0": {
+    "expected": 0.447,
+    "mean": 0.428,
+    "sd": 0.034
+   },
+   "3.0": {
+    "expected": 0.316,
+    "mean": 0.313,
+    "sd": 0.042
+   }
+  },
+  "null_q95_abs_partial": {
+   "entropy": 0.14,
+   "dis_hecate": 0.13,
+   "normal_var": 0.204
+  },
+  "observed_partial": {
+   "entropy": -0.086,
+   "dis_hecate": 0.084,
+   "normal_var": 0.048
+  }
+ }
+}
