@@ -1,16 +1,16 @@
 # PROGRESS
 
 ## Phase actuelle
-Phase E — baseline scientifique (A, B1.1, B2.1-3, B3, C, D1, E1.4, G1, G2.1 validés ; E1.1 partiel).
+Phase E/F — baseline scientifique et boucle expérimentale (A, B1.1, B2.1-3, B3.1, C, D1, E1.4, G1, G2.1 validés ; E1.1 partiel).
 
 ## Tâche actuelle
-H-007 — qualité géométrique de surface vs erreurs locales de reader-v2 (PHerc0841).
+B3.2 — audit du protocole après 4 hypothèses réfutées d'affilée (H-004, H-006, H-002, H-007), puis nouvelles hypothèses.
 
 ## Dernière tâche validée
-H-002 — EXP-008 : différence de différences reader-v2 − ink_9um entre objets vus par reader-v2 (0500P2 nouveau, 0009B) et 0841 → H-002 réfutée au niveau objet vu / segment tenu à l'écart.
+H-007 — EXP-009 : métriques géométriques des tifxyz 9,366 µm (étirement, cisaillement, variation des normales) vs erreur locale de reader-v2 sur 0841 → H-007 réfutée.
 Validation :
-- DiD AUC sup. −0,001 (critère < 0,03) ; reader-v2 0,873 [0,833–0,907] sur 0500P2 `20250825181859--1` (absent de `train_config.json`) — `experiments/EXP-008/results.json`.
-- EXP-007 (H-006 réfutée) ; EXP-006 (H-004 réfutée) ; `pytest` 10 passed.
+- 938 tuiles : |ρ| < 0,2 pour toutes les métriques, brut et partiel, sur chaque segment — `experiments/EXP-009/results.json`.
+- EXP-008 (H-002 réfutée, DiD −0,001) ; EXP-007 (H-006) ; EXP-006 (H-004) ; `pytest` 10 passed.
 
 ## Décisions actives
 - Dépôt sur NAS ; venvs `.venv` (outils, torch 2.11) et `.venv-koine` (inférence officielle, torch 2.10) + cache + modèles + runs sur `C:\Users\FlowUP\vesuvius-work` (hors Git).
@@ -26,10 +26,11 @@ Validation :
 Aucun.
 
 ## Fichiers / zones utiles
-- `experiments/registry.csv`, `experiments/EXP-00{1..8}/`, `docs/hypotheses.md`, `docs/data/splits.md`
+- `experiments/registry.csv`, `experiments/EXP-00{1..9}/`, `docs/hypotheses.md`, `docs/data/splits.md`
 - `src/vesres/{fetch_segment,eval_ink,watch,remote_tiff,catalog}.py`
 - Prédictions locales : `C:\Users\FlowUP\vesuvius-work\runs\{EXP-001,E1,E1.4,EXP-004,EXP-006,EXP-008}` ; modèles : `...\models\`
+- Tifxyz 9,366 µm 0841 : `vesuvius-work/cache/segments/PHerc0841/<seg>/tifxyz_9.366/`
 - Code reader-v2 (référence protocole) : `github.com/DomRusso2/reader-v2` `scripts/v2_run.py`
 
 ## NEXT ACTION
-H-007 — Récupérer les tifxyz (x/y/z.tif) des 3 segments 0841 depuis le bucket, calculer par tuile 64 px (grille EXP-007) des métriques géométriques sans label (distorsion d'aire/étirement local vs pas nominal, variation angulaire des normales), Spearman vs Brier de reader-v2 avec contrôle E[p(1−p)] (`experiments/EXP-009/`) ; H-007 réfutée si |ρ partiel| < 0,3 pour toutes les métriques.
+B3.2 — Écrire `docs/audit-2026-11-22.md` : contrôle positif de la chaîne tuiles/Brier/ρ partiel d'EXP-007/009 (indicateur synthétique = Brier bruité à niveaux connus, ρ retrouvé ?) et puissance (ρ minimal détectable avec ~300 tuiles autocorrélées), puis ajouter ≥ 3 nouvelles hypothèses classées dans `docs/hypotheses.md` ; validation : contrôle positif retrouve ρ attendu à ±0,05.

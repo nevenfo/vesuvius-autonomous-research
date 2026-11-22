@@ -95,6 +95,7 @@ Liste priorisée d'hypothèses falsifiables (impact, coût, incertitude).
 B1, B2.
 ### Tâches
 - [x] B3.1 Rédiger `docs/hypotheses.md` (H-001…).
+- [ ] B3.2 Réviser `docs/hypotheses.md` après EXP-006…009 (4 hypothèses réfutées d'affilée → audit protocole/métrique selon la règle d'arrêt F1.1) : audit écrit du protocole (contrôle positif de la chaîne tuiles/Brier, puissance du test), puis ≥ 3 nouvelles hypothèses falsifiables classées.
 ### Validation
 Chaque hypothèse a référence, données, métrique, critère d'échec, coût estimé.
 
