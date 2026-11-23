@@ -4,12 +4,12 @@
 Phase E/F — baseline scientifique et boucle expérimentale (A, B1.1, B2.1-3, B3.1-2, C, D1, E1.4, G1, G2.1 validés ; E1.1 partiel).
 
 ## Tâche actuelle
-H-005 / E1.2 — cadrage du pipeline officiel 2,4 µm (`vesuvius.ink_detection`) vs 9 µm.
+H-016 — évaluation des prédictions officielles publiées (canon 2,4 µm, reader-v3, argus-v3).
 
 ## Dernière tâche validée
-H-015 — EXP-016 : réfutée ; TTA reader-v2 sans gain sur objets vus 0009B/0500P2 (+0,001 AP) et sans cumul dans la fusion Hecate (+0,0008) ; gain TTA limité à 0841 (non vu, +0,029, EXP-015).
+H-005 cadrage — `docs/data/scoping-2.4um.md` : sv 2,403 µm ≈ 33 Go/segment (pas d'inférence locale) ; prédictions officielles canon 2,4 µm, ink9um, reader-v3, argus-v3 publiées dans `ink-detection/` des segments étiquetés (≈ 250 Mio).
 Validation :
-- `experiments/EXP-016/results.json` ; EXP-015 (H-012), EXP-014 (H-013), EXP-013 (H-014), EXP-012 (H-011).
+- Listings S3 du 2026-11-23 (chemins/tailles dans le doc) ; EXP-016 (H-015 réfutée).
 - `pytest` 10 passed.
 
 ## Décisions actives
@@ -35,4 +35,4 @@ Aucun.
 - Code reader-v2 (référence protocole) : `github.com/DomRusso2/reader-v2` `scripts/v2_run.py`
 
 ## NEXT ACTION
-H-005 — Cadrer E1.2 dans `docs/` : localiser le modèle/inférence 2,4 µm officiel (`vesuvius.ink_detection`, villa), la licence, le volume de données 2,4 µm requis pour un crop de 0841 ou 1667 aligné sur un segment étiqueté, la VRAM attendue ; décider faisabilité (go si crop ≤ 20 Go et VRAM ≤ 14 Go).
+H-016 — Télécharger les TIF officiels `ink-detection/*{new_canon_autoresearch_recipe,ink9um-hybrid3d2d-s43,reader-v3,argus-v3}*.tif` des 5 segments dans `vesuvius-work/runs/EXP-017/`, les ramener sur la grille du surface-volume local (INTER_AREA si 2,4 µm), évaluer AUC/AP sup. vs fusion reader-v2+Hecate dans `experiments/EXP-017/` ; H-016 réfutée si gain AUC canon − fusion < 0,02 sur 0841.
