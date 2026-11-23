@@ -4,7 +4,7 @@
 Phase E/F — baseline scientifique et boucle expérimentale (A, B1.1, B2.1-3, B3.1-2, C, D1, E1.2, E1.4, G1, G2.1 validés ; E1.1 partiel).
 
 ## Tâche actuelle
-E1.5 / H-017 — reader-v2-LO (EXP-018) : entraînement 40k en cours (lancé 2026-11-23, ≈ 4 it/s, ≈ 2 h 45).
+E1.5 / H-017 — reader-v2-LO (EXP-018) : entraînement interrompu (mémoire), relance à faire valider.
 
 ## Dernière tâche validée
 EXP-018 préparation — corpus reader-v2-LO complet (38/38 segments, 60 Go, `vesuvius-work/data/v2lo/`), test de fumée 60 itérations OK (perte finie), entraînement complet lancé ; `.venv-koine` complété (wandb, accelerate, diffusers… — `experiments/EXP-018/env-koine-train.lock`).
@@ -26,7 +26,7 @@ Validation :
 - Aucune image d'encre / transcription publiée (licence données).
 
 ## Blocage actif
-Aucun.
+Symptôme : entraînement EXP-018 tué par Claude Code (« system running low on memory ») à l'itération 4 895/40 000, avant le 1er checkpoint (5 000) → aucun checkpoint. Cause probable : 12 workers DataLoader + index 1,85 M patches sur 31 Go de RAM. Exclu : erreur du code (perte finie, aucun Traceback). Prochaine tentative (sur accord utilisateur) : `dataloader_workers` 4–6, `save_every` 1000 pour pouvoir reprendre, de préférence lancé hors session Claude Code.
 
 ## Fichiers / zones utiles
 - `experiments/registry.csv`, `experiments/EXP-0{01..17}/`, `docs/data/scoping-2.4um.md` ; corpus LO `vesuvius-work/data/v2lo/` (log `data/v2lo_build.log`), `docs/hypotheses.md`, `docs/data/splits.md`
@@ -36,4 +36,4 @@ Aucun.
 - Code reader-v2 (référence protocole) : `github.com/DomRusso2/reader-v2` `scripts/v2_run.py`
 
 ## NEXT ACTION
-E1.5 — À la fin de `runs/EXP-018/train/train.log` (`rc=0`, checkpoint 40000 dans `runs/EXP-018/train/`), lancer `bash experiments/EXP-018/run_eval.sh <ckpt_40000> lo` puis `PYTHONPATH=src python experiments/EXP-018/analyze.py C:/Users/FlowUP/vesuvius-work lo experiments/EXP-018/results.json` et conclure H-017 ; si le run a planté, reprendre depuis le dernier checkpoint (`checkpoint` + `weights_only: false`).
+E1.5 — Sur accord de l'utilisateur, relancer `koine_machines.training.train` avec `experiments/EXP-018/train_config.json` modifié (`dataloader_workers` 6, `save_every` 1000), idéalement hors session Claude Code, puis évaluer le checkpoint 40000 (`run_eval.sh`, `analyze.py`) et conclure H-017.
