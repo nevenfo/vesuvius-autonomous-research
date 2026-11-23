@@ -4,12 +4,12 @@
 Phase E/F — baseline scientifique et boucle expérimentale (A, B1.1, B2.1-3, B3.1-2, C, D1, E1.2, E1.4, G1, G2.1 validés ; E1.1 partiel).
 
 ## Tâche actuelle
-E1.5 / H-017 — reader-v2-LO (EXP-018) : téléchargement du corpus (38 segments, ≈ 85 Go) puis entraînement 40k.
+E1.5 / H-017 — reader-v2-LO (EXP-018) : entraînement 40k en cours (lancé 2026-11-23, ≈ 4 it/s, ≈ 2 h 45).
 
 ## Dernière tâche validée
-B1.2 (partiel, labels) — `metadata.json` officiel : labels 20260918 « reviewed », reportés (`transferred`) depuis `philodemos/datasets/ink/ink_030927`, alignement calé sur rendu canonique + prédiction (résidu 0,005–0,015 px, négligeable) ; modèle de pseudo-labeling non publié → EXP-017 indicatif. E1.2 cochée (EXP-017).
+EXP-018 préparation — corpus reader-v2-LO complet (38/38 segments, 60 Go, `vesuvius-work/data/v2lo/`), test de fumée 60 itérations OK (perte finie), entraînement complet lancé ; `.venv-koine` complété (wandb, accelerate, diffusers… — `experiments/EXP-018/env-koine-train.lock`).
 Validation :
-- `docs/data/splits.md` § Provenance ; EXP-017 (`results.json`) ; `pytest` 10 passed.
+- `data/v2lo_build.log` (38 labels `done`) ; `runs/EXP-018/smoke/train.log` rc=0 ; `runs/EXP-018/train/train.log` itérations à 4 it/s.
 
 ## Décisions actives
 - Dépôt sur NAS ; venvs `.venv` (outils, torch 2.11) et `.venv-koine` (inférence officielle, torch 2.10) + cache + modèles + runs sur `C:\Users\FlowUP\vesuvius-work` (hors Git).
@@ -36,4 +36,4 @@ Aucun.
 - Code reader-v2 (référence protocole) : `github.com/DomRusso2/reader-v2` `scripts/v2_run.py`
 
 ## NEXT ACTION
-E1.5 — Une fois `experiments/EXP-018/build.py` terminé (38 `labels/<id>/done`), lancer `koine_machines.training.train experiments/EXP-018/train_config.json` (`.venv-koine`, sortie `vesuvius-work/runs/EXP-018/train`), vérifier les premières itérations (perte finie, débit), puis évaluer le dernier checkpoint sur les 5 segments (critère H-017 dans `experiments/EXP-018/README.md`).
+E1.5 — À la fin de `runs/EXP-018/train/train.log` (`rc=0`, checkpoint 40000 dans `runs/EXP-018/train/`), lancer `bash experiments/EXP-018/run_eval.sh <ckpt_40000> lo` puis `PYTHONPATH=src python experiments/EXP-018/analyze.py C:/Users/FlowUP/vesuvius-work lo experiments/EXP-018/results.json` et conclure H-017 ; si le run a planté, reprendre depuis le dernier checkpoint (`checkpoint` + `weights_only: false`).
