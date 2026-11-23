@@ -149,7 +149,7 @@ D1.
 - [ ] E1.1 Étendre D1 à plusieurs segments/rouleaux étiquetés (0139, 0814, 1667, Paris4) en respectant les parentés d'entraînement. (0841 × 3 segments fait : EXP-001b ; 0009B segment étiqueté fait : EXP-004.)
 - [x] E1.2 Comparer ink_9um vs reader-v2 vs pipeline 2,4 µm (`vesuvius.ink_detection`) sur mêmes crops. (EXP-017 : prédictions officielles canon 2,4 µm publiées vs nos modèles sur les 5 segments étiquetés ; inférence 2,4 µm locale écartée, 33 Go/segment — `docs/data/scoping-2.4um.md`.)
 - [x] E1.4 Hecate 9,6 µm (MIT) sur les 3 segments 0841 (rééchantillonnage 9,366→9,6 µm exigé par la model card) ; tester H-003 avec ce partenaire. (EXP-003 : 6/6 AUC reproduites ; H-003 soutenue.)
-- [ ] E1.5 Ré-entraînement leave-one-scroll-out (recette `aligned21_hybrid_3d2d.json`) si nécessaire pour disposer de ≥ 3 rouleaux de test indépendants (J5).
+- [ ] E1.5 Ré-entraînement leave-one-scroll-out (recette `aligned21_hybrid_3d2d.json`) si nécessaire pour disposer de ≥ 3 rouleaux de test indépendants (J5). (Cadrage EXP-018 : ink_9um déjà leave-out de 0841/0009B/0500P2 ; ré-entraînement retenu = recette reader-v2 sans 0009B/0500P2 → reader-v2-LO, validé par entraînement complet 40k + évaluation sur les 5 segments.)
 - [ ] E1.3 Reproduction partielle PHerc. 1667 (crop représentatif, 2,4 µm) vs prédictions publiées.
 ### Validation
 Tableau comparatif avec seeds, coûts, variance ; baseline déclarée validée seulement si sorties et métriques contrôlées.

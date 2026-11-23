@@ -1,0 +1,674 @@
+[
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20250108000000-w025_2025010863",
+  "id": "20250108000000-w025_2025010863",
+  "sv": "PHerc0139/segments/20250108000000-w025_2025010863/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   7280,
+   6800
+  ],
+  "sv_gb": 1.39,
+  "map": "PHerc0139/segments/20250108000000-w025_2025010863/ink-detection/PHerc0139-20250108000000-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 68354492,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20250108000001-w026_2025010854",
+  "id": "20250108000001-w026_2025010854",
+  "sv": "PHerc0139/segments/20250108000001-w026_2025010854/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   7440,
+   7320
+  ],
+  "sv_gb": 1.52,
+  "map": "PHerc0139/segments/20250108000001-w026_2025010854/ink-detection/PHerc0139-20250108000001-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 60799572,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20250108000002-w027_2025010845",
+  "id": "20250108000002-w027_2025010845",
+  "sv": "PHerc0139/segments/20250108000002-w027_2025010845/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   7320,
+   7300
+  ],
+  "sv_gb": 1.5,
+  "map": "PHerc0139/segments/20250108000002-w027_2025010845/ink-detection/PHerc0139-20250108000002-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 64547929,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20250108000003-w028_2025010836",
+  "id": "20250108000003-w028_2025010836",
+  "sv": "PHerc0139/segments/20250108000003-w028_2025010836/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   7260,
+   7360
+  ],
+  "sv_gb": 1.5,
+  "map": "PHerc0139/segments/20250108000003-w028_2025010836/ink-detection/PHerc0139-20250108000003-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 67825965,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20250108000005-w030_2025010818",
+  "id": "20250108000005-w030_2025010818",
+  "sv": "PHerc0139/segments/20250108000005-w030_2025010818/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   7140,
+   7460
+  ],
+  "sv_gb": 1.49,
+  "map": "PHerc0139/segments/20250108000005-w030_2025010818/ink-detection/PHerc0139-20250108000005-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 78790854,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20250223000000-w059_2025022312",
+  "id": "20250223000000-w059_2025022312",
+  "sv": "PHerc0139/segments/20250223000000-w059_2025022312/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   7220,
+   10020
+  ],
+  "sv_gb": 2.03,
+  "map": "PHerc0139/segments/20250223000000-w059_2025022312/ink-detection/PHerc0139-20250223000000-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 100887261,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20251226000000-w055_2025122611",
+  "id": "20251226000000-w055_2025122611",
+  "sv": "PHerc0139/segments/20251226000000-w055_2025122611/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   7720,
+   10420
+  ],
+  "sv_gb": 2.25,
+  "map": "PHerc0139/segments/20251226000000-w055_2025122611/ink-detection/PHerc0139-20251226000000-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 100452062,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20260112000000-w043_2026011217",
+  "id": "20260112000000-w043_2026011217",
+  "sv": "PHerc0139/segments/20260112000000-w043_2026011217/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   6120,
+   8120
+  ],
+  "sv_gb": 1.39,
+  "map": "PHerc0139/segments/20260112000000-w043_2026011217/ink-detection/PHerc0139-20260112000000-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 77897247,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20260115000001-w056_2026011514",
+  "id": "20260115000001-w056_2026011514",
+  "sv": "PHerc0139/segments/20260115000001-w056_2026011514/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   7180,
+   9740
+  ],
+  "sv_gb": 1.96,
+  "map": "PHerc0139/segments/20260115000001-w056_2026011514/ink-detection/PHerc0139-20260115000001-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 92200928,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20260126000000-w045_2026012619",
+  "id": "20260126000000-w045_2026012619",
+  "sv": "PHerc0139/segments/20260126000000-w045_2026012619/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   5980,
+   8240
+  ],
+  "sv_gb": 1.38,
+  "map": "PHerc0139/segments/20260126000000-w045_2026012619/ink-detection/PHerc0139-20260126000000-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 69661736,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20260127000000-w057_2026012713",
+  "id": "20260127000000-w057_2026012713",
+  "sv": "PHerc0139/segments/20260127000000-w057_2026012713/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   7600,
+   9780
+  ],
+  "sv_gb": 2.08,
+  "map": "PHerc0139/segments/20260127000000-w057_2026012713/ink-detection/PHerc0139-20260127000000-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 88110883,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20260130000000-w031_2026013019",
+  "id": "20260130000000-w031_2026013019",
+  "sv": "PHerc0139/segments/20260130000000-w031_2026013019/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   7080,
+   7500
+  ],
+  "sv_gb": 1.49,
+  "map": "PHerc0139/segments/20260130000000-w031_2026013019/ink-detection/PHerc0139-20260130000000-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 74479942,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20260203000000-w032_2026020303",
+  "id": "20260203000000-w032_2026020303",
+  "sv": "PHerc0139/segments/20260203000000-w032_2026020303/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   7100,
+   7600
+  ],
+  "sv_gb": 1.51,
+  "map": "PHerc0139/segments/20260203000000-w032_2026020303/ink-detection/PHerc0139-20260203000000-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 83231850,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20260206000000-w042_2026020613",
+  "id": "20260206000000-w042_2026020613",
+  "sv": "PHerc0139/segments/20260206000000-w042_2026020613/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   5980,
+   7880
+  ],
+  "sv_gb": 1.32,
+  "map": "PHerc0139/segments/20260206000000-w042_2026020613/ink-detection/PHerc0139-20260206000000-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 67178920,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20260206000002-w054_2026020617",
+  "id": "20260206000002-w054_2026020617",
+  "sv": "PHerc0139/segments/20260206000002-w054_2026020617/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   7660,
+   11140
+  ],
+  "sv_gb": 2.39,
+  "map": "PHerc0139/segments/20260206000002-w054_2026020617/ink-detection/PHerc0139-20260206000002-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 104846118,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20260210000000-w058_2026021020",
+  "id": "20260210000000-w058_2026021020",
+  "sv": "PHerc0139/segments/20260210000000-w058_2026021020/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   7500,
+   9880
+  ],
+  "sv_gb": 2.07,
+  "map": "PHerc0139/segments/20260210000000-w058_2026021020/ink-detection/PHerc0139-20260210000000-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 106052947,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20260219000000-w033_2026021913",
+  "id": "20260219000000-w033_2026021913",
+  "sv": "PHerc0139/segments/20260219000000-w033_2026021913/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   7100,
+   7680
+  ],
+  "sv_gb": 1.53,
+  "map": "PHerc0139/segments/20260219000000-w033_2026021913/ink-detection/PHerc0139-20260219000000-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 92383571,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20260219000001-w048_2026021912",
+  "id": "20260219000001-w048_2026021912",
+  "sv": "PHerc0139/segments/20260219000001-w048_2026021912/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   5720,
+   8520
+  ],
+  "sv_gb": 1.36,
+  "map": "PHerc0139/segments/20260219000001-w048_2026021912/ink-detection/PHerc0139-20260219000001-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 52850296,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20260227000000-w052_2026022705",
+  "id": "20260227000000-w052_2026022705",
+  "sv": "PHerc0139/segments/20260227000000-w052_2026022705/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   7700,
+   9760
+  ],
+  "sv_gb": 2.1,
+  "map": "PHerc0139/segments/20260227000000-w052_2026022705/ink-detection/PHerc0139-20260227000000-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 95252505,
+  "role": "train"
+ },
+ {
+  "obj": "0139",
+  "scroll": "PHerc0139",
+  "seg": "20260302000001-w050_2026030220",
+  "id": "20260302000001-w050_2026030220",
+  "sv": "PHerc0139/segments/20260302000001-w050_2026030220/surface-volumes/9.362um-1.2m-113keV-volume-20250728140407.zarr",
+  "sv_shape": [
+   28,
+   5300,
+   3880
+  ],
+  "sv_gb": 0.58,
+  "map": "PHerc0139/segments/20260302000001-w050_2026030220/ink-detection/PHerc0139-20260302000001-2.399um-0.22m-78keV-volume-20260102150214-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 21482696,
+  "role": "train"
+ },
+ {
+  "obj": "0814",
+  "scroll": "PHerc0814",
+  "seg": "20250925161630-auto_grown_20250925161630635",
+  "id": "20250925161630-auto_grown_20250925161630",
+  "sv": "PHerc0814/segments/20250925161630-auto_grown_20250925161630635/surface-volumes/9.362um-1.2m-113keV-volume-20250804134230.zarr",
+  "sv_shape": [
+   28,
+   5160,
+   19000
+  ],
+  "sv_gb": 2.75,
+  "map": "PHerc0814/segments/20250925161630-auto_grown_20250925161630635/ink-detection/PHerc0814-20250925161630-2.399um-0.22m-78keV-volume-20260309142202-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 71474842,
+  "role": "train"
+ },
+ {
+  "obj": "0814",
+  "scroll": "PHerc0814",
+  "seg": "20250925182632-auto_grown_20250925182632715",
+  "id": "20250925182632-auto_grown_20250925182632",
+  "sv": "PHerc0814/segments/20250925182632-auto_grown_20250925182632715/surface-volumes/9.362um-1.2m-113keV-volume-20250804134230.zarr",
+  "sv_shape": [
+   28,
+   4780,
+   21680
+  ],
+  "sv_gb": 2.9,
+  "map": "PHerc0814/segments/20250925182632-auto_grown_20250925182632715/ink-detection/PHerc0814-20250925182632-2.399um-0.22m-78keV-volume-20260309142202-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 68208710,
+  "role": "train"
+ },
+ {
+  "obj": "0814",
+  "scroll": "PHerc0814",
+  "seg": "20250925204843-auto_grown_20250925204843950",
+  "id": "20250925204843-auto_grown_20250925204843",
+  "sv": "PHerc0814/segments/20250925204843-auto_grown_20250925204843950/surface-volumes/9.362um-1.2m-113keV-volume-20250804134230.zarr",
+  "sv_shape": [
+   28,
+   4640,
+   31860
+  ],
+  "sv_gb": 4.14,
+  "map": "PHerc0814/segments/20250925204843-auto_grown_20250925204843950/ink-detection/PHerc0814-20250925204843-2.399um-0.22m-78keV-volume-20260309142202-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 95904682,
+  "role": "train"
+ },
+ {
+  "obj": "0814",
+  "scroll": "PHerc0814",
+  "seg": "20250925212701-auto_grown_20250925212701145",
+  "id": "20250925212701-auto_grown_20250925212701",
+  "sv": "PHerc0814/segments/20250925212701-auto_grown_20250925212701145/surface-volumes/9.362um-1.2m-113keV-volume-20250804134230.zarr",
+  "sv_shape": [
+   28,
+   4080,
+   6900
+  ],
+  "sv_gb": 0.79,
+  "map": "PHerc0814/segments/20250925212701-auto_grown_20250925212701145/ink-detection/PHerc0814-20250925212701-2.399um-0.22m-78keV-volume-20260309142202-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 28024969,
+  "role": "train"
+ },
+ {
+  "obj": "0814",
+  "scroll": "PHerc0814",
+  "seg": "20250925222237-auto_grown_20250925222237459",
+  "id": "20250925222237-auto_grown_20250925222237",
+  "sv": "PHerc0814/segments/20250925222237-auto_grown_20250925222237459/surface-volumes/9.362um-1.2m-113keV-volume-20250804134230.zarr",
+  "sv_shape": [
+   28,
+   3920,
+   11900
+  ],
+  "sv_gb": 1.31,
+  "map": "PHerc0814/segments/20250925222237-auto_grown_20250925222237459/ink-detection/PHerc0814-20250925222237-2.399um-0.22m-78keV-volume-20260309142202-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 37291147,
+  "role": "train"
+ },
+ {
+  "obj": "0814",
+  "scroll": "PHerc0814",
+  "seg": "20250926051122-auto_grown_20250926051122829",
+  "id": "20250926051122-auto_grown_20250926051122",
+  "sv": "PHerc0814/segments/20250926051122-auto_grown_20250926051122829/surface-volumes/9.362um-1.2m-113keV-volume-20250804134230.zarr",
+  "sv_shape": [
+   28,
+   5400,
+   51780
+  ],
+  "sv_gb": 7.83,
+  "map": "PHerc0814/segments/20250926051122-auto_grown_20250926051122829/ink-detection/PHerc0814-20250926051122-2.399um-0.22m-78keV-volume-20260309142202-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 179128402,
+  "role": "train"
+ },
+ {
+  "obj": "0814",
+  "scroll": "PHerc0814",
+  "seg": "20250926165636-auto_trace_20250926165636789",
+  "id": "20250926165636-auto_trace_20250926165636",
+  "sv": "PHerc0814/segments/20250926165636-auto_trace_20250926165636789/surface-volumes/9.362um-1.2m-113keV-volume-20250804134230.zarr",
+  "sv_shape": [
+   28,
+   4820,
+   27220
+  ],
+  "sv_gb": 3.67,
+  "map": "PHerc0814/segments/20250926165636-auto_trace_20250926165636789/ink-detection/PHerc0814-20250926165636-2.399um-0.22m-78keV-volume-20260309142202-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 88573665,
+  "role": "train"
+ },
+ {
+  "obj": "0814",
+  "scroll": "PHerc0814",
+  "seg": "20250926203608-auto_grown_20250926203608932",
+  "id": "20250926203608-auto_grown_20250926203608",
+  "sv": "PHerc0814/segments/20250926203608-auto_grown_20250926203608932/surface-volumes/9.362um-1.2m-113keV-volume-20250804134230.zarr",
+  "sv_shape": [
+   28,
+   4620,
+   24460
+  ],
+  "sv_gb": 3.16,
+  "map": "PHerc0814/segments/20250926203608-auto_grown_20250926203608932/ink-detection/PHerc0814-20250926203608-2.399um-0.22m-78keV-volume-20260309142202-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 72990449,
+  "role": "train"
+ },
+ {
+  "obj": "0343P",
+  "scroll": "PHerc0343P",
+  "seg": "20250511003658-tifxyz",
+  "id": "20250511003658-tifxyz",
+  "sv": "PHerc0343P/segments/20250511003658-tifxyz/surface-volumes/8.64um-1.2m-116keV-volume-20250521134555.zarr",
+  "sv_shape": [
+   31,
+   3440,
+   2060
+  ],
+  "sv_gb": 0.22,
+  "map": "PHerc0343P/segments/20250511003658-tifxyz/ink-detection/PHerc0343P-20250511003658-2.215um-0.4m-111keV-volume-20260304131111-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 6656933,
+  "role": "train"
+ },
+ {
+  "obj": "0343P",
+  "scroll": "PHerc0343P",
+  "seg": "20250902170435--5_b2",
+  "id": "20250902170435--5_b2",
+  "sv": "PHerc0343P/segments/20250902170435--5_b2/surface-volumes/8.64um-1.2m-116keV-volume-20250521134555.zarr",
+  "sv_shape": [
+   31,
+   3280,
+   2420
+  ],
+  "sv_gb": 0.25,
+  "map": "PHerc0343P/segments/20250902170435--5_b2/ink-detection/PHerc0343P-20250902170435-2.215um-0.4m-111keV-volume-20260304131111-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 7745840,
+  "role": "train"
+ },
+ {
+  "obj": "0343P",
+  "scroll": "PHerc0343P",
+  "seg": "20250902170441--4_b2",
+  "id": "20250902170441--4_b2",
+  "sv": "PHerc0343P/segments/20250902170441--4_b2/surface-volumes/8.64um-1.2m-116keV-volume-20250521134555.zarr",
+  "sv_shape": [
+   31,
+   3300,
+   2520
+  ],
+  "sv_gb": 0.26,
+  "map": "PHerc0343P/segments/20250902170441--4_b2/ink-detection/PHerc0343P-20250902170441-2.215um-0.4m-111keV-volume-20260304131111-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 7815370,
+  "role": "train"
+ },
+ {
+  "obj": "0343P",
+  "scroll": "PHerc0343P",
+  "seg": "20250902170447--3_b2",
+  "id": "20250902170447--3_b2",
+  "sv": "PHerc0343P/segments/20250902170447--3_b2/surface-volumes/8.64um-1.2m-116keV-volume-20250521134555.zarr",
+  "sv_shape": [
+   31,
+   3560,
+   2600
+  ],
+  "sv_gb": 0.29,
+  "map": "PHerc0343P/segments/20250902170447--3_b2/ink-detection/PHerc0343P-20250902170447-2.215um-0.4m-111keV-volume-20260304131111-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 7652428,
+  "role": "train"
+ },
+ {
+  "obj": "0343P",
+  "scroll": "PHerc0343P",
+  "seg": "20250902171202--2_b2",
+  "id": "20250902171202--2_b2",
+  "sv": "PHerc0343P/segments/20250902171202--2_b2/surface-volumes/8.64um-1.2m-116keV-volume-20250521134555.zarr",
+  "sv_shape": [
+   31,
+   3440,
+   2320
+  ],
+  "sv_gb": 0.25,
+  "map": "PHerc0343P/segments/20250902171202--2_b2/ink-detection/PHerc0343P-20250902171202-2.215um-0.4m-111keV-volume-20260304131111-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 7918134,
+  "role": "train"
+ },
+ {
+  "obj": "0343P",
+  "scroll": "PHerc0343P",
+  "seg": "20250902171204--1_b2",
+  "id": "20250902171204--1_b2",
+  "sv": "PHerc0343P/segments/20250902171204--1_b2/surface-volumes/8.64um-1.2m-116keV-volume-20250521134555.zarr",
+  "sv_shape": [
+   31,
+   3340,
+   2340
+  ],
+  "sv_gb": 0.24,
+  "map": "PHerc0343P/segments/20250902171204--1_b2/ink-detection/PHerc0343P-20250902171204-2.215um-0.4m-111keV-volume-20260304131111-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 5799076,
+  "role": "train"
+ },
+ {
+  "obj": "0343P",
+  "scroll": "PHerc0343P",
+  "seg": "20250904233748-0_b2",
+  "id": "20250904233748-0_b2",
+  "sv": "PHerc0343P/segments/20250904233748-0_b2/surface-volumes/8.64um-1.2m-116keV-volume-20250521134555.zarr",
+  "sv_shape": [
+   31,
+   3620,
+   2500
+  ],
+  "sv_gb": 0.28,
+  "map": "PHerc0343P/segments/20250904233748-0_b2/ink-detection/PHerc0343P-20250904233748-2.215um-0.4m-111keV-volume-20260304131111-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 9269694,
+  "role": "holdout"
+ },
+ {
+  "obj": "0343P",
+  "scroll": "PHerc0343P",
+  "seg": "20250905172054-1_b2",
+  "id": "20250905172054-1_b2",
+  "sv": "PHerc0343P/segments/20250905172054-1_b2/surface-volumes/8.64um-1.2m-116keV-volume-20250521134555.zarr",
+  "sv_shape": [
+   31,
+   3020,
+   2280
+  ],
+  "sv_gb": 0.21,
+  "map": "PHerc0343P/segments/20250905172054-1_b2/ink-detection/PHerc0343P-20250905172054-2.215um-0.4m-111keV-volume-20260304131111-20260417190342-new_canon_autoresearch_recipe-tile256-stride128.tif",
+  "map_size": 6393672,
+  "role": "holdout"
+ },
+ {
+  "obj": "0172",
+  "scroll": "PHerc0172",
+  "seg": "20250917143559-w062_20250917143559205_flatboi",
+  "id": "20250917143559-w062_20250917143559205_fl",
+  "sv": "PHerc0172/segments/20250917143559-w062_20250917143559205_flatboi/surface-volumes/7.91um-53keV-volume-20241024131838.zarr",
+  "sv_shape": [
+   33,
+   12600,
+   13740
+  ],
+  "sv_gb": 5.71,
+  "map": "PHerc0172/segments/20250917143559-w062_20250917143559205_flatboi/ink-detection/PHerc0172-20250917143559-7.91um-53keV-volume-20241024131838-20250713185324-timesformer_scroll5_july_retreat-tile64-stride16.tif",
+  "map_size": 39189322,
+  "role": "train"
+ },
+ {
+  "obj": "0172",
+  "scroll": "PHerc0172",
+  "seg": "20250926112011-w078_20250926112011918_flatboi",
+  "id": "20250926112011-w078_20250926112011918_fl",
+  "sv": "PHerc0172/segments/20250926112011-w078_20250926112011918_flatboi/surface-volumes/7.91um-53keV-volume-20241024131838.zarr",
+  "sv_shape": [
+   33,
+   13700,
+   12500
+  ],
+  "sv_gb": 5.65,
+  "map": "PHerc0172/segments/20250926112011-w078_20250926112011918_flatboi/ink-detection/PHerc0172-20250926112011-7.91um-53keV-volume-20241024131838-20250713185324-timesformer_scroll5_july_retreat-tile64-stride16.tif",
+  "map_size": 35071829,
+  "role": "train"
+ },
+ {
+  "obj": "0172",
+  "scroll": "PHerc0172",
+  "seg": "20250926113336-w079_20250926113336891_flatboi",
+  "id": "20250926113336-w079_20250926113336891_fl",
+  "sv": "PHerc0172/segments/20250926113336-w079_20250926113336891_flatboi/surface-volumes/7.91um-53keV-volume-20241024131838.zarr",
+  "sv_shape": [
+   33,
+   14520,
+   16380
+  ],
+  "sv_gb": 7.85,
+  "map": "PHerc0172/segments/20250926113336-w079_20250926113336891_flatboi/ink-detection/PHerc0172-20250926113336-7.91um-53keV-volume-20241024131838-20250713185324-timesformer_scroll5_july_retreat-tile64-stride16.tif",
+  "map_size": 35225875,
+  "role": "train"
+ },
+ {
+  "obj": "0172",
+  "scroll": "PHerc0172",
+  "seg": "20250926114310-w080_20250926114310705_flatboi",
+  "id": "20250926114310-w080_20250926114310705_fl",
+  "sv": "PHerc0172/segments/20250926114310-w080_20250926114310705_flatboi/surface-volumes/7.91um-53keV-volume-20241024131838.zarr",
+  "sv_shape": [
+   33,
+   12480,
+   11420
+  ],
+  "sv_gb": 4.7,
+  "map": "PHerc0172/segments/20250926114310-w080_20250926114310705_flatboi/ink-detection/PHerc0172-20250926114310-7.91um-53keV-volume-20241024131838-20250713185324-timesformer_scroll5_july_retreat-tile64-stride16.tif",
+  "map_size": 27132625,
+  "role": "train"
+ },
+ {
+  "obj": "0172",
+  "scroll": "PHerc0172",
+  "seg": "20250926122938-w082_20250926122938619_flatboi",
+  "id": "20250926122938-w082_20250926122938619_fl",
+  "sv": "PHerc0172/segments/20250926122938-w082_20250926122938619_flatboi/surface-volumes/7.91um-53keV-volume-20241024131838.zarr",
+  "sv_shape": [
+   33,
+   14320,
+   11520
+  ],
+  "sv_gb": 5.44,
+  "map": "PHerc0172/segments/20250926122938-w082_20250926122938619_flatboi/ink-detection/PHerc0172-20250926122938-7.91um-53keV-volume-20241024131838-20250713185324-timesformer_scroll5_july_retreat-tile64-stride16.tif",
+  "map_size": 29331032,
+  "role": "holdout"
+ },
+ {
+  "obj": "0172",
+  "scroll": "PHerc0172",
+  "seg": "20250926132117-w083_20250926132117595_flatboi",
+  "id": "20250926132117-w083_20250926132117595_fl",
+  "sv": "PHerc0172/segments/20250926132117-w083_20250926132117595_flatboi/surface-volumes/7.91um-53keV-volume-20241024131838.zarr",
+  "sv_shape": [
+   33,
+   13940,
+   11620
+  ],
+  "sv_gb": 5.35,
+  "map": "PHerc0172/segments/20250926132117-w083_20250926132117595_flatboi/ink-detection/PHerc0172-20250926132117-7.91um-53keV-volume-20241024131838-20250713185324-timesformer_scroll5_july_retreat-tile64-stride16.tif",
+  "map_size": 31175305,
+  "role": "holdout"
+ }
+]
