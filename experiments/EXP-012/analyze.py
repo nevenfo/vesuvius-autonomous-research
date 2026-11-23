@@ -82,7 +82,7 @@ def main(work: Path, out: Path) -> None:
                            else "indéterminée (0,05 < ECE ≤ 0,10 ou 1 seul objet > 0,10)")
     print(per_obj, res["verdict_H011"])
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(res, indent=1, ensure_ascii=False))
+    out.write_text(json.dumps(res, indent=1, ensure_ascii=False), encoding="utf-8")
 
 
 if __name__ == "__main__":

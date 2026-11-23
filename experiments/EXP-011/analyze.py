@@ -80,7 +80,7 @@ def main(work: Path, out: Path) -> None:
         {k: p[k] for k in ap}, m["inklabels"], sup)
     res["verdict_H010"] = "soutenue" if res["gain_ap_sup"] >= 0.02 else "réfutée"
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(res, indent=1, ensure_ascii=False))
+    out.write_text(json.dumps(res, indent=1, ensure_ascii=False), encoding="utf-8")
     for k, r in res["models"].items():
         print(k, {g: (x["auc_protocol"], x["ap"], x["ci95"]) for g, x in r.items()})
     print("gain AP", res["gain_ap_sup"], "AUC", res["gain_auc_sup"], res["gain_ap_sup_paired_bootstrap"],
