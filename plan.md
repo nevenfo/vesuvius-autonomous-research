@@ -72,7 +72,7 @@ Synthèse traçable des méthodes, modèles, résultats, limites et inconnues, s
 A1.
 ### Tâches
 - [x] B1.1 Revue initiale (villa, VC3D, Lasagna, spiral fitting, ScrollFiesta, modèles d'encre, autoresearch, PHerc. 1667, problèmes ouverts 2026) → `docs/state-of-the-art/2026-11-12.md`.
-- [ ] B1.2 Vérifier sur sources primaires les points marqués « non vérifié » utiles à la décision courante (licences VC3D/lasagna, données d'entraînement de reader-v2, nature humaine/pseudo des ink-labels 20260918).
+- [ ] B1.2 Vérifier sur sources primaires les points marqués « non vérifié » utiles à la décision courante (licences VC3D/lasagna, données d'entraînement de reader-v2, nature humaine/pseudo des ink-labels 20260918). (Labels : provenance/alignement établis, modèle de pseudo-labeling non publié — `docs/data/splits.md` ; reste : licences VC3D/lasagna.)
 ### Validation
 Chaque affirmation du document porte une URL et un statut (vérifié / auto-déclaré / non vérifié).
 
@@ -147,7 +147,7 @@ Reproduire une méthode officielle et comparer aux résultats connus, limites ma
 D1.
 ### Tâches
 - [ ] E1.1 Étendre D1 à plusieurs segments/rouleaux étiquetés (0139, 0814, 1667, Paris4) en respectant les parentés d'entraînement. (0841 × 3 segments fait : EXP-001b ; 0009B segment étiqueté fait : EXP-004.)
-- [ ] E1.2 Comparer ink_9um vs reader-v2 vs pipeline 2,4 µm (`vesuvius.ink_detection`) sur mêmes crops.
+- [x] E1.2 Comparer ink_9um vs reader-v2 vs pipeline 2,4 µm (`vesuvius.ink_detection`) sur mêmes crops. (EXP-017 : prédictions officielles canon 2,4 µm publiées vs nos modèles sur les 5 segments étiquetés ; inférence 2,4 µm locale écartée, 33 Go/segment — `docs/data/scoping-2.4um.md`.)
 - [x] E1.4 Hecate 9,6 µm (MIT) sur les 3 segments 0841 (rééchantillonnage 9,366→9,6 µm exigé par la model card) ; tester H-003 avec ce partenaire. (EXP-003 : 6/6 AUC reproduites ; H-003 soutenue.)
 - [ ] E1.5 Ré-entraînement leave-one-scroll-out (recette `aligned21_hybrid_3d2d.json`) si nécessaire pour disposer de ≥ 3 rouleaux de test indépendants (J5).
 - [ ] E1.3 Reproduction partielle PHerc. 1667 (crop représentatif, 2,4 µm) vs prédictions publiées.

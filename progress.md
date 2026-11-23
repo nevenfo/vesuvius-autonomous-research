@@ -1,16 +1,15 @@
 # PROGRESS
 
 ## Phase actuelle
-Phase E/F — baseline scientifique et boucle expérimentale (A, B1.1, B2.1-3, B3.1-2, C, D1, E1.4, G1, G2.1 validés ; E1.1 partiel).
+Phase E/F — baseline scientifique et boucle expérimentale (A, B1.1, B2.1-3, B3.1-2, C, D1, E1.2, E1.4, G1, G2.1 validés ; E1.1 partiel).
 
 ## Tâche actuelle
-B1.2 — provenance des ink-labels 20260918 (modèle de pseudo-labeling), condition d'interprétation d'EXP-017.
+E1.5 — cadrage du ré-entraînement leave-one-scroll-out (seule voie vers un test indépendant).
 
 ## Dernière tâche validée
-H-016 — EXP-017 : soutenue au critère mais indicative ; canon 2,4 µm publié AUC sup. 0841 +0,042 vs fusion (−0,018 sur …174252), reader-v3/argus-v3 ≈ fusion ; labels = traits manuels + pseudo-labeling itératif (README officiel) → circularité non exclue.
+B1.2 (partiel, labels) — `metadata.json` officiel : labels 20260918 « reviewed », reportés (`transferred`) depuis `philodemos/datasets/ink/ink_030927`, alignement calé sur rendu canonique + prédiction (résidu 0,005–0,015 px, négligeable) ; modèle de pseudo-labeling non publié → EXP-017 indicatif. E1.2 cochée (EXP-017).
 Validation :
-- `experiments/EXP-017/results.json` + `sources.txt` ; cadrage `docs/data/scoping-2.4um.md`.
-- `pytest` 10 passed.
+- `docs/data/splits.md` § Provenance ; EXP-017 (`results.json`) ; `pytest` 10 passed.
 
 ## Décisions actives
 - Dépôt sur NAS ; venvs `.venv` (outils, torch 2.11) et `.venv-koine` (inférence officielle, torch 2.10) + cache + modèles + runs sur `C:\Users\FlowUP\vesuvius-work` (hors Git).
@@ -36,4 +35,4 @@ Aucun.
 - Code reader-v2 (référence protocole) : `github.com/DomRusso2/reader-v2` `scripts/v2_run.py`
 
 ## NEXT ACTION
-B1.2 — Établir sur sources primaires (`scrollprize.org/data/datasets/ink-labels-README.md`, `scrollprize.org/tutorial5`, `scrollprize.org/data_datasets`, villa `ink-detection`, autres versions de labels dans le bucket) quel modèle a servi au pseudo-labeling des labels 20260918 et la parenté de reader-v3/argus-v3 ; consigner dans `docs/data/splits.md` avec URL et statut, puis réviser la portée d'EXP-017.
+E1.5 — Chiffrer dans `docs/` le ré-entraînement LOSO de la recette ink_9um (`aligned21_hybrid_3d2d.json`, villa) : données d'entraînement à télécharger (Go), durée GPU estimée sur RTX 5080 (mesurer quelques centaines d'itérations), rouleaux tenus à l'écart candidats (0841 + 0500P2/0009B) ; décision go/no-go à faire valider par l'utilisateur (coût ressources).

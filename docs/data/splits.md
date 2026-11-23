@@ -32,3 +32,17 @@ Hecate model card (`huggingface.co/scrollprize/hecate`, liste exacte des rouleau
 ## Rouleaux réservés au test (H1.1, provisoire)
 - PHerc0841 (3 segments étiquetés, ESRF 113 keV 9,366 µm / 77 keV 2,403 µm).
 - Candidats après ré-entraînement LOSO : 0814, 0500P2 (peu de segments → bon test de transfert), Frag1 DLS (labels IR).
+
+## Provenance des ink-labels `20260918` (B1.2, vérifié le 2026-11-23)
+Source primaire : `s3://vesuvius-challenge-open-data/metadata/history/20261119T152337Z/metadata.json` (entrées
+`type: ink-labels`) et `scrollprize.org/data/datasets/ink-labels-README.md`.
+- **Vérifié** : labels « reviewed » (`ink-labels-reviewed-20260918`), republiés le 2026-09-22 (schéma `ink-republish/1`)
+  depuis un jeu antérieur `s3://philodemos/datasets/ink/ink_030927/<objet>/<segment>/` (`*_inklabels_v2.tif`,
+  `*_supervision_mask_v2.tif`, `*_validation_mask_v2.tif`, aperçu `*_max_22_42.tif`) ; `registration: transferred` :
+  reportés par maillage sur le rendu canonique 2,4 µm (couverture 0,993, distance p50 0,29 px, p95 1,75 px).
+- **Vérifié** : décalage de canevas « measured … against the canonical render + ink-prediction alignment » ; résidu
+  0,005–0,015 px (2,4 µm) → biais d'alignement en faveur du modèle de prédiction utilisé **négligeable** sur la grille
+  9 µm, faible même à 2,4 µm.
+- **Vérifié (README)** : labels de rouleaux = traits annotés à la main puis affinés par pseudo-labeling itératif.
+- **Non vérifié** : modèle(s) utilisé(s) pour le pseudo-labeling (`annotated_on: unknown`, `ink_models_allow/deny: null`),
+  parenté de reader-v3 / argus-v3 / `ink_canonical_2um`. → l'avantage du canon 2,4 µm (EXP-017) reste indicatif.
