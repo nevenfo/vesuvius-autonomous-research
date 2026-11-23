@@ -20,6 +20,16 @@ S3 = 'https://vesuvius-challenge-open-data.s3.amazonaws.com/'
 T_HI, T_LO = 128, 64
 
 
+def _rename_retry(src, dst, tries=30):
+    for i in range(tries):
+        try:
+            os.replace(src, dst)
+            return
+        except PermissionError:
+            time.sleep(2 + i)
+    raise PermissionError(f'renommage impossible : {src}')
+
+
 def one(r, data):
     import cv2, tifffile
     d = data / r['obj'] / r['id']
@@ -27,7 +37,13 @@ def one(r, data):
     if (ld / 'done').exists():
         return r['id'], 'déjà fait'
     t0 = time.time()
-    fetch_segment.fetch(r['scroll'], r['seg'], r['sv'].split('/surface-volumes/')[1], 'none/none', d)
+    part = d.with_name(d.name + '.partial')
+    if not (d / 'done.json').exists() and (part / 'done.json').exists():
+        _rename_retry(part, d)  # copie complète restée en .partial (renommage bloqué par l'antivirus)
+    try:
+        fetch_segment.fetch(r['scroll'], r['seg'], r['sv'].split('/surface-volumes/')[1], 'none/none', d)
+    except PermissionError:
+        _rename_retry(part, d)
     mp = d / 'map.tif'
     if not mp.exists() or mp.stat().st_size != r['map_size']:
         urllib.request.urlretrieve(S3 + urllib.parse.quote(r['map']), str(mp) + '.part')
