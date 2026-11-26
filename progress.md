@@ -4,7 +4,7 @@
 Phase E/F — baseline scientifique et boucle expérimentale (A, B1.1, B2.1-3, B3.1-2, C, D1, E1.2, E1.4, G1, G2.1 validés ; E1.1 partiel).
 
 ## Tâche actuelle
-E1.5 / H-017 — reader-v2-LO (EXP-018) : entraînement relancé (lanceur reprenable détaché `run_train.py`, 6 workers, checkpoint / 1000 it.).
+E1.5 / H-017 — reader-v2-LO (EXP-018) : entraînement en cours depuis 2026-11-26 11:00 (lanceur reprenable détaché `run_train.py`, 6 workers, checkpoint / 1000 it.).
 
 ## Dernière tâche validée
 EXP-018 préparation — corpus reader-v2-LO complet (38/38 segments, 60 Go, `vesuvius-work/data/v2lo/`), test de fumée 60 itérations OK (perte finie), entraînement complet lancé ; `.venv-koine` complété (wandb, accelerate, diffusers… — `experiments/EXP-018/env-koine-train.lock`).
@@ -26,7 +26,7 @@ Validation :
 - Aucune image d'encre / transcription publiée (licence données).
 
 ## Blocage actif
-Aucun. (1er run tué par manque de mémoire à 4 895/40 000 sans checkpoint → relance avec 6 workers, `save_every` 1000, reprise automatique.)
+Aucun. (1er run tué par manque de mémoire à 4 895/40 000 ; la relance du 23/11 n'avait jamais démarré — erreur de syntaxe (antislash doublé mangé par un heredoc dans `replace`), corrigée en `os.sep`.)
 
 ## Fichiers / zones utiles
 - `experiments/registry.csv`, `experiments/EXP-0{01..17}/`, `docs/data/scoping-2.4um.md` ; corpus LO `vesuvius-work/data/v2lo/` (log `data/v2lo_build.log`), `docs/hypotheses.md`, `docs/data/splits.md`
