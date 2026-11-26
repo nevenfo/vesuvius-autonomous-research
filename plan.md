@@ -237,8 +237,8 @@ Recenser les méthodes établies (choix de durée, arrêt anticipé, schedules s
 ### Dépendances
 Aucune.
 ### Tâches
-- [ ] K1.1 Synthèse sourcée `docs/state-of-the-art/training-efficiency.md` : early stopping, WSD / schedule-free, moyenne de poids (EMA/SWA), non-infériorité, débit PyTorch (précision, compile, channels_last, DataLoader, zarr), pratiques villa/reader-v2/nnU-Net.
-- [ ] K1.2 Classer les leviers en hypothèses `H-NNN` (gain attendu, effort, risque, impact scientifique) dans `docs/hypotheses.md`.
+- [x] K1.1 Synthèse sourcée `docs/state-of-the-art/training-efficiency.md` : early stopping, WSD / schedule-free, moyenne de poids (EMA/SWA), non-infériorité, débit PyTorch (précision, compile, channels_last, DataLoader, zarr), pratiques villa/reader-v2/nnU-Net.
+- [x] K1.2 Classer les leviers en hypothèses `H-NNN` (gain attendu, effort, risque, impact scientifique) dans `docs/hypotheses.md`.
 ### Validation
 Document avec URL et niveau de preuve par point ; hypothèses K inscrites avec critère de réfutation fixé avant mesure.
 
@@ -248,8 +248,8 @@ Définir, avant toute mesure, comment déterminer la durée minimale non inféri
 ### Dépendances
 K1.1.
 ### Tâches
-- [ ] K2.1 `docs/protocols/training-duration.md` : jeu de validation tenu à l'écart (segments entiers des rouleaux d'entraînement, jamais un objet de test), métriques (AUC/AP sup. sur validation), marge de non-infériorité δ (par défaut 0,01 AUC sup., révisée si la variance inter-seeds mesurée l'exige) testée par bootstrap par région (IC 95 % unilatéral), coût total mesuré (préparation, recherche de patches, entraînement, validation, en heures GPU et murales), règle d'arrêt anticipé.
-- [ ] K2.2 Préciser l'effet du schedule : un checkpoint intermédiaire d'un run cosine 40k n'équivaut pas à un run court recuit ; protocole de rattrapage (décroissance courte depuis checkpoint, ou schedule sans horizon) défini avant mesure.
+- [x] K2.1 `docs/protocols/training-duration.md` : jeu de validation tenu à l'écart (segments entiers des rouleaux d'entraînement, jamais un objet de test), métriques (AUC/AP sup. sur validation), marge de non-infériorité δ (par défaut 0,01 AUC sup., révisée si la variance inter-seeds mesurée l'exige) testée par bootstrap par région (IC 95 % unilatéral), coût total mesuré (préparation, recherche de patches, entraînement, validation, en heures GPU et murales), règle d'arrêt anticipé.
+- [x] K2.2 Préciser l'effet du schedule : un checkpoint intermédiaire d'un run cosine 40k n'équivaut pas à un run court recuit ; protocole de rattrapage (décroissance courte depuis checkpoint, ou schedule sans horizon) défini avant mesure.
 ### Validation
 Protocole relu contre `docs/data/splits.md` (aucun objet de test dans validation ou sélection) et commité avant la première mesure K3.
 
@@ -259,8 +259,9 @@ Exploiter les 40 checkpoints de la référence reader-v2-LO 40k (EXP-018, non mo
 ### Dépendances
 E1.5 (entraînement terminé et évalué), K2.1.
 ### Tâches
+- [ ] K3.0 Construire les 4 segments de validation K (`role == holdout` de `selection.json`, 0343P ×2, 0172 ×2) avec `build.py`, mêmes seuils ; vérifier labels non vides.
 - [ ] K3.1 Courbe perte d'entraînement et débit (it/s, utilisation GPU) par itération depuis les journaux EXP-018 ; coût réel de chaque phase.
-- [ ] K3.2 Inférence de checkpoints échantillonnés (ex. 5k, 10k, 20k, 30k, 40k) : sur validation K2.1 si disponible ; sur objets de test uniquement en descriptif, après la conclusion H-017, sans en tirer de durée.
+- [ ] K3.2 Inférence de checkpoints échantillonnés (5k, 10k, 20k, 30k, 40k) sur la validation K ; sur objets de test uniquement en descriptif, après la conclusion H-017, sans en tirer de durée.
 ### Validation
 `experiments/EXP-NNN/` avec courbes, coûts et mention explicite du statut descriptif des courbes sur test.
 

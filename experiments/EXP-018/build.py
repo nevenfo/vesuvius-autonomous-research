@@ -1,7 +1,8 @@
 """EXP-018 — téléchargement et labels denses du corpus reader-v2-LO (règles reader-v2 `scripts/v2_run.py`).
 
-Usage : PYTHONPATH=src python experiments/EXP-018/build.py <selection.json> <data_dir> [workers=4]
-Pour chaque segment `role == train` : surface-volume niveau 0 (`vesres.fetch_segment`, idempotent) + carte d'encre
+Usage : PYTHONPATH=src python experiments/EXP-018/build.py <selection.json> <data_dir> [workers=4] [role=train]
+role=holdout → validation K (docs/protocols/training-duration.md), dans un data_dir distinct du corpus d'entraînement.
+Pour chaque segment `role == <role>` : surface-volume niveau 0 (`vesres.fetch_segment`, idempotent) + carte d'encre
 canon publiée (`map.tif`) ; labels denses sur la tranche centrale, identiques à v2_run.py `build_labels` :
   inklabels        = valide & (carte >= 128)
   supervision_mask = valide & (carte >= 128 | carte <= 64)     (carte ramenée sur la grille du SV par INTER_AREA)
@@ -68,12 +69,13 @@ def one(r, data):
     return r['id'], f"{fr} {time.time() - t0:.0f}s"
 
 
-def main(sel, data, workers):
-    rows = [r for r in json.load(open(sel)) if r['role'] == 'train']
+def main(sel, data, workers, role='train'):
+    rows = [r for r in json.load(open(sel)) if r['role'] == role]
     with ThreadPoolExecutor(workers) as ex:
         for i, (sid, msg) in enumerate(ex.map(lambda r: one(r, data), rows), 1):
             print(f'[{i}/{len(rows)}] {sid} {msg}', flush=True)
 
 
 if __name__ == '__main__':
-    main(sys.argv[1], Path(sys.argv[2]), int(sys.argv[3]) if len(sys.argv) > 3 else 4)
+    main(sys.argv[1], Path(sys.argv[2]), int(sys.argv[3]) if len(sys.argv) > 3 else 4,
+         sys.argv[4] if len(sys.argv) > 4 else 'train')
