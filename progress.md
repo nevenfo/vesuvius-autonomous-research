@@ -24,6 +24,7 @@ Validation :
 - E1.5 approuvé par l'utilisateur (2026-11-23) : reader-v2-LO = recette reader-v2 sans 0009B/0500P2, init ink_9um s43 60k, quotas proportionnels (EXP-018/README).
 - Veille : tâche planifiée → `watch/run_watch.ps1` (ASCII, PowerShell 5.1), sans commit ; rapports `watch/reports/` analysés et committés en session.
 - Aucune image d'encre / transcription publiée (licence données).
+- Objectif secondaire permanent d'efficacité (utilisateur, 2026-11-26) → Phase K : EXP-018 40k = référence, non modifiée ; durée choisie sur validation séparée seulement (EXP-018 n'en a pas : pas de `validation_mask`) ; courbes sur objets de test = descriptives. K1 (synthèse bibliographique) en cours.
 
 ## Blocage actif
 Aucun. (1er run tué par manque de mémoire à 4 895/40 000 ; la relance du 23/11 n'avait jamais démarré — erreur de syntaxe (antislash doublé mangé par un heredoc dans `replace`), corrigée en `os.sep`.)
