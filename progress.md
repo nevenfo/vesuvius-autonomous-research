@@ -1,40 +1,36 @@
 # PROGRESS
 
 ## Phase actuelle
-Phase E/F — baseline scientifique et boucle expérimentale (A, B1.1, B2.1-3, B3.1-2, C, D1, E1.2, E1.4, G1, G2.1 validés ; E1.1 partiel).
+Phases E/F/K/N — baseline et boucle expérimentale ; quatre exigences permanentes intégrées le 2026-11-26 (lecture intégrale, état de l'art vivant, efficacité de la chaîne, compatibilité Vesuvius Challenge). Validés : A, B1.1, B2.1-3, B3.1-2, C, D1, E1.2, E1.4, G1, G2.1, G3.1, K1, K2, K3.0, L1.1, M1.1 ; E1.1 partiel.
 
 ## Tâche actuelle
-E1.5 / H-017 — reader-v2-LO (EXP-018) : entraînement en cours depuis 2026-11-26 11:00 (lanceur reprenable détaché `run_train.py`, 6 workers, checkpoint / 1000 it.).
+- E1.5 / H-017 — EXP-018 reader-v2-LO : entraînement 40k en cours depuis 2026-11-26 11:00 (`run_train.py` reprenable, ~3,6 it/s, checkpoint / 1000), fin estimée ~15:30.
+- N1.1 / H-022 — EXP-021 : reproduction CPU de Korotetskyi & Haindl 2026 (texture 3D sans entraînement) en cours dans `vesuvius-work/third_party/korotetskyi2026/` (paquet Zenodo 10.5281/zenodo.24392114, sha256 7db284ab…, venv `.venv-tex`).
 
 ## Dernière tâche validée
-EXP-018 préparation — corpus reader-v2-LO complet (38/38 segments, 60 Go, `vesuvius-work/data/v2lo/`), test de fumée 60 itérations OK (perte finie), entraînement complet lancé ; `.venv-koine` complété (wandb, accelerate, diffusers… — `experiments/EXP-018/env-koine-train.lock`).
+Intégration des exigences permanentes : `plan.md` (objectif à 4 exigences, invariants neutralité de méthode / orientation lecture / compatibilité VC / dépôt public, J9-J10, G3, K6, L1-L2, M1-M2, N1-N2, R1) ; veille corrigée (G3.1) ; matrice de conformité (L1.1) ; audit du dépôt public (M1.1) ; revue scientifique ; H-022…H-025.
 Validation :
-- `data/v2lo_build.log` (38 labels `done`) ; `runs/EXP-018/smoke/train.log` rc=0 ; `runs/EXP-018/train/train.log` itérations à 4 it/s.
+- `pytest tests/` 12 verts (commit `e35201f`) ; `continuity-check.sh` OK (28 unités) ; audit : 0 secret, 0 donnée/image/poids dans 33 commits.
 
 ## Décisions actives
-- Dépôt sur NAS ; venvs `.venv` (outils, torch 2.11) et `.venv-koine` (inférence officielle, torch 2.10) + cache + modèles + runs sur `C:\Users\FlowUP\vesuvius-work` (hors Git).
-- Inférence d'encre = `koine_machines.inference.infer` (villa `merge-ink-pipelines` @ 47a9c37f) sans patch ; Hecate = `hecate.py` officiel via `experiments/EXP-003/hecate_run.py` ; évaluation = `vesres.eval_ink` (protocole reader-v2 + AP/F1/IC blocs).
-- Métrique primaire pour ces labels : région `supervision` (EXP-002) ; l'accord inter-modèles n'est pas une preuve d'encre non étiquetée (EXP-005).
-- Fenêtre de couches par défaut de reader-v2 conservée (EXP-006) ; indicateurs sans label rejetés (EXP-007).
-- Segments étiquetés tenus à l'écart d'objets vus (0009B, 0500P2) = tests indicatifs pour reader-v2, pas inter-rouleaux (EXP-008).
-- Probabilités brutes non calibrées (EXP-012) ; cartes en probabilité = fusion calibrée isotone LOO objet (EXP-013), classement/AP = moyenne brute.
-- Fusion reader-v2+Hecate = candidate par défaut pour les cartes (gain ≈ +0,02 AP, même signe sur 0841/0009B/0500P2, EXP-003/004/011) ; pas de revendication inter-rouleaux (aucun objet indépendant des deux modèles → E1.5 ou nouveaux labels).
-- Leviers post-hoc sans inférence épuisés (EXP-012…014) ; prochains gains via inférence/modèle/données (H-005, E1.5) ; TTA utile seulement sur objet non vu sans Hecate (EXP-015/016) ; chaîne de référence = fusion moyenne reader-v2+Hecate passe unique.
-- Prédictions officielles publiées (canon 2,4 µm, reader-v3, argus-v3) = comparateurs indicatifs tant que la provenance des labels n'est pas établie (EXP-017).
-- E1.5 approuvé par l'utilisateur (2026-11-23) : reader-v2-LO = recette reader-v2 sans 0009B/0500P2, init ink_9um s43 60k, quotas proportionnels (EXP-018/README).
-- Veille : tâche planifiée → `watch/run_watch.ps1` (ASCII, PowerShell 5.1), sans commit ; rapports `watch/reports/` analysés et committés en session.
-- Aucune image d'encre / transcription publiée (licence données).
-- Objectif secondaire permanent d'efficacité (utilisateur, 2026-11-26) → Phase K : EXP-018 40k = référence, non modifiée ; durée choisie sur validation séparée seulement (EXP-018 n'en a pas : pas de `validation_mask`) ; courbes sur objets de test = descriptives. K1/K2 validés (`docs/state-of-the-art/training-efficiency.md`, `docs/protocols/training-duration.md`, H-018…H-021) : validation K = 4 segments `holdout` de `selection.json` (0343P ×2, 0172 ×2, construits dans `vesuvius-work/data/v2lo_val/`, K3.0), R = EXP-018, δ = 0,01 AUC sup., candidat WSD à cooldowns branchés. K3.0 fait ; EXP-019 (scripts validation, fumée OK) et EXP-020 `train_wsd.py` (enrobage WSD, dry-run OK, test GPU 200 it. à faire) prêts ; aucune inférence pendant l'entraînement (mesure de débit K3.1).
+- Dépôt public MIT sur NAS ; venvs `.venv` (outils, torch 2.11), `.venv-koine` (inférence/entraînement officiels, torch 2.10), `.venv-tex` (N1) + cache, modèles, runs sur `C:\Users\FlowUP\vesuvius-work` (hors Git).
+- Inférence d'encre = `koine_machines.inference.infer` (villa `merge-ink-pipelines` @ 47a9c37f) sans patch ; Hecate via `experiments/EXP-003/hecate_run.py` ; évaluation = `vesres.eval_ink` (région `supervision`, IC par blocs).
+- Chaîne de référence = fusion moyenne reader-v2+Hecate (EXP-003/004/011) ; leviers post-hoc épuisés (EXP-012…016) ; prédictions officielles 2,4 µm = comparateurs indicatifs (EXP-017).
+- Objets de test 0841 × 3, 0009B, 0500P2 : jamais utilisés pour choisir durée, checkpoint, hyperparamètre ou configuration (N1.2 : configuration figée).
+- Phase K : validation K = 4 holdouts reader-v2 (0343P ×2, 0172 ×2, `vesuvius-work/data/v2lo_val/`), R = EXP-018, δ = 0,01 AUC sup., candidat WSD (`experiments/EXP-020/train_wsd.py`, test GPU 200 it. à faire) ; EXP-019 prêt ; aucune inférence pendant l'entraînement (mesure de débit K3.1).
+- Priorités : `docs/research-review-2026-11-26.md` (E1.5 → N1 → N2 → R1 PHerc0800 → K → cascade).
+- Prix : aucune éligibilité déclarée ; contradiction licence ↔ open source documentée (`docs/compliance/vesuvius-challenge-matrix.md`) ; permissions et Discord = actions humaines.
+- Veille : tâche planifiée → `watch/run_watch.ps1` (sans commit) ; rapports analysés et committés en session ; consulter avant toute expérience importante (G3.2).
+- Aucune image d'encre / transcription / label publié (licence données).
 
 ## Blocage actif
-Aucun. (1er run tué par manque de mémoire à 4 895/40 000 ; la relance du 23/11 n'avait jamais démarré — erreur de syntaxe (antislash doublé mangé par un heredoc dans `replace`), corrigée en `os.sep`.)
+Aucun. Décision humaine attendue (non bloquante) : M1.4, e-mail personnel dans les métadonnées des commits publics.
 
 ## Fichiers / zones utiles
-- `experiments/registry.csv`, `experiments/EXP-0{01..17}/`, `docs/data/scoping-2.4um.md` ; corpus LO `vesuvius-work/data/v2lo/` (log `data/v2lo_build.log`), `docs/hypotheses.md`, `docs/data/splits.md`
+- `experiments/registry.csv`, `experiments/EXP-0{01..20}/`, `docs/hypotheses.md`, `docs/data/splits.md`, `docs/protocols/training-duration.md`
+- `docs/research-review-2026-11-26.md`, `docs/compliance/vesuvius-challenge-matrix.md`, `docs/open-source/audit-2026-11-26.md`, `docs/state-of-the-art/`
 - `src/vesres/{fetch_segment,eval_ink,watch,remote_tiff,catalog}.py`
-- Prédictions locales : `C:\Users\FlowUP\vesuvius-work\runs\{EXP-001,E1,E1.4,EXP-004,EXP-006,EXP-008,EXP-015,EXP-016,EXP-017}` ; modèles : `...\models\`
-- Tifxyz 9,366 µm 0841 : `vesuvius-work/cache/segments/PHerc0841/<seg>/tifxyz_9.366/`
-- Code reader-v2 (référence protocole) : `github.com/DomRusso2/reader-v2` `scripts/v2_run.py`
+- Runs : `vesuvius-work/runs/EXP-018/train/` (runner.log, ckpt_*.pth), prédictions antérieures `vesuvius-work/runs/EXP-0*` ; segments étiquetés `vesuvius-work/cache/segments/`
 
 ## NEXT ACTION
-E1.5 — Surveiller `vesuvius-work/runs/EXP-018/train/runner.log` jusqu'à `DONE` (sinon relancer `run_train.py`, qui reprend au dernier `ckpt_*.pth`), puis `bash experiments/EXP-018/run_eval.sh <ckpt_040000.pth> lo` et `PYTHONPATH=src python experiments/EXP-018/analyze.py C:/Users/FlowUP/vesuvius-work lo experiments/EXP-018/results.json` ; conclure H-017.
+E1.5 — À `DONE` dans `vesuvius-work/runs/EXP-018/train/runner.log` (sinon relancer `run_train.py`, reprise au dernier checkpoint) : `bash experiments/EXP-018/run_eval.sh C:/Users/FlowUP/vesuvius-work/runs/EXP-018/train/ckpt_040000.pth lo` puis `PYTHONPATH=src python experiments/EXP-018/analyze.py C:/Users/FlowUP/vesuvius-work lo experiments/EXP-018/results.json` ; conclure H-017.
