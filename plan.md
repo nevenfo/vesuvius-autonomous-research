@@ -259,7 +259,7 @@ Exploiter les 40 checkpoints de la référence reader-v2-LO 40k (EXP-018, non mo
 ### Dépendances
 E1.5 (entraînement terminé et évalué), K2.1.
 ### Tâches
-- [ ] K3.0 Construire les 4 segments de validation K (`role == holdout` de `selection.json`, 0343P ×2, 0172 ×2) avec `build.py`, mêmes seuils ; vérifier labels non vides.
+- [x] K3.0 Construire les 4 segments de validation K (`role == holdout` de `selection.json`, 0343P ×2, 0172 ×2) avec `build.py`, mêmes seuils ; vérifier labels non vides. (4/4, `data/v2lo_val_build.log` : encre 4–17 %, supervision 67–94 %.)
 - [ ] K3.1 Courbe perte d'entraînement et débit (it/s, utilisation GPU) par itération depuis les journaux EXP-018 ; coût réel de chaque phase.
 - [ ] K3.2 Inférence de checkpoints échantillonnés (5k, 10k, 20k, 30k, 40k) sur la validation K ; sur objets de test uniquement en descriptif, après la conclusion H-017, sans en tirer de durée.
 ### Validation
