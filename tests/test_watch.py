@@ -46,3 +46,23 @@ def test_lock_prevents_concurrent_run(tmp_path):
     (tmp_path / "watch" / ".lock").write_text("1")
     with pytest.raises(RuntimeError):
         watch.run(tmp_path, sources=_sources({"a": [], "b": []}), today="d")
+
+
+def test_fail_streak_flagged_and_reset(tmp_path):
+    feed = {"a": [_it("1")], "b": [_it("x")]}
+    watch.run(tmp_path, sources=_sources(feed), today="d1")
+    feed["fail"] = True
+    watch.run(tmp_path, sources=_sources(feed), today="d2")
+    r = watch.run(tmp_path, sources=_sources(feed), today="d3")
+    assert "Défaillance persistante" in r["report"]
+    feed["fail"] = False
+    watch.run(tmp_path, sources=_sources(feed), today="d4")
+    st = json.loads((tmp_path / "watch" / "state.json").read_text(encoding="utf-8"))
+    assert st["sources"]["b"]["fail_streak"] == 0
+
+
+def test_page_fingerprint_ignores_markup_and_scripts():
+    a = "<html><script>var t=1;</script><p>Prize  rules</p></html>"
+    b = "<div><script>var t=2;</script><span>Prize rules</span></div>"
+    assert watch.page_fingerprint(a) == watch.page_fingerprint(b)
+    assert watch.page_fingerprint(a) != watch.page_fingerprint("<p>Prize rules changed</p>")

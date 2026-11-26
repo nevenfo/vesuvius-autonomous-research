@@ -20,10 +20,22 @@ import time
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+import hashlib
+import re
+
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 UA = {"User-Agent": "vesres-watch/0.1 (research)"}
 TIMEOUT = 60
+# Réessais réseau (timeouts de lecture, 429/5xx) avec backoff exponentiel : corrige les échecs arXiv intermittents.
+_SESSION = requests.Session()
+_SESSION.mount("https://", HTTPAdapter(max_retries=Retry(total=4, connect=4, read=4, backoff_factor=5,
+                                                         status_forcelist=[429, 500, 502, 503, 504],
+                                                         allowed_methods=["GET"], respect_retry_after_header=True)))
+# Pages de règlement / licence / formats suivies par empreinte du texte (toute modification = nouveauté).
+PAGES = ["https://scrollprize.org/prizes", "https://scrollprize.org/data", "https://dl.ash2txt.org/LICENSE.txt"]
 COMMUNITY_REPOS = ["DomRusso2/reader-v2", "Hob3rMallow/scrollfiesta_public", "jonmarrs/vesuvius-autoresearch",
                    "mojomast/vesuvius-autoresearch", "WillStevens/scrollreading", "schillij95/ThaumatoAnakalyptor"]
 
@@ -34,7 +46,7 @@ def _gh(path: str) -> object:
         out = subprocess.run(["gh", "api", path], capture_output=True, text=True, encoding="utf-8", timeout=TIMEOUT, check=True)
         return json.loads(out.stdout)
     except (FileNotFoundError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
-        r = requests.get(f"https://api.github.com/{path.lstrip('/')}", headers=UA, timeout=TIMEOUT)
+        r = _SESSION.get(f"https://api.github.com/{path.lstrip('/')}", headers=UA, timeout=TIMEOUT)
         r.raise_for_status()
         return r.json()
 
@@ -69,7 +81,7 @@ def src_community_repos() -> list[dict]:
 
 
 def _hf(kind: str) -> list[dict]:
-    r = requests.get(f"https://huggingface.co/api/{kind}", params={"author": "scrollprize", "limit": 500, "full": "true"},
+    r = _SESSION.get(f"https://huggingface.co/api/{kind}", params={"author": "scrollprize", "limit": 500, "full": "true"},
                      headers=UA, timeout=TIMEOUT)
     r.raise_for_status()
     base = "https://huggingface.co/" + ("datasets/" if kind == "datasets" else "")
@@ -88,7 +100,7 @@ def src_hf_datasets() -> list[dict]:
 def src_catalog() -> list[dict]:
     """Nouveaux échantillons/segments/volumes dans le catalogue officiel (ids stables)."""
     url = "https://vesuvius-challenge-open-data.s3.us-east-1.amazonaws.com/metadata.min.json"
-    r = requests.get(url, headers=UA, timeout=180)
+    r = _SESSION.get(url, headers=UA, timeout=180)
     r.raise_for_status()
     meta = r.json()
     items = []
@@ -103,10 +115,12 @@ def src_catalog() -> list[dict]:
 
 
 def src_arxiv() -> list[dict]:
-    q = 'all:"Herculaneum" OR all:"Vesuvius Challenge" OR (all:"ink detection" AND all:papyrus) OR all:"virtual unwrapping"'
-    r = requests.get("https://export.arxiv.org/api/query",
-                     params={"search_query": q, "sortBy": "submittedDate", "sortOrder": "descending", "max_results": 50},
-                     headers=UA, timeout=TIMEOUT)
+    q = ('all:"Herculaneum" OR all:"Vesuvius Challenge" OR (all:"ink detection" AND all:papyrus) OR all:"virtual unwrapping"'
+         ' OR (all:papyrus AND all:tomography) OR (all:"carbonized" AND all:scroll) OR (all:scroll AND all:"surface segmentation")')
+    # 200 résultats triés par date : rattrape plusieurs semaines de passages manqués ; délai 120 s + réessais.
+    r = _SESSION.get("https://export.arxiv.org/api/query",
+                     params={"search_query": q, "sortBy": "submittedDate", "sortOrder": "descending", "max_results": 200},
+                     headers=UA, timeout=120)
     r.raise_for_status()
     ns = {"a": "http://www.w3.org/2005/Atom"}
     items = []
@@ -118,12 +132,37 @@ def src_arxiv() -> list[dict]:
 
 
 def src_substack() -> list[dict]:
-    r = requests.get("https://scrollprize.substack.com/feed", headers=UA, timeout=TIMEOUT)
+    r = _SESSION.get("https://scrollprize.substack.com/feed", headers=UA, timeout=TIMEOUT)
     r.raise_for_status()
     items = []
     for it in ET.fromstring(r.content).iter("item"):
         link = it.findtext("link", "")
         items.append({"id": link, "title": it.findtext("title", ""), "url": link, "date": it.findtext("pubDate", "")})
+    return items
+
+
+def src_zenodo() -> list[dict]:
+    r = _SESSION.get("https://zenodo.org/api/records", params={"q": "Herculaneum OR (Vesuvius AND scroll)",
+                     "sort": "mostrecent", "size": 25}, headers=UA, timeout=TIMEOUT)
+    r.raise_for_status()
+    return [{"id": f"zenodo:{h['id']}", "title": h.get("metadata", {}).get("title", ""), "url": h.get("links", {}).get("self_html", ""),
+             "date": h.get("metadata", {}).get("publication_date", "")} for h in r.json().get("hits", {}).get("hits", [])]
+
+
+def page_fingerprint(html: str) -> str:
+    """Empreinte du texte visible (scripts/styles/balises/espaces retirés) : stable aux changements de mise en page."""
+    t = re.sub(r"(?is)<(script|style|noscript)[^>]*>.*?</\1>", " ", html)
+    t = re.sub(r"(?s)<[^>]+>", " ", t)
+    return hashlib.sha256(" ".join(t.split()).encode("utf-8")).hexdigest()[:16]
+
+
+def src_pages() -> list[dict]:
+    items = []
+    for url in PAGES:
+        r = _SESSION.get(url, headers=UA, timeout=TIMEOUT)
+        r.raise_for_status()
+        items.append({"id": f"{url}#{page_fingerprint(r.text)}", "title": f"page modifiée (règlement/licence/formats) : {url}",
+                      "url": url, "date": None})
     return items
 
 
@@ -137,6 +176,8 @@ SOURCES = {
     "hf_datasets": (src_hf_datasets, "officiel"),
     "substack": (src_substack, "officiel (annonces)"),
     "arxiv": (src_arxiv, "primaire (non relu par nous)"),
+    "zenodo": (src_zenodo, "primaire (non relu par nous)"),
+    "rules_pages": (src_pages, "officiel (règlement/licence)"),
     "community_repos": (src_community_repos, "auteur (auto-déclaré)"),
 }
 
@@ -168,6 +209,7 @@ def run(root: Path, dry_run: bool = False, sources: dict | None = None, today: s
                 items = fn()
             except Exception as e:  # réseau, quota, format : isolé par source
                 st["last_error"] = f"{now} {type(e).__name__}: {str(e)[:200]}"
+                st["fail_streak"] = int(st.get("fail_streak", 0)) + 1
                 errors[name] = st["last_error"]
                 continue
             seen = set(st["seen"])
@@ -177,7 +219,7 @@ def run(root: Path, dry_run: bool = False, sources: dict | None = None, today: s
                 if fresh:
                     new[name] = fresh
             st["seen"] = sorted(seen | {it["id"] for it in items})
-            st["last_ok"], st["last_error"], st["first_run"] = now, None, False
+            st["last_ok"], st["last_error"], st["first_run"], st["fail_streak"] = now, None, False, 0
         state["last_run"] = now
         report = _report(today, now, new, errors, state)
         if not dry_run:
@@ -192,6 +234,9 @@ def _report(today: str, now: str, new: dict, errors: dict, state: dict) -> str:
     lines = [f"# Veille {today}", "", f"Passage : {now}. Nouveautés : {sum(len(v) for v in new.values())}.", ""]
     if errors:
         lines += ["## Erreurs (réessai au prochain passage)", *[f"- `{k}` : {v}" for k, v in errors.items()], ""]
+        chronic = [k for k in errors if state["sources"][k].get("fail_streak", 0) >= 2]
+        if chronic:
+            lines += [f"**Défaillance persistante (≥ 2 passages) : {', '.join(chronic)} → à corriger en session.**", ""]
     initialized = [k for k, s in state["sources"].items() if s.get("last_ok") == now and k not in new]
     for name, items in new.items():
         lines += [f"## {name} ({len(items)}, fiabilité : {items[0]['reliability']})"]
