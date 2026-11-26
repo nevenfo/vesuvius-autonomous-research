@@ -22,7 +22,7 @@ for n in range(7):
     cks = sorted(glob.glob(os.path.join(out, 'ckpt_*.pth')))
     cfg, path = dict(base), cfg_path
     if cks:
-        cfg['checkpoint'] = cks[-1].replace('\', '/')
+        cfg['checkpoint'] = cks[-1].replace(os.sep, '/')
         cfg['weights_only'] = False
         path = os.path.join(out, 'train_config_resume.json')
         json.dump(cfg, open(path, 'w'), indent=1)
