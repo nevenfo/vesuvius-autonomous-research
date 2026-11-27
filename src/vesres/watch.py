@@ -35,7 +35,10 @@ _SESSION.mount("https://", HTTPAdapter(max_retries=Retry(total=4, connect=4, rea
                                                          status_forcelist=[429, 500, 502, 503, 504],
                                                          allowed_methods=["GET"], respect_retry_after_header=True)))
 # Pages de règlement / licence / formats suivies par empreinte du texte (toute modification = nouveauté).
-PAGES = ["https://scrollprize.org/prizes", "https://scrollprize.org/data", "https://dl.ash2txt.org/LICENSE.txt"]
+PAGES = ["https://scrollprize.org/prizes", "https://scrollprize.org/data", "https://dl.ash2txt.org/LICENSE.txt",
+         "https://scrollprize.org/winners", "https://scrollprize.org/2026_open_problems"]
+# Modèles communautaires hors organisation scrollprize repérés par la veille ciblée du 2026-11-27 (G3.4).
+COMMUNITY_HF_MODELS = ["domenicor046/ink9um-dense", "evilaliv3/rectina"]
 COMMUNITY_REPOS = ["DomRusso2/reader-v2", "Hob3rMallow/scrollfiesta_public", "jonmarrs/vesuvius-autoresearch",
                    "mojomast/vesuvius-autoresearch", "WillStevens/scrollreading", "schillij95/ThaumatoAnakalyptor"]
 
@@ -95,6 +98,17 @@ def src_hf_models() -> list[dict]:
 
 def src_hf_datasets() -> list[dict]:
     return _hf("datasets")
+
+
+def src_hf_community() -> list[dict]:
+    items = []
+    for mid in COMMUNITY_HF_MODELS:
+        r = _SESSION.get(f"https://huggingface.co/api/models/{mid}", headers=UA, timeout=TIMEOUT)
+        r.raise_for_status()
+        m = r.json()
+        items.append({"id": f"{mid}@{m.get('lastModified') or m.get('sha')}", "title": f"{mid} mis à jour",
+                      "url": f"https://huggingface.co/{mid}", "date": m.get("lastModified")})
+    return items
 
 
 def src_catalog() -> list[dict]:
@@ -174,6 +188,7 @@ SOURCES = {
     "catalog": (src_catalog, "officiel"),
     "hf_models": (src_hf_models, "officiel"),
     "hf_datasets": (src_hf_datasets, "officiel"),
+    "hf_community": (src_hf_community, "auteur (auto-déclaré)"),
     "substack": (src_substack, "officiel (annonces)"),
     "arxiv": (src_arxiv, "primaire (non relu par nous)"),
     "zenodo": (src_zenodo, "primaire (non relu par nous)"),

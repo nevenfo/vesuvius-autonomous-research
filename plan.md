@@ -142,7 +142,7 @@ Décomposer les pertes de lecture par étage (couverture, géométrie, encre, gl
 ### Dépendances
 V1, W1 ; V2 si disponible.
 ### Tâches
-- [ ] V3.1 Pour un manuscrit de référence (choix argumenté : qualité, indépendance, outils, coût ; 0841 en v0, 1667 si références), attribuer les UGR non lisibles à leur cause (hors segment, géométrie, encre faible, référence douteuse).
+- [ ] V3.1 Pour le manuscrit de référence PHerc. 1667 (transcription complète R3*, segments et prédictions publiés ; 0841 en v0), attribuer les pertes de lecture à leur cause (hors segment, géométrie, encre faible, reconnaissance, référence douteuse) ; CER par colonne par alignement de séquences.
 ### Validation
 Tableau des pertes par étage avec incertitudes ; obstacles reclassés dans la revue suivante.
 
@@ -164,7 +164,7 @@ Script déterministe ; deux exécutions identiques ; inconnues explicites par ma
 ### Dépendances
 W1.
 ### Tâches
-- [ ] W2.1 Fiche par outil (capacités, limites, coût, licence, sorties) depuis sources primaires et dépôts.
+- [x] W2.1 Fiche par outil (capacités, limites, coût, licence, sorties) depuis sources primaires et dépôts. (`docs/state-of-the-art/2026-11-27-reading-and-geometry.md` §2 ; VC3D GPL-3.0, AppImage CLI.)
 - [ ] W2.2 Tester sur une région d'un rouleau la détection de trous, doublons et sauts de feuillet par les outils existants ; décider si la géométrie est un obstacle significatif (H-009 sur surfaces difficiles).
 - [ ] W2.3 Produire avec les outils officiels (VC3D/villa, lasagna) au moins un segment tifxyz sur un rouleau éligible sans segment publié, depuis `surface-prediction-zarr`/`normal-grids` ; rendre son surface-volume ; mesurer surface obtenue, temps machine et humain, contrôles qualité.
 ### Validation
@@ -233,8 +233,8 @@ Identifier les références caractère/mot utilisables et les méthodes OCR/HTR 
 ### Dépendances
 S1.
 ### Tâches
-- [ ] T1.1 Lire arXiv:2606.29085 (transcriptions, alignements, couverture 1667) ; ICDAR 2023 papyrus grecs, AL-PUB, lectures First Letters publiées : fiche (preuve, licence, intérêt, expérience comparative).
-- [ ] T1.2 Rédiger la question écrite aux auteurs/organisateurs (transcription 1667 alignée, usage interne) — envoi = action humaine (L1.3).
+- [x] T1.1 Lire arXiv:2606.29085 (transcriptions, alignements, couverture 1667) ; ICDAR 2023 papyrus grecs, AL-PUB, lectures First Letters publiées : fiche (preuve, licence, intérêt, expérience comparative). (`docs/state-of-the-art/2026-11-27-reading-and-geometry.md` §1 : transcription complète 1667 Col. 1–22 = référence R3*, copie privée `vesuvius-work/refs/PHerc1667/`.)
+- [ ] T1.2 Rédiger la question écrite aux auteurs/organisateurs (alignement colonne ↔ segment de la transcription 1667, « transcription artifacts » du data browser) — envoi = action humaine (L1.3). (Question 4 de la matrice §6, à préciser.)
 ### Validation
 Fiches dans `docs/state-of-the-art/` ; décision sur la référence de V2.
 
@@ -394,7 +394,7 @@ G1, G2.1.
 ### Tâches
 - [ ] G3.2 « Veille consultée : <date>, impact » dans chaque README d'EXP importante (première application : EXP-022).
 - [ ] G3.3 Fiche par nouveauté retenue (12 questions de l'invariant) et hypothèse si comparaison pertinente.
-- [ ] G3.4 Sources de veille ajoutées : page `winners`, Hugging Face `scrollprize` + modèles communautaires cités (§3 de la revue).
+- [x] G3.4 Sources de veille ajoutées : page `winners`, Hugging Face `scrollprize` + modèles communautaires cités (§3 de la revue). (`src/vesres/watch.py` : pages `winners`, `2026_open_problems`, source `hf_community` ; `tests/test_watch.py` 5 verts, appel réseau réel OK.)
 ### Validation
 Deux EXP au moins citant la veille ; fiches présentes.
 
