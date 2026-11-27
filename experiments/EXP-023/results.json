@@ -1,0 +1,197 @@
+{
+ "controles": {
+  "PHerc0172": {
+   "hauteur_mm": 164.78,
+   "id": "PHerc0172",
+   "n_bandes_valides": 1,
+   "n_segments": 53,
+   "n_segments_sans_area": 0,
+   "pas_um_median": 120.3,
+   "pixel_um": 7.91,
+   "raison": "1 bandes valides < 6",
+   "ratio_bas": "",
+   "ratio_haut": "",
+   "statut": "inconnue",
+   "surface_estimee_basse_cm2": "",
+   "surface_estimee_haute_cm2": "",
+   "surface_identifiee_cm2": 7069.89,
+   "volume_utilise": "20241024131839"
+  },
+  "PHerc1667": {
+   "hauteur_mm": 85.67,
+   "id": "PHerc1667",
+   "n_bandes_valides": 0,
+   "n_segments": 20,
+   "n_segments_sans_area": 0,
+   "pas_um_median": "",
+   "pixel_um": 2.399,
+   "raison": "0 bandes valides < 6",
+   "ratio_bas": "",
+   "ratio_haut": "",
+   "statut": "inconnue",
+   "surface_estimee_basse_cm2": "",
+   "surface_estimee_haute_cm2": "",
+   "surface_identifiee_cm2": 2524.82,
+   "volume_utilise": "20251217075048"
+  },
+  "PHercParis4": {
+   "hauteur_mm": "",
+   "id": "PHercParis4",
+   "n_bandes_valides": 0,
+   "n_segments": 82,
+   "n_segments_sans_area": 54,
+   "pas_um_median": "",
+   "pixel_um": "",
+   "raison": "niveau 5 > 300 M voxels pour tous les volumes candidats",
+   "ratio_bas": "",
+   "ratio_haut": "",
+   "statut": "inconnue",
+   "surface_estimee_basse_cm2": "",
+   "surface_estimee_haute_cm2": "",
+   "surface_identifiee_cm2": 11390.6,
+   "volume_utilise": ""
+  }
+ },
+ "hypothese": "H-028",
+ "n_inconnue": 35,
+ "n_rouleaux": 35,
+ "regle": "soutenue si ratio_haut<0.5 pour >50 % des estimés ; réfutée si ratio_bas>=0.5 pour >50 % ; sinon indéterminée",
+ "rouleaux_avec_segments": {
+  "n_estimes": 0,
+  "n_ratio_bas_ge_0.5": 0,
+  "n_ratio_haut_lt_0.5": 0,
+  "verdict": "indéterminée"
+ },
+ "sensibilite_hors_verdict_hi1500um": {
+  "PHerc0125": {
+   "n_bandes_hi1500": 2,
+   "pas_med_hi1500": 403.7
+  },
+  "PHerc0139": {
+   "n_bandes_hi1500": 4,
+   "pas_med_hi1500": 245.1
+  },
+  "PHerc0172": {
+   "n_bandes_hi1500": 4,
+   "pas_med_hi1500": 165.7
+  },
+  "PHerc0175A": {
+   "n_bandes_hi1500": 2,
+   "pas_med_hi1500": 245.9
+  },
+  "PHerc0175B": {
+   "n_bandes_hi1500": 0,
+   "pas_med_hi1500": null
+  },
+  "PHerc0191": {
+   "n_bandes_hi1500": 3,
+   "pas_med_hi1500": 487.2
+  },
+  "PHerc0211": {
+   "n_bandes_hi1500": 5,
+   "pas_med_hi1500": 401.4
+  },
+  "PHerc0257": {
+   "n_bandes_hi1500": 1,
+   "pas_med_hi1500": 213.6
+  },
+  "PHerc0268": {
+   "n_bandes_hi1500": 0,
+   "pas_med_hi1500": null
+  },
+  "PHerc0306B": {
+   "n_bandes_hi1500": 1,
+   "pas_med_hi1500": 309.9
+  },
+  "PHerc0332": {
+   "n_bandes_hi1500": 6,
+   "pas_med_hi1500": 166.3
+  },
+  "PHerc0343": {
+   "n_bandes_hi1500": 1,
+   "pas_med_hi1500": 296.2
+  },
+  "PHerc0358": {
+   "n_bandes_hi1500": 2,
+   "pas_med_hi1500": 381.0
+  },
+  "PHerc0483A": {
+   "n_bandes_hi1500": 2,
+   "pas_med_hi1500": 331.1
+  },
+  "PHerc0483B": {
+   "n_bandes_hi1500": 0,
+   "pas_med_hi1500": null
+  },
+  "PHerc0490A": {
+   "n_bandes_hi1500": 1,
+   "pas_med_hi1500": 297.5
+  },
+  "PHerc0490B": {
+   "n_bandes_hi1500": 1,
+   "pas_med_hi1500": 295.3
+  },
+  "PHerc0800": {
+   "n_bandes_hi1500": 2,
+   "pas_med_hi1500": 262.4
+  },
+  "PHerc0813": {
+   "n_bandes_hi1500": 0,
+   "pas_med_hi1500": null
+  },
+  "PHerc0814": {
+   "n_bandes_hi1500": 4,
+   "pas_med_hi1500": 355.5
+  },
+  "PHerc0826": {
+   "n_bandes_hi1500": 3,
+   "pas_med_hi1500": 99.1
+  },
+  "PHerc0841": {
+   "n_bandes_hi1500": 2,
+   "pas_med_hi1500": 383.1
+  },
+  "PHerc0846A": {
+   "n_bandes_hi1500": 1,
+   "pas_med_hi1500": 332.5
+  },
+  "PHerc0846B": {
+   "n_bandes_hi1500": 1,
+   "pas_med_hi1500": 95.2
+  },
+  "PHerc1203": {
+   "n_bandes_hi1500": 0,
+   "pas_med_hi1500": null
+  },
+  "PHerc1218": {
+   "n_bandes_hi1500": 1,
+   "pas_med_hi1500": 1120.8
+  },
+  "PHerc1447": {
+   "n_bandes_hi1500": 2,
+   "pas_med_hi1500": 519.2
+  },
+  "PHerc1451": {
+   "n_bandes_hi1500": 4,
+   "pas_med_hi1500": 226.1
+  },
+  "PHerc1545": {
+   "n_bandes_hi1500": 2,
+   "pas_med_hi1500": 911.8
+  },
+  "PHerc1667": {
+   "n_bandes_hi1500": 3,
+   "pas_med_hi1500": 285.4
+  },
+  "PHercMAN5": {
+   "n_bandes_hi1500": 3,
+   "pas_med_hi1500": 1071.3
+  }
+ },
+ "tous_rouleaux": {
+  "n_estimes": 0,
+  "n_ratio_bas_ge_0.5": 0,
+  "n_ratio_haut_lt_0.5": 0,
+  "verdict": "indéterminée"
+ }
+}

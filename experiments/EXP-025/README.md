@@ -1,6 +1,6 @@
 # EXP-025 — W2.3 / H-031 : premier segment propre sur un rouleau éligible sans segment publié
 
-**Statut : en cours** (protocole fixé le 2026-11-27 avant exécution).
+**Statut : en cours** — essai `streamline` échoué (H-031 non atteinte à ce stade) ; essai `default` + normal-grids à faire (protocole fixé le 2026-11-27 avant exécution).
 
 ## Obstacle visé
 EXP-024 : 16/17 rouleaux First Letters n'ont aucun segment publié ; les découvertes passent par la segmentation.
@@ -38,3 +38,20 @@ argumenté (mode `default` avec normal-grids si `streamline` échoue).
 ## Limites connues
 Fidélité à la prédiction m7 ≠ fidélité au feuillet réel (m7 peut elle-même sauter de feuillet) ; aucune détection de
 saut de feuillet dédiée à ce stade ; un patch n'est pas une couverture.
+
+## Exécution et résultats
+- Essai 1 (graine 4132 5644 11620) : échec en 4 s, valeur CT = 0 à la graine. Diagnostic : sur la tranche médiane
+  (niveau 3), **seuls 51 % des voxels de la prédiction de surface m7 tombent dans la zone non nulle du CT masqué**
+  (bbox CT y 396–674 contre prédiction 360–719) → la graine était dans la prédiction mais hors masque.
+- Écart documenté (bug de protocole, pas réglage) : graine contrainte au CT érodé (`seed.py <pred> <out> <ct>`) →
+  graine 4324 5292 11620 (CT 106, prédiction 255, 40 % du rayon).
+- Essai 2 (`streamline`, 60 générations, 8 threads, volume distant) : **échec après 483 s**, ≈ 36 % des sommets de
+  la grille 121 × 121 placés, « No usable CT sheet normal during seed growth ». Attribution probable : **données**
+  (la croissance atteint des zones à CT nul — masque plus étroit que le papyrus prédit — ou des normales CT non
+  estimables) et **mode** (`streamline` n'utilise pas les normal-grids). Aucune surface publiée par l'outil.
+- Constat secondaire important pour la couverture : si le masque du volume officiel exclut du papyrus, toute chaîne
+  lisant le volume masqué perd cette surface → à vérifier (W1.2/W2.2) en comparant volume masqué et non masqué.
+
+## Suite (dans le protocole)
+Second et dernier essai argumenté : GrowPatch `default` avec les normal-grids officielles (téléchargées localement),
+même graine, puis, si échec, réduction à 30 générations pour mesurer au moins une surface ; conclusion H-031 ensuite.

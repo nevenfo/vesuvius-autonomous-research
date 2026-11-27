@@ -1,0 +1,36 @@
+id,volume_utilise,pixel_um,n_segments,n_segments_sans_area,n_segments_area_secours,surface_identifiee_cm2,hauteur_mm,pas_um_median,pas_um_p25,pas_um_p75,n_bandes_valides,surface_estimee_basse_cm2,surface_estimee_mediane_cm2,surface_estimee_haute_cm2,ratio_bas,ratio_median,ratio_haut,statut,raison
+PHercParis4,,,82,54,0,11390.6,,,,,0,,,,,,,inconnue,niveau 5 > 300 M voxels pour tous les volumes candidats
+PHerc0172,20241024131839,7.91,53,0,53,7069.89,164.78,120.3,120.3,120.3,1,,,,,,,inconnue,1 bandes valides < 6
+PHerc0139,20250728140407,9.362,39,1,4,1548.25,195.93,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc1667,20251217075048,2.399,20,0,20,2524.82,85.67,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0814,20250804134230,9.362,19,0,7,643.8,174.06,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc1447,20250521151220,8.64,15,1,0,58.27,210.12,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0800,20250521135224,8.64,6,0,0,9.2,210.12,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0841,20250821151531,9.366,3,0,0,49.43,181.93,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0332,20251211183505,2.399,2,2,0,0.0,74.08,121.2,121.2,121.2,1,,,,,,,inconnue,1 bandes valides < 6
+PHercMAN5,20260311104824,2.399,1,1,0,0.0,70.01,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0125,20250821151825,9.362,0,0,0,0.0,188.44,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0175A,20250521115057,8.64,0,0,0,0.0,110.32,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0175B,20250521125822,8.64,0,0,0,0.0,137.41,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0191,20250821151635,9.362,0,0,0,0.0,171.06,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0211,20250821151803,9.362,0,0,0,0.0,176.16,184.4,184.4,184.4,1,,,,,,,inconnue,1 bandes valides < 6
+PHerc0257,20250821151750,9.362,0,0,0,0.0,169.86,175.1,175.1,175.1,1,,,,,,,inconnue,1 bandes valides < 6
+PHerc0268,20251110183117,8.64,0,0,0,0.0,126.63,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0306B,20250521133212,8.64,0,0,0,0.0,137.41,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0343,20250521140437,8.64,0,0,0,0.0,155.66,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0358,20250821151737,9.362,0,0,0,0.0,134.81,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0483A,20250521140913,8.64,0,0,0,0.0,137.41,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0483B,20251124083638,8.64,0,0,0,0.0,95.39,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0490A,20250521151210,8.64,0,0,0,0.0,101.19,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0490B,20250521151215,8.64,0,0,0,0.0,92.07,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0813,20250821151723,9.362,0,0,0,0.0,145.6,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0826,20250821151701,9.362,0,0,0,0.0,158.48,106.9,102.4,129.4,3,,,,,,,inconnue,3 bandes valides < 6
+PHerc0846A,20250728152254,9.362,0,0,0,0.0,131.52,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc0846B,20250804142305,9.362,0,0,0,0.0,125.23,101.7,101.7,101.7,1,,,,,,,inconnue,1 bandes valides < 6
+PHerc1203,20250820131727,9.362,0,0,0,0.0,171.06,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc1218,20250521120456,8.64,0,0,0,0.0,201.0,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc1299,,,0,0,0,0.0,,,,,0,,,,,,,inconnue,niveau 5 > 300 M voxels pour tous les volumes candidats
+PHerc1451,20250521151225,8.64,0,0,0,0.0,155.66,,,,0,,,,,,,inconnue,0 bandes valides < 6
+PHerc1545,20250821151648,9.362,0,0,0,0.0,189.64,180.1,180.1,180.1,1,,,,,,,inconnue,1 bandes valides < 6
+PHercMANB,,,0,0,0,0.0,,,,,0,,,,,,,inconnue,niveau 5 > 300 M voxels pour tous les volumes candidats
+PHercParis3,,,0,0,0,0.0,,,,,0,,,,,,,inconnue,niveau 5 > 300 M voxels pour tous les volumes candidats

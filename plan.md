@@ -154,7 +154,8 @@ Pour chaque manuscrit : surface identifiée (borne haute), reconstruite, examin�
 ### Dépendances
 B2.1.
 ### Tâches
-- [ ] W1.1 EXP-023 : lire les méta-données des segments publiés (aire, dimensions tifxyz) et des scans ; méthode d'estimation physique écrite avant calcul → `docs/data/coverage_inventory.{csv,md}` régénérable.
+- [x] W1.1 EXP-023 : lire les méta-données des segments publiés (aire, dimensions tifxyz) et des scans ; méthode d'estimation physique écrite avant calcul → `docs/data/coverage_inventory.{csv,md}` régénérable. (Inventaire déterministe, 26 tests ; H-028 indéterminée : estimateur de pas inopérant ; somme des segments 1667 = 2× la surface déroulée publiée.)
+- [ ] W1.2 Amender l'estimation : pas des spires le long des normales locales (segments / prédiction de surface) ou FFT 2D locale ; surface identifiée dédupliquée par union voxélisée des segments ; contrôle sur 1667 (1 231 cm² publiés) ; comparer volume masqué et non masqué (papyrus exclu par le masque ?).
 ### Validation
 Script déterministe ; deux exécutions identiques ; inconnues explicites par manuscrit.
 
@@ -417,7 +418,7 @@ Situer le rendement décroissant de la référence 40k à coût faible (sans nou
 ### Dépendances
 E1.5, K2.1.
 ### Tâches
-- [ ] K3.1 Perte et débit depuis les journaux EXP-018 ; coût réel par phase.
+- [x] K3.1 Perte et débit depuis les journaux EXP-018 ; coût réel par phase. (EXP-026 : −1,5 % de perte entre 13 k et 40 k, 1,69 it/s limité par les données ; journal 0–13 k perdu.)
 - [ ] K3.2 Inférence de checkpoints échantillonnés sur la validation K ; test en descriptif seulement.
 ### Validation
 EXP avec courbes, coûts, statut descriptif des courbes sur test.
