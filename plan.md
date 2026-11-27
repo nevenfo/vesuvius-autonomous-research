@@ -316,7 +316,9 @@ Rechercher zones d'encre et lettres candidates sur un rouleau éligible avec une
 L2.2 (provenance), V1 (métriques), P1 ; W2.3 (segments propres sur rouleau éligible, EXP-024).
 ### Tâches
 - [x] R1.1 Audit PHerc0800 (intérêt, segments, qualité, éligibilité, parentés des modèles : reader-v2/LO/ink_9um sans 0800, Hecate et reader-v3 à vérifier) ; inspecter d'abord les prédictions officielles publiées. (`docs/compliance/target-PHerc0800.md` : 17 cm² publiés, aucune lettre lisible ; EXP-024 : 16/17 rouleaux éligibles sans segment publié → goulot = segmentation.)
-- [ ] R1.2 Inférence de la chaîne figée, cartes privées, examen des faux positifs (fond, fibres) ; zones candidates documentées (coordonnées, méthode, incertitudes) sans publication.
+- [x] R1.2 Inférence de la chaîne figée, cartes privées, examen des faux positifs (fond, fibres) ; zones candidates documentées (coordonnées, méthode, incertitudes) sans publication. (EXP-029 : patch 1218 `out4`, 0 zone candidate, H-034 soutenue mais accord faible.)
+- [ ] R1.4 Contrôle positif de notre chaîne de rendu : sur un segment publié à encre connue (PHerc0841 `20260220213127-w00` ou 1667), rendre son tifxyz avec `vc_render_tifxyz` (mêmes réglages qu'EXP-029), inférer reader-v2-LO, comparer à l'inférence sur le surface-volume publié (ρ par blocs, AUC sur labels si disponibles) ; critère écrit avant (EXP-030).
+- [ ] R1.5 Étendre la surface propre sur 1218 (plusieurs graines ou croissance plus longue, objectif ≥ 40 cm²) puis appliquer la chaîne validée par R1.4.
 - [ ] R1.3 Si ≥ 10 lettres candidates dans 4 cm² : dossier de preuve privé et décision humaine (Discord / soumission).
 ### Validation
 Rapport privé par segment ; aucune image publiée ; décision humaine consignée.

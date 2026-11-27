@@ -23,9 +23,13 @@ def main(render: Path, out: Path) -> None:
     for i, f in enumerate(files):
         a = tifffile.imread(f)
         stack[i] = (a >> 8).astype(np.uint8) if a.dtype == np.uint16 else a.astype(np.uint8)
-    g = zarr.open_group(str(out / "sv.zarr"), mode="w", zarr_format=2)
-    arr = g.create_array("0", shape=stack.shape, chunks=(len(files), 128, 128), dtype="uint8", compressors=None,
-                         fill_value=0)
+    chunks = (len(files), 128, 128)
+    if int(zarr.__version__.split(".")[0]) >= 3:
+        g = zarr.open_group(str(out / "sv.zarr"), mode="w", zarr_format=2)
+        arr = g.create_array("0", shape=stack.shape, chunks=chunks, dtype="uint8", compressors=None, fill_value=0)
+    else:  # zarr 2 (venv koine)
+        g = zarr.open_group(str(out / "sv.zarr"), mode="w")
+        arr = g.create_dataset("0", shape=stack.shape, chunks=chunks, dtype="uint8", compressor=None, fill_value=0)
     arr[:] = stack
     print({"layers": len(files), "shape": list(stack.shape), "nonzero_frac_mid": round(float((stack[len(files) // 2] > 0).mean()), 4)})
 
