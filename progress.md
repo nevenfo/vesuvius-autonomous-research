@@ -1,16 +1,16 @@
 # PROGRESS
 
 ## Phase actuelle
-Phases E/F/K/N — baseline et boucle expérimentale ; quatre exigences permanentes intégrées le 2026-11-26 (lecture intégrale, état de l'art vivant, efficacité de la chaîne, compatibilité Vesuvius Challenge). Validés : A, B1.1, B2.1-3, B3.1-2, C, D1, E1.2, E1.4, G1, G2.1, G3.1, K1, K2, K3.0, L1.1, M1.1 ; E1.1 partiel.
+Phases E/F/K/N — baseline et boucle expérimentale ; quatre exigences permanentes intégrées le 2026-11-26 (lecture intégrale, état de l'art vivant, efficacité de la chaîne, compatibilité Vesuvius Challenge). Validés : A, B1.1, B2.1-3, B3.1-2, C, D1, E1.2, E1.4, G1, G2.1, G3.1, K1, K2, K3.0, L1.1, M1.1-M1.3 ; E1.1 partiel.
 
 ## Tâche actuelle
-- E1.5 / H-017 — EXP-018 reader-v2-LO : entraînement 40k en cours depuis 2026-11-26 11:00 (`run_train.py` reprenable, ~3,6 it/s, checkpoint / 1000), fin estimée ~15:30.
-- N1.1 / H-022 — EXP-021 : reproduction CPU de Korotetskyi & Haindl 2026 (texture 3D sans entraînement) en cours dans `vesuvius-work/third_party/korotetskyi2026/` (paquet Zenodo 10.5281/zenodo.24392114, sha256 7db284ab…, venv `.venv-tex`).
+- E1.5 / H-017 — EXP-018 : entraînement interrompu le 2026-11-26 à 13212 it. (processus tué), relancé le 2026-11-27 10:58 depuis `ckpt_013000` via la tâche planifiée Windows `VESRES_EXP018` (`vesuvius-work/runs/EXP-018/launch.cmd`, survit à la session) ; ~2,3 it/s, fin estimée ~14:30.
+- N1.1 / H-022 — EXP-021 : reproduction sous WSL Ubuntu (`~/korotetskyi2026/code`, venv lock Linux des auteurs) ; recalcul `glyphs run` lancé puis **suspendu (SIGSTOP, PID 1881-1886)** car il divise par 5 le débit d'EXP-018. Reprendre après EXP-018 : `wsl -d Ubuntu --cd "~" -- pkill -CONT -f "glyphs run"` (lancer depuis un cwd local, pas UNC).
 
 ## Dernière tâche validée
-Intégration des exigences permanentes : `plan.md` (objectif à 4 exigences, invariants neutralité de méthode / orientation lecture / compatibilité VC / dépôt public, J9-J10, G3, K6, L1-L2, M1-M2, N1-N2, R1) ; veille corrigée (G3.1) ; matrice de conformité (L1.1) ; audit du dépôt public (M1.1) ; revue scientifique ; H-022…H-025.
+M1.2 (README anglais) et M1.3 (chemins configurables `VESRES_WORK`, commit `cf4e472`).
 Validation :
-- `pytest tests/` 12 verts (commit `e35201f`) ; `continuity-check.sh` OK (28 unités) ; audit : 0 secret, 0 donnée/image/poids dans 33 commits.
+- `pytest tests/` 12 verts ; `rg "FlowUP|100\.90\.138"` sur *.py/*.sh/*.ps1/*.md hors plan/progress : 0 occurrence ; `bash -n` des scripts OK.
 
 ## Décisions actives
 - Dépôt public MIT sur NAS ; venvs `.venv` (outils, torch 2.11), `.venv-koine` (inférence/entraînement officiels, torch 2.10), `.venv-tex` (N1) + cache, modèles, runs sur `C:\Users\FlowUP\vesuvius-work` (hors Git).
@@ -33,4 +33,4 @@ Aucun. Décision humaine attendue (non bloquante) : M1.4, e-mail personnel dans 
 - Runs : `vesuvius-work/runs/EXP-018/train/` (runner.log, ckpt_*.pth), prédictions antérieures `vesuvius-work/runs/EXP-0*` ; segments étiquetés `vesuvius-work/cache/segments/`
 
 ## NEXT ACTION
-E1.5 — À `DONE` dans `vesuvius-work/runs/EXP-018/train/runner.log` (sinon relancer `run_train.py`, reprise au dernier checkpoint) : `bash experiments/EXP-018/run_eval.sh C:/Users/FlowUP/vesuvius-work/runs/EXP-018/train/ckpt_040000.pth lo` puis `PYTHONPATH=src python experiments/EXP-018/analyze.py C:/Users/FlowUP/vesuvius-work lo experiments/EXP-018/results.json` ; conclure H-017.
+E1.5 — À `DONE` dans `vesuvius-work/runs/EXP-018/train/runner.log` : `bash experiments/EXP-018/run_eval.sh C:/Users/FlowUP/vesuvius-work/runs/EXP-018/train/ckpt_040000.pth lo` puis `PYTHONPATH=src python experiments/EXP-018/analyze.py C:/Users/FlowUP/vesuvius-work lo experiments/EXP-018/results.json` ; conclure H-017 ; puis reprendre EXP-021 (SIGCONT).

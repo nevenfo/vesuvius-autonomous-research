@@ -372,7 +372,7 @@ Dépôt public sûr, conforme aux licences et lisible par la communauté.
 Aucune.
 ### Tâches
 - [x] M1.1 Audit sécurité/licences de tout l'historique (`docs/open-source/audit-2026-11-26.md`) : aucun secret, aucune donnée/label/image/poids ; écarts listés.
-- [ ] M1.2 README et documentation d'entrée en anglais (objectif, résultats positifs et négatifs, protocoles, licences, citations), français conservé pour le travail interne.
+- [x] M1.2 README et documentation d'entrée en anglais (objectif, résultats positifs et négatifs, protocoles, licences, citations), français conservé pour le travail interne.
 - [x] M1.3 Chemins configurables (`VESRES_WORK` ; dépôt déduit de `$PSScriptRoot`) au lieu de `C:/Users/...` et de l'IP du NAS codés en dur.
 - [ ] M1.4 Décision humaine : adresse e-mail des commits (noreply GitHub pour l'avenir ; réécriture d'historique seulement sur demande).
 ### Validation

@@ -2,7 +2,7 @@
 
 Usage : <python venv-koine> experiments/EXP-018/run_train.py <train_config.json>
 Relance `koine_machines.training.train` jusqu'à ce que ckpt_040000.pth existe (≤ 6 relances) ; chaque relance reprend
-l'état complet du dernier `ckpt_*.pth` (`weights_only: false`). Journal : <out_dir>/train_<n>.log, état : <out_dir>/runner.log.
+l'état complet du dernier `ckpt_*.pth` (`weights_only: false`). Journal : <out_dir>/train_<n>.log (ajout), état : <out_dir>/runner.log.
 """
 import glob, json, os, subprocess, sys, time
 from pathlib import Path
@@ -29,7 +29,7 @@ for n in range(7):
         json.dump(cfg, open(path, 'w'), indent=1)
     log(f'launch {n} from {cfg["checkpoint"]}')
     rc = subprocess.run([sys.executable, '-u', '-m', 'koine_machines.training.train', path], cwd=W, env=ENV,
-                        stdout=open(os.path.join(out, f'train_{n}.log'), 'w'), stderr=subprocess.STDOUT).returncode
+                        stdout=open(os.path.join(out, f'train_{n}.log'), 'a'), stderr=subprocess.STDOUT).returncode
     log(f'exit {n} rc={rc}')
     time.sleep(30)
 else:
