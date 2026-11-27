@@ -1,6 +1,6 @@
 """EXP-018 — sélection des segments d'entraînement de reader-v2-LO (règles `select()` de reader-v2 `scripts/v2_run.py`).
 
-Usage : python experiments/EXP-018/select.py <out.json>
+Usage : python experiments/EXP-018/select_segments.py <out.json>
 Objets du corpus natif v2 de reader-v2 SAUF 0500P2, 0009B (objets de test) et 0841 (tenu à l'écart) :
 0139, 0814, 0343P, 0172, mêmes sous-chaînes de résolution, plafonds et exclusions que v2_run.py ; les segments
 « holdout » de v2_run (n_holdout) restent hors entraînement. Taille du surface-volume niveau 0 lue dans .zarray.
