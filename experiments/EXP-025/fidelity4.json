@@ -1,0 +1,11 @@
+{
+ "n_points": 1000,
+ "tol_voxels": 2,
+ "fidelity": 0.867,
+ "n_chunks_read": 196,
+ "valid_vertices": 13924,
+ "grid": [
+  122,
+  122
+ ]
+}

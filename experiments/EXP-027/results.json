@@ -1,0 +1,1510 @@
+{
+ "experience": "EXP-027",
+ "hypothese": "H-032",
+ "volume": "20251217075048-2.399um.tifxyz/",
+ "modele": "new_canon_autoresearch_recipe",
+ "tol_vox": 2.0,
+ "cos_min": 0.9,
+ "min_nodes": 2000,
+ "segments": {
+  "20251212185248": {
+   "name": "w029_20251212185248662_flatboi",
+   "grid_shape": [
+    1900,
+    1566
+   ],
+   "n_valid_nodes": 2522919
+  },
+  "20260119120000": {
+   "name": "w036_2026011912_flatboi",
+   "grid_shape": [
+    1995,
+    1658
+   ],
+   "n_valid_nodes": 2152015
+  },
+  "20260205070000": {
+   "name": "w041_2026020507_flatboi",
+   "grid_shape": [
+    1710,
+    1527
+   ],
+   "n_valid_nodes": 1391300
+  },
+  "20251208130119": {
+   "name": "w028_20251208130119156_flatboi",
+   "grid_shape": [
+    1871,
+    1517
+   ],
+   "n_valid_nodes": 2426333
+  },
+  "20251223230000": {
+   "name": "w031_2025122323_flatboi",
+   "grid_shape": [
+    1874,
+    1609
+   ],
+   "n_valid_nodes": 2296534
+  },
+  "20260116230000": {
+   "name": "w035_2026011623_flatboi",
+   "grid_shape": [
+    1834,
+    1628
+   ],
+   "n_valid_nodes": 2195253
+  },
+  "20251206103305": {
+   "name": "w012_20251206103305555_flatboi",
+   "grid_shape": [
+    1969,
+    785
+   ],
+   "n_valid_nodes": 1247722
+  },
+  "20240304144031": {
+   "name": "w018_20240304144031_flatboi",
+   "grid_shape": [
+    2119,
+    4905
+   ],
+   "n_valid_nodes": 9639318
+  },
+  "20260123230000": {
+   "name": "w037_2026012323_flatboi",
+   "grid_shape": [
+    1713,
+    1589
+   ],
+   "n_valid_nodes": 1787134
+  },
+  "20260130150000": {
+   "name": "w039_2026013015_flatboi",
+   "grid_shape": [
+    1805,
+    1664
+   ],
+   "n_valid_nodes": 1992893
+  },
+  "20251220020000": {
+   "name": "w030_2025122002_flatboi",
+   "grid_shape": [
+    1890,
+    1586
+   ],
+   "n_valid_nodes": 2544906
+  },
+  "20260115160000": {
+   "name": "w034_2026011516_flatboi",
+   "grid_shape": [
+    1795,
+    1622
+   ],
+   "n_valid_nodes": 2047930
+  },
+  "20260110010000": {
+   "name": "w033_2026011001_flatboi",
+   "grid_shape": [
+    1805,
+    1579
+   ],
+   "n_valid_nodes": 2092913
+  },
+  "20260128140000": {
+   "name": "w038_2026012814_flatboi",
+   "grid_shape": [
+    1759,
+    1645
+   ],
+   "n_valid_nodes": 1931517
+  },
+  "20240304141531": {
+   "name": "w013_20240304141531_flatboi",
+   "grid_shape": [
+    2080,
+    3980
+   ],
+   "n_valid_nodes": 7775742
+  },
+  "20260203210000": {
+   "name": "w040_2026020321_flatboi",
+   "grid_shape": [
+    1756,
+    1576
+   ],
+   "n_valid_nodes": 1669317
+  },
+  "20260105050000": {
+   "name": "w032_2026010505_flatboi",
+   "grid_shape": [
+    1903,
+    1641
+   ],
+   "n_valid_nodes": 2378401
+  },
+  "20260108140509": {
+   "name": "w011_20260108140509268_flatboi",
+   "grid_shape": [
+    1975,
+    736
+   ],
+   "n_valid_nodes": 1153264
+  },
+  "20240304161941": {
+   "name": "w023_20240304161941_flatboi",
+   "grid_shape": [
+    2093,
+    5118
+   ],
+   "n_valid_nodes": 9796194
+  }
+ },
+ "n_pairs_bbox_and_matched": 111,
+ "pairs": [
+  {
+   "a": "20240304141531",
+   "b": "20240304144031",
+   "name_a": "w013_20240304141531_flatboi",
+   "name_b": "w018_20240304144031_flatboi",
+   "categorie": "independante",
+   "n_nodes": 1992,
+   "median_match_dist_vox": 1.5837164094301985,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304141531",
+   "b": "20251206103305",
+   "name_a": "w013_20240304141531_flatboi",
+   "name_b": "w012_20251206103305555_flatboi",
+   "categorie": "independante",
+   "n_nodes": 870,
+   "median_match_dist_vox": 1.539585315176671,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304141531",
+   "b": "20260130150000",
+   "name_a": "w013_20240304141531_flatboi",
+   "name_b": "w039_2026013015_flatboi",
+   "categorie": "independante",
+   "n_nodes": 2,
+   "median_match_dist_vox": 1.755992205357582,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304144031",
+   "b": "20240304161941",
+   "name_a": "w018_20240304144031_flatboi",
+   "name_b": "w023_20240304161941_flatboi",
+   "categorie": "independante",
+   "n_nodes": 3428,
+   "median_match_dist_vox": 1.5732734597601539,
+   "frac_exact_nodes": 0.00029171528588098014,
+   "chevauchante": true,
+   "rho": 0.8135661573101803,
+   "null_rho": [
+    0.2453981388220634,
+    0.18084436707732554,
+    0.08321520987644768,
+    0.2607099861553271,
+    0.1597547576159066,
+    0.14324308230266944,
+    0.1064701090440856,
+    0.14317572061251022,
+    0.12274382253252185,
+    -0.02756654729170026,
+    0.007339332791053479,
+    0.008200327939095276,
+    0.184778052473139,
+    0.09896691069906699,
+    0.10997467271915405,
+    0.13893747322329789,
+    0.0644689836343547,
+    0.09170473995906608,
+    -0.041031177771216176,
+    0.16974335602306492
+   ],
+   "null_p95": 0.2461637311887266,
+   "null_axis": 1,
+   "min_shift_nodes": 63
+  },
+  {
+   "a": "20240304144031",
+   "b": "20260116230000",
+   "name_a": "w018_20240304144031_flatboi",
+   "name_b": "w035_2026011623_flatboi",
+   "categorie": "independante",
+   "n_nodes": 2,
+   "median_match_dist_vox": 1.405483021637515,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304144031",
+   "b": "20260119120000",
+   "name_a": "w018_20240304144031_flatboi",
+   "name_b": "w036_2026011912_flatboi",
+   "categorie": "independante",
+   "n_nodes": 1,
+   "median_match_dist_vox": 0.36655452631792745,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304144031",
+   "b": "20260128140000",
+   "name_a": "w018_20240304144031_flatboi",
+   "name_b": "w038_2026012814_flatboi",
+   "categorie": "independante",
+   "n_nodes": 1,
+   "median_match_dist_vox": 0.9914841449218176,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304144031",
+   "b": "20260130150000",
+   "name_a": "w018_20240304144031_flatboi",
+   "name_b": "w039_2026013015_flatboi",
+   "categorie": "independante",
+   "n_nodes": 1,
+   "median_match_dist_vox": 1.9971474331839016,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304144031",
+   "b": "20260205070000",
+   "name_a": "w018_20240304144031_flatboi",
+   "name_b": "w041_2026020507_flatboi",
+   "categorie": "independante",
+   "n_nodes": 1,
+   "median_match_dist_vox": 1.9017323602244682,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304161941",
+   "b": "20251208130119",
+   "name_a": "w023_20240304161941_flatboi",
+   "name_b": "w028_20251208130119156_flatboi",
+   "categorie": "independante",
+   "n_nodes": 2508,
+   "median_match_dist_vox": 1.6137132197152266,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": true,
+   "rho": 0.8332288045787272,
+   "null_rho": [
+    0.05665857915395891,
+    0.05163705085891017,
+    0.12108751487956171,
+    -0.019379528344385936,
+    0.06656137622796747,
+    -0.02789982254001048,
+    -0.04858202532903616,
+    0.04978886919626983,
+    -0.00849199838496584,
+    0.0027041312572150893,
+    -0.14764823565498345,
+    -0.09863953121906653,
+    -0.1308917220895414,
+    -0.1035996594510204,
+    -0.06922450947710913,
+    -0.09608134838483974,
+    -0.08731203952216185,
+    -0.08109867610227256,
+    0.09194122850934777,
+    0.021036989575004873
+   ],
+   "null_p95": 0.09339854282785849,
+   "null_axis": 0,
+   "min_shift_nodes": 63
+  },
+  {
+   "a": "20240304161941",
+   "b": "20251212185248",
+   "name_a": "w023_20240304161941_flatboi",
+   "name_b": "w029_20251212185248662_flatboi",
+   "categorie": "independante",
+   "n_nodes": 26,
+   "median_match_dist_vox": 1.7398656710081406,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304161941",
+   "b": "20251220020000",
+   "name_a": "w023_20240304161941_flatboi",
+   "name_b": "w030_2025122002_flatboi",
+   "categorie": "independante",
+   "n_nodes": 16,
+   "median_match_dist_vox": 1.4976411236803204,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304161941",
+   "b": "20251223230000",
+   "name_a": "w023_20240304161941_flatboi",
+   "name_b": "w031_2025122323_flatboi",
+   "categorie": "independante",
+   "n_nodes": 6,
+   "median_match_dist_vox": 1.3552077460635075,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304161941",
+   "b": "20260105050000",
+   "name_a": "w023_20240304161941_flatboi",
+   "name_b": "w032_2026010505_flatboi",
+   "categorie": "independante",
+   "n_nodes": 9,
+   "median_match_dist_vox": 1.5176181076065476,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304161941",
+   "b": "20260110010000",
+   "name_a": "w023_20240304161941_flatboi",
+   "name_b": "w033_2026011001_flatboi",
+   "categorie": "independante",
+   "n_nodes": 1,
+   "median_match_dist_vox": 1.789293982176963,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304161941",
+   "b": "20260116230000",
+   "name_a": "w023_20240304161941_flatboi",
+   "name_b": "w035_2026011623_flatboi",
+   "categorie": "independante",
+   "n_nodes": 16,
+   "median_match_dist_vox": 1.370768502834518,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304161941",
+   "b": "20260119120000",
+   "name_a": "w023_20240304161941_flatboi",
+   "name_b": "w036_2026011912_flatboi",
+   "categorie": "independante",
+   "n_nodes": 12,
+   "median_match_dist_vox": 1.539532085435209,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304161941",
+   "b": "20260123230000",
+   "name_a": "w023_20240304161941_flatboi",
+   "name_b": "w037_2026012323_flatboi",
+   "categorie": "independante",
+   "n_nodes": 8,
+   "median_match_dist_vox": 1.6429151842582983,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304161941",
+   "b": "20260128140000",
+   "name_a": "w023_20240304161941_flatboi",
+   "name_b": "w038_2026012814_flatboi",
+   "categorie": "independante",
+   "n_nodes": 6,
+   "median_match_dist_vox": 1.5310226743485342,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304161941",
+   "b": "20260130150000",
+   "name_a": "w023_20240304161941_flatboi",
+   "name_b": "w039_2026013015_flatboi",
+   "categorie": "independante",
+   "n_nodes": 9,
+   "median_match_dist_vox": 1.0173851606342288,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20240304161941",
+   "b": "20260205070000",
+   "name_a": "w023_20240304161941_flatboi",
+   "name_b": "w041_2026020507_flatboi",
+   "categorie": "independante",
+   "n_nodes": 19,
+   "median_match_dist_vox": 1.5212214074938848,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251206103305",
+   "b": "20260108140509",
+   "name_a": "w012_20251206103305555_flatboi",
+   "name_b": "w011_20260108140509268_flatboi",
+   "categorie": "independante",
+   "n_nodes": 449,
+   "median_match_dist_vox": 1.5656492920473846,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251208130119",
+   "b": "20251212185248",
+   "name_a": "w028_20251208130119156_flatboi",
+   "name_b": "w029_20251212185248662_flatboi",
+   "categorie": "independante",
+   "n_nodes": 2907,
+   "median_match_dist_vox": 1.524493277114853,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": true,
+   "rho": 0.8922452131377622,
+   "null_rho": [
+    -0.03425588190658592,
+    0.16531734035230441,
+    -0.053752090841810006,
+    -0.0615539631268108,
+    0.08322506501396894,
+    0.12272748322036095,
+    0.08948870153252066,
+    -0.05296057171912202,
+    -0.06618491789560375,
+    -0.21872851911349114,
+    -0.23567962194032652,
+    -0.15729526950467043,
+    -0.17488086810163592,
+    0.02024933224002549,
+    -0.12562777049751692,
+    -0.1675712450077113,
+    -0.06644205506890394,
+    0.030391066980611,
+    -0.007024754440147617,
+    0.05359408225655022
+   ],
+   "null_p95": 0.12485697607695816,
+   "null_axis": 0,
+   "min_shift_nodes": 63
+  },
+  {
+   "a": "20251208130119",
+   "b": "20251220020000",
+   "name_a": "w028_20251208130119156_flatboi",
+   "name_b": "w030_2025122002_flatboi",
+   "categorie": "independante",
+   "n_nodes": 138,
+   "median_match_dist_vox": 1.487015794986383,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251208130119",
+   "b": "20260105050000",
+   "name_a": "w028_20251208130119156_flatboi",
+   "name_b": "w032_2026010505_flatboi",
+   "categorie": "independante",
+   "n_nodes": 9,
+   "median_match_dist_vox": 1.59979567415206,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251208130119",
+   "b": "20260110010000",
+   "name_a": "w028_20251208130119156_flatboi",
+   "name_b": "w033_2026011001_flatboi",
+   "categorie": "independante",
+   "n_nodes": 5,
+   "median_match_dist_vox": 1.2669396813116847,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251208130119",
+   "b": "20260116230000",
+   "name_a": "w028_20251208130119156_flatboi",
+   "name_b": "w035_2026011623_flatboi",
+   "categorie": "independante",
+   "n_nodes": 9,
+   "median_match_dist_vox": 1.6191939286498884,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251208130119",
+   "b": "20260119120000",
+   "name_a": "w028_20251208130119156_flatboi",
+   "name_b": "w036_2026011912_flatboi",
+   "categorie": "independante",
+   "n_nodes": 99,
+   "median_match_dist_vox": 1.6463963314241663,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251208130119",
+   "b": "20260123230000",
+   "name_a": "w028_20251208130119156_flatboi",
+   "name_b": "w037_2026012323_flatboi",
+   "categorie": "independante",
+   "n_nodes": 11,
+   "median_match_dist_vox": 1.4912723311281475,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251208130119",
+   "b": "20260128140000",
+   "name_a": "w028_20251208130119156_flatboi",
+   "name_b": "w038_2026012814_flatboi",
+   "categorie": "independante",
+   "n_nodes": 4,
+   "median_match_dist_vox": 1.2220173241499683,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251208130119",
+   "b": "20260130150000",
+   "name_a": "w028_20251208130119156_flatboi",
+   "name_b": "w039_2026013015_flatboi",
+   "categorie": "independante",
+   "n_nodes": 3,
+   "median_match_dist_vox": 1.400951661500613,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251208130119",
+   "b": "20260203210000",
+   "name_a": "w028_20251208130119156_flatboi",
+   "name_b": "w040_2026020321_flatboi",
+   "categorie": "independante",
+   "n_nodes": 2,
+   "median_match_dist_vox": 1.4674931418007766,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251208130119",
+   "b": "20260205070000",
+   "name_a": "w028_20251208130119156_flatboi",
+   "name_b": "w041_2026020507_flatboi",
+   "categorie": "independante",
+   "n_nodes": 1,
+   "median_match_dist_vox": 1.882765789164844,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251212185248",
+   "b": "20251220020000",
+   "name_a": "w029_20251212185248662_flatboi",
+   "name_b": "w030_2025122002_flatboi",
+   "categorie": "independante",
+   "n_nodes": 3340,
+   "median_match_dist_vox": 1.5231028345485786,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": true,
+   "rho": 0.7807090319609937,
+   "null_rho": [
+    0.07377707818103461,
+    0.14461433217561284,
+    -0.04566875924595171,
+    -0.09226970731141838,
+    -0.017916585988622877,
+    -0.09055948112816639,
+    -0.1698156041228915,
+    0.09203766800841093,
+    -0.11967467969864674,
+    0.07097272780394782,
+    -0.026442081471717623,
+    0.11812511405615173,
+    0.07674975398776292,
+    -0.17428385026700932,
+    -0.07739822339168001,
+    -0.06577680602284007,
+    -0.01066450616870962,
+    0.03666222266942175,
+    0.053198726454565026,
+    0.030942737037151585
+   ],
+   "null_p95": 0.1194495749621248,
+   "null_axis": 0,
+   "min_shift_nodes": 63
+  },
+  {
+   "a": "20251212185248",
+   "b": "20251223230000",
+   "name_a": "w029_20251212185248662_flatboi",
+   "name_b": "w031_2025122323_flatboi",
+   "categorie": "independante",
+   "n_nodes": 37,
+   "median_match_dist_vox": 1.5973948705583458,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251212185248",
+   "b": "20260105050000",
+   "name_a": "w029_20251212185248662_flatboi",
+   "name_b": "w032_2026010505_flatboi",
+   "categorie": "independante",
+   "n_nodes": 35,
+   "median_match_dist_vox": 1.5666174995877737,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251212185248",
+   "b": "20260110010000",
+   "name_a": "w029_20251212185248662_flatboi",
+   "name_b": "w033_2026011001_flatboi",
+   "categorie": "independante",
+   "n_nodes": 34,
+   "median_match_dist_vox": 1.67529439574931,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251212185248",
+   "b": "20260115160000",
+   "name_a": "w029_20251212185248662_flatboi",
+   "name_b": "w034_2026011516_flatboi",
+   "categorie": "independante",
+   "n_nodes": 2,
+   "median_match_dist_vox": 1.501898921209221,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251212185248",
+   "b": "20260116230000",
+   "name_a": "w029_20251212185248662_flatboi",
+   "name_b": "w035_2026011623_flatboi",
+   "categorie": "independante",
+   "n_nodes": 170,
+   "median_match_dist_vox": 1.551312590522457,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251212185248",
+   "b": "20260119120000",
+   "name_a": "w029_20251212185248662_flatboi",
+   "name_b": "w036_2026011912_flatboi",
+   "categorie": "independante",
+   "n_nodes": 128,
+   "median_match_dist_vox": 1.553321686359907,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251212185248",
+   "b": "20260123230000",
+   "name_a": "w029_20251212185248662_flatboi",
+   "name_b": "w037_2026012323_flatboi",
+   "categorie": "independante",
+   "n_nodes": 36,
+   "median_match_dist_vox": 1.5722593660053574,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251212185248",
+   "b": "20260128140000",
+   "name_a": "w029_20251212185248662_flatboi",
+   "name_b": "w038_2026012814_flatboi",
+   "categorie": "independante",
+   "n_nodes": 37,
+   "median_match_dist_vox": 1.462486139867592,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251212185248",
+   "b": "20260130150000",
+   "name_a": "w029_20251212185248662_flatboi",
+   "name_b": "w039_2026013015_flatboi",
+   "categorie": "independante",
+   "n_nodes": 24,
+   "median_match_dist_vox": 1.539787503062389,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251212185248",
+   "b": "20260203210000",
+   "name_a": "w029_20251212185248662_flatboi",
+   "name_b": "w040_2026020321_flatboi",
+   "categorie": "independante",
+   "n_nodes": 5,
+   "median_match_dist_vox": 1.710597679497028,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251212185248",
+   "b": "20260205070000",
+   "name_a": "w029_20251212185248662_flatboi",
+   "name_b": "w041_2026020507_flatboi",
+   "categorie": "independante",
+   "n_nodes": 2,
+   "median_match_dist_vox": 1.0702496758975846,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251220020000",
+   "b": "20251223230000",
+   "name_a": "w030_2025122002_flatboi",
+   "name_b": "w031_2025122323_flatboi",
+   "categorie": "independante",
+   "n_nodes": 1582,
+   "median_match_dist_vox": 1.5740215060393323,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251220020000",
+   "b": "20260105050000",
+   "name_a": "w030_2025122002_flatboi",
+   "name_b": "w032_2026010505_flatboi",
+   "categorie": "independante",
+   "n_nodes": 79,
+   "median_match_dist_vox": 1.5858929303676224,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251220020000",
+   "b": "20260110010000",
+   "name_a": "w030_2025122002_flatboi",
+   "name_b": "w033_2026011001_flatboi",
+   "categorie": "independante",
+   "n_nodes": 40,
+   "median_match_dist_vox": 1.6512884753318886,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251220020000",
+   "b": "20260115160000",
+   "name_a": "w030_2025122002_flatboi",
+   "name_b": "w034_2026011516_flatboi",
+   "categorie": "independante",
+   "n_nodes": 20,
+   "median_match_dist_vox": 1.5146179607744492,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251220020000",
+   "b": "20260116230000",
+   "name_a": "w030_2025122002_flatboi",
+   "name_b": "w035_2026011623_flatboi",
+   "categorie": "independante",
+   "n_nodes": 168,
+   "median_match_dist_vox": 1.5027248122041725,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251220020000",
+   "b": "20260119120000",
+   "name_a": "w030_2025122002_flatboi",
+   "name_b": "w036_2026011912_flatboi",
+   "categorie": "independante",
+   "n_nodes": 284,
+   "median_match_dist_vox": 1.493158817120794,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251220020000",
+   "b": "20260123230000",
+   "name_a": "w030_2025122002_flatboi",
+   "name_b": "w037_2026012323_flatboi",
+   "categorie": "independante",
+   "n_nodes": 110,
+   "median_match_dist_vox": 1.5137588052584636,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251220020000",
+   "b": "20260128140000",
+   "name_a": "w030_2025122002_flatboi",
+   "name_b": "w038_2026012814_flatboi",
+   "categorie": "independante",
+   "n_nodes": 55,
+   "median_match_dist_vox": 1.5687965173397673,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251220020000",
+   "b": "20260130150000",
+   "name_a": "w030_2025122002_flatboi",
+   "name_b": "w039_2026013015_flatboi",
+   "categorie": "independante",
+   "n_nodes": 18,
+   "median_match_dist_vox": 1.625504166496066,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251220020000",
+   "b": "20260203210000",
+   "name_a": "w030_2025122002_flatboi",
+   "name_b": "w040_2026020321_flatboi",
+   "categorie": "independante",
+   "n_nodes": 6,
+   "median_match_dist_vox": 1.887396891948545,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251220020000",
+   "b": "20260205070000",
+   "name_a": "w030_2025122002_flatboi",
+   "name_b": "w041_2026020507_flatboi",
+   "categorie": "independante",
+   "n_nodes": 5,
+   "median_match_dist_vox": 1.082098232358161,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251223230000",
+   "b": "20260105050000",
+   "name_a": "w031_2025122323_flatboi",
+   "name_b": "w032_2026010505_flatboi",
+   "categorie": "independante",
+   "n_nodes": 1601,
+   "median_match_dist_vox": 1.5205717863468604,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251223230000",
+   "b": "20260110010000",
+   "name_a": "w031_2025122323_flatboi",
+   "name_b": "w033_2026011001_flatboi",
+   "categorie": "independante",
+   "n_nodes": 96,
+   "median_match_dist_vox": 1.6196668859688423,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251223230000",
+   "b": "20260115160000",
+   "name_a": "w031_2025122323_flatboi",
+   "name_b": "w034_2026011516_flatboi",
+   "categorie": "independante",
+   "n_nodes": 127,
+   "median_match_dist_vox": 1.596782715999349,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251223230000",
+   "b": "20260116230000",
+   "name_a": "w031_2025122323_flatboi",
+   "name_b": "w035_2026011623_flatboi",
+   "categorie": "independante",
+   "n_nodes": 111,
+   "median_match_dist_vox": 1.5988723864324863,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251223230000",
+   "b": "20260119120000",
+   "name_a": "w031_2025122323_flatboi",
+   "name_b": "w036_2026011912_flatboi",
+   "categorie": "independante",
+   "n_nodes": 170,
+   "median_match_dist_vox": 1.5515823991587872,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251223230000",
+   "b": "20260123230000",
+   "name_a": "w031_2025122323_flatboi",
+   "name_b": "w037_2026012323_flatboi",
+   "categorie": "independante",
+   "n_nodes": 38,
+   "median_match_dist_vox": 1.594109872790022,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251223230000",
+   "b": "20260128140000",
+   "name_a": "w031_2025122323_flatboi",
+   "name_b": "w038_2026012814_flatboi",
+   "categorie": "independante",
+   "n_nodes": 15,
+   "median_match_dist_vox": 1.641207709599237,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251223230000",
+   "b": "20260130150000",
+   "name_a": "w031_2025122323_flatboi",
+   "name_b": "w039_2026013015_flatboi",
+   "categorie": "independante",
+   "n_nodes": 15,
+   "median_match_dist_vox": 1.7331253223439524,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251223230000",
+   "b": "20260203210000",
+   "name_a": "w031_2025122323_flatboi",
+   "name_b": "w040_2026020321_flatboi",
+   "categorie": "independante",
+   "n_nodes": 31,
+   "median_match_dist_vox": 1.4626930826653788,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20251223230000",
+   "b": "20260205070000",
+   "name_a": "w031_2025122323_flatboi",
+   "name_b": "w041_2026020507_flatboi",
+   "categorie": "independante",
+   "n_nodes": 57,
+   "median_match_dist_vox": 1.5602794890805334,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260105050000",
+   "b": "20260110010000",
+   "name_a": "w032_2026010505_flatboi",
+   "name_b": "w033_2026011001_flatboi",
+   "categorie": "independante",
+   "n_nodes": 942,
+   "median_match_dist_vox": 1.536801981619674,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260105050000",
+   "b": "20260115160000",
+   "name_a": "w032_2026010505_flatboi",
+   "name_b": "w034_2026011516_flatboi",
+   "categorie": "independante",
+   "n_nodes": 124,
+   "median_match_dist_vox": 1.6408852074450515,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260105050000",
+   "b": "20260116230000",
+   "name_a": "w032_2026010505_flatboi",
+   "name_b": "w035_2026011623_flatboi",
+   "categorie": "independante",
+   "n_nodes": 144,
+   "median_match_dist_vox": 1.6232550025277497,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260105050000",
+   "b": "20260119120000",
+   "name_a": "w032_2026010505_flatboi",
+   "name_b": "w036_2026011912_flatboi",
+   "categorie": "independante",
+   "n_nodes": 118,
+   "median_match_dist_vox": 1.5316079716874884,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260105050000",
+   "b": "20260123230000",
+   "name_a": "w032_2026010505_flatboi",
+   "name_b": "w037_2026012323_flatboi",
+   "categorie": "independante",
+   "n_nodes": 67,
+   "median_match_dist_vox": 1.5538102363394093,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260105050000",
+   "b": "20260128140000",
+   "name_a": "w032_2026010505_flatboi",
+   "name_b": "w038_2026012814_flatboi",
+   "categorie": "independante",
+   "n_nodes": 38,
+   "median_match_dist_vox": 1.3670683285934255,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260105050000",
+   "b": "20260130150000",
+   "name_a": "w032_2026010505_flatboi",
+   "name_b": "w039_2026013015_flatboi",
+   "categorie": "independante",
+   "n_nodes": 16,
+   "median_match_dist_vox": 1.6896640438619772,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260105050000",
+   "b": "20260203210000",
+   "name_a": "w032_2026010505_flatboi",
+   "name_b": "w040_2026020321_flatboi",
+   "categorie": "independante",
+   "n_nodes": 30,
+   "median_match_dist_vox": 1.5735643866273978,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260105050000",
+   "b": "20260205070000",
+   "name_a": "w032_2026010505_flatboi",
+   "name_b": "w041_2026020507_flatboi",
+   "categorie": "independante",
+   "n_nodes": 14,
+   "median_match_dist_vox": 1.382238194818879,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260110010000",
+   "b": "20260115160000",
+   "name_a": "w033_2026011001_flatboi",
+   "name_b": "w034_2026011516_flatboi",
+   "categorie": "independante",
+   "n_nodes": 786,
+   "median_match_dist_vox": 1.5559512102834652,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260110010000",
+   "b": "20260116230000",
+   "name_a": "w033_2026011001_flatboi",
+   "name_b": "w035_2026011623_flatboi",
+   "categorie": "independante",
+   "n_nodes": 111,
+   "median_match_dist_vox": 1.557799650883461,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260110010000",
+   "b": "20260119120000",
+   "name_a": "w033_2026011001_flatboi",
+   "name_b": "w036_2026011912_flatboi",
+   "categorie": "independante",
+   "n_nodes": 141,
+   "median_match_dist_vox": 1.6239457011470697,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260110010000",
+   "b": "20260123230000",
+   "name_a": "w033_2026011001_flatboi",
+   "name_b": "w037_2026012323_flatboi",
+   "categorie": "independante",
+   "n_nodes": 70,
+   "median_match_dist_vox": 1.5469894847048298,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260110010000",
+   "b": "20260128140000",
+   "name_a": "w033_2026011001_flatboi",
+   "name_b": "w038_2026012814_flatboi",
+   "categorie": "independante",
+   "n_nodes": 14,
+   "median_match_dist_vox": 1.6322811277069258,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260110010000",
+   "b": "20260130150000",
+   "name_a": "w033_2026011001_flatboi",
+   "name_b": "w039_2026013015_flatboi",
+   "categorie": "independante",
+   "n_nodes": 22,
+   "median_match_dist_vox": 1.4269468803581582,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260110010000",
+   "b": "20260203210000",
+   "name_a": "w033_2026011001_flatboi",
+   "name_b": "w040_2026020321_flatboi",
+   "categorie": "independante",
+   "n_nodes": 30,
+   "median_match_dist_vox": 1.5047718338253504,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260110010000",
+   "b": "20260205070000",
+   "name_a": "w033_2026011001_flatboi",
+   "name_b": "w041_2026020507_flatboi",
+   "categorie": "independante",
+   "n_nodes": 32,
+   "median_match_dist_vox": 1.5002820951620799,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260115160000",
+   "b": "20260116230000",
+   "name_a": "w034_2026011516_flatboi",
+   "name_b": "w035_2026011623_flatboi",
+   "categorie": "independante",
+   "n_nodes": 1219,
+   "median_match_dist_vox": 1.5771868343816706,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260115160000",
+   "b": "20260119120000",
+   "name_a": "w034_2026011516_flatboi",
+   "name_b": "w036_2026011912_flatboi",
+   "categorie": "independante",
+   "n_nodes": 528,
+   "median_match_dist_vox": 1.5247407582569794,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260115160000",
+   "b": "20260123230000",
+   "name_a": "w034_2026011516_flatboi",
+   "name_b": "w037_2026012323_flatboi",
+   "categorie": "independante",
+   "n_nodes": 124,
+   "median_match_dist_vox": 1.5922655113661064,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260115160000",
+   "b": "20260128140000",
+   "name_a": "w034_2026011516_flatboi",
+   "name_b": "w038_2026012814_flatboi",
+   "categorie": "independante",
+   "n_nodes": 61,
+   "median_match_dist_vox": 1.6627768443786475,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260115160000",
+   "b": "20260130150000",
+   "name_a": "w034_2026011516_flatboi",
+   "name_b": "w039_2026013015_flatboi",
+   "categorie": "independante",
+   "n_nodes": 42,
+   "median_match_dist_vox": 1.5770602336447817,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260115160000",
+   "b": "20260203210000",
+   "name_a": "w034_2026011516_flatboi",
+   "name_b": "w040_2026020321_flatboi",
+   "categorie": "independante",
+   "n_nodes": 50,
+   "median_match_dist_vox": 1.6336693319039097,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260115160000",
+   "b": "20260205070000",
+   "name_a": "w034_2026011516_flatboi",
+   "name_b": "w041_2026020507_flatboi",
+   "categorie": "independante",
+   "n_nodes": 127,
+   "median_match_dist_vox": 1.5982484536046375,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260116230000",
+   "b": "20260119120000",
+   "name_a": "w035_2026011623_flatboi",
+   "name_b": "w036_2026011912_flatboi",
+   "categorie": "independante",
+   "n_nodes": 1315,
+   "median_match_dist_vox": 1.563973304423142,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260116230000",
+   "b": "20260123230000",
+   "name_a": "w035_2026011623_flatboi",
+   "name_b": "w037_2026012323_flatboi",
+   "categorie": "independante",
+   "n_nodes": 242,
+   "median_match_dist_vox": 1.5911923054066612,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260116230000",
+   "b": "20260128140000",
+   "name_a": "w035_2026011623_flatboi",
+   "name_b": "w038_2026012814_flatboi",
+   "categorie": "independante",
+   "n_nodes": 320,
+   "median_match_dist_vox": 1.499613401869274,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260116230000",
+   "b": "20260130150000",
+   "name_a": "w035_2026011623_flatboi",
+   "name_b": "w039_2026013015_flatboi",
+   "categorie": "independante",
+   "n_nodes": 148,
+   "median_match_dist_vox": 1.555243456566506,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260116230000",
+   "b": "20260203210000",
+   "name_a": "w035_2026011623_flatboi",
+   "name_b": "w040_2026020321_flatboi",
+   "categorie": "independante",
+   "n_nodes": 120,
+   "median_match_dist_vox": 1.5945714401444637,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260116230000",
+   "b": "20260205070000",
+   "name_a": "w035_2026011623_flatboi",
+   "name_b": "w041_2026020507_flatboi",
+   "categorie": "independante",
+   "n_nodes": 115,
+   "median_match_dist_vox": 1.624669114684049,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260119120000",
+   "b": "20260123230000",
+   "name_a": "w036_2026011912_flatboi",
+   "name_b": "w037_2026012323_flatboi",
+   "categorie": "independante",
+   "n_nodes": 945,
+   "median_match_dist_vox": 1.5751721545395498,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260119120000",
+   "b": "20260128140000",
+   "name_a": "w036_2026011912_flatboi",
+   "name_b": "w038_2026012814_flatboi",
+   "categorie": "independante",
+   "n_nodes": 288,
+   "median_match_dist_vox": 1.5751256882617684,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260119120000",
+   "b": "20260130150000",
+   "name_a": "w036_2026011912_flatboi",
+   "name_b": "w039_2026013015_flatboi",
+   "categorie": "independante",
+   "n_nodes": 116,
+   "median_match_dist_vox": 1.6342240792624243,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260119120000",
+   "b": "20260203210000",
+   "name_a": "w036_2026011912_flatboi",
+   "name_b": "w040_2026020321_flatboi",
+   "categorie": "independante",
+   "n_nodes": 139,
+   "median_match_dist_vox": 1.5850928739961163,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260119120000",
+   "b": "20260205070000",
+   "name_a": "w036_2026011912_flatboi",
+   "name_b": "w041_2026020507_flatboi",
+   "categorie": "independante",
+   "n_nodes": 130,
+   "median_match_dist_vox": 1.5517434420958842,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260123230000",
+   "b": "20260128140000",
+   "name_a": "w037_2026012323_flatboi",
+   "name_b": "w038_2026012814_flatboi",
+   "categorie": "independante",
+   "n_nodes": 630,
+   "median_match_dist_vox": 1.5520924007778318,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260123230000",
+   "b": "20260130150000",
+   "name_a": "w037_2026012323_flatboi",
+   "name_b": "w039_2026013015_flatboi",
+   "categorie": "independante",
+   "n_nodes": 168,
+   "median_match_dist_vox": 1.62312989825644,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260123230000",
+   "b": "20260203210000",
+   "name_a": "w037_2026012323_flatboi",
+   "name_b": "w040_2026020321_flatboi",
+   "categorie": "independante",
+   "n_nodes": 163,
+   "median_match_dist_vox": 1.6686973677775312,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260123230000",
+   "b": "20260205070000",
+   "name_a": "w037_2026012323_flatboi",
+   "name_b": "w041_2026020507_flatboi",
+   "categorie": "independante",
+   "n_nodes": 107,
+   "median_match_dist_vox": 1.6073785639289584,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260128140000",
+   "b": "20260130150000",
+   "name_a": "w038_2026012814_flatboi",
+   "name_b": "w039_2026013015_flatboi",
+   "categorie": "independante",
+   "n_nodes": 572,
+   "median_match_dist_vox": 1.5904103754822985,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260128140000",
+   "b": "20260203210000",
+   "name_a": "w038_2026012814_flatboi",
+   "name_b": "w040_2026020321_flatboi",
+   "categorie": "independante",
+   "n_nodes": 235,
+   "median_match_dist_vox": 1.5543809329703084,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260128140000",
+   "b": "20260205070000",
+   "name_a": "w038_2026012814_flatboi",
+   "name_b": "w041_2026020507_flatboi",
+   "categorie": "independante",
+   "n_nodes": 333,
+   "median_match_dist_vox": 1.535750975202238,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260130150000",
+   "b": "20260203210000",
+   "name_a": "w039_2026013015_flatboi",
+   "name_b": "w040_2026020321_flatboi",
+   "categorie": "independante",
+   "n_nodes": 435,
+   "median_match_dist_vox": 1.5446710009101796,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260130150000",
+   "b": "20260205070000",
+   "name_a": "w039_2026013015_flatboi",
+   "name_b": "w041_2026020507_flatboi",
+   "categorie": "independante",
+   "n_nodes": 364,
+   "median_match_dist_vox": 1.6537120800161718,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  },
+  {
+   "a": "20260203210000",
+   "b": "20260205070000",
+   "name_a": "w040_2026020321_flatboi",
+   "name_b": "w041_2026020507_flatboi",
+   "categorie": "independante",
+   "n_nodes": 498,
+   "median_match_dist_vox": 1.5661584922135874,
+   "frac_exact_nodes": 0.0,
+   "chevauchante": false
+  }
+ ],
+ "verdicts": {
+  "independantes": {
+   "verdict": "soutenue",
+   "n_pairs": 4,
+   "median_rho": 0.8233974809444538,
+   "frac_above_null_p95": 1.0
+  },
+  "derivees": {
+   "verdict": "indeterminee",
+   "n_pairs": 0
+  },
+  "toutes": {
+   "verdict": "soutenue",
+   "n_pairs": 4,
+   "median_rho": 0.8233974809444538,
+   "frac_above_null_p95": 1.0
+  }
+ },
+ "duree_s": 386.7
+}

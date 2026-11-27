@@ -1,6 +1,6 @@
 # EXP-025 — W2.3 / H-031 : premier segment propre sur un rouleau éligible sans segment publié
 
-**Statut : en cours** — essai `streamline` échoué (H-031 non atteinte à ce stade) ; essai `default` + normal-grids à faire (protocole fixé le 2026-11-27 avant exécution).
+**Statut : terminé** — H-031 réfutée de justesse (surface et temps atteints, fidélité 86,7 % < 90 %) ; premier segment propre obtenu sur un rouleau éligible sans segment publié (protocole fixé le 2026-11-27 avant exécution).
 
 ## Obstacle visé
 EXP-024 : 16/17 rouleaux First Letters n'ont aucun segment publié ; les découvertes passent par la segmentation.
@@ -60,3 +60,19 @@ même graine, puis, si échec, réduction à 30 générations pour mesurer au mo
   et par plan (`xy/000000.grid`, ≈ 0,6 Mo). Échec d'**entrée d'outil**, pas de méthode : l'essai `default` reste à faire.
 - Suite : télécharger une fenêtre des normal-grids autour de la graine (≈ ± 1 500 tranches par plan, ≈ 5 Go, cache
   évictable) et relancer `default` avec le chemin local ; H-031 conclue ensuite.
+- Essai 4 (`default`, normal-grids locales, `params4.json`, fenêtre ± 1 300 tranches téléchargée, 4,0 Go, cache
+  évictable `vesuvius-work/cache/normal_grids/PHerc1218`) : **succès de l'outil**, patch 122 × 122 nœuds,
+  **4,11 cm²** en **475 s** mur (8 threads CPU, volume lu à distance), **0 intervention humaine**.
+- Fidélité (1 000 sommets, prédiction de surface niveau 0) : **86,7 %** à ≤ 2 voxels (`fidelity4.json`) ;
+  descriptif hors critère : 96,3 % à ≤ 4 voxels (≈ 35 µm, `fidelity4_tol4_descriptif.json`).
+
+## Conclusion
+- **H-031 réfutée de justesse** au critère fixé (fidélité < 90 %) ; surface (≥ 4 cm²) et temps (≤ 2 h) atteints.
+- Faisabilité démontrée : la chaîne officielle VC3D produit sans intervention, en 8 min sur notre PC, un patch de la
+  taille du critère First Letters sur un rouleau éligible sans segment publié. Le mode `streamline` (CT seul) échoue ;
+  le mode `default` exige les normal-grids **locales**.
+- Limites : fidélité mesurée contre m7 (pas contre le feuillet réel) ; ≈ 13 % des sommets à plus de 2 voxels de m7
+  (lissage, trous de m7 ou dérive) ; pas de contrôle de saut de feuillet ; un seul patch, une seule graine.
+- Suite (R1.2) : rendre le surface-volume (`vc_render_tifxyz`, 31 couches, `tifs_to_sv.py`), appliquer la chaîne
+  d'encre figée propre (reader-v2-LO / ink_9um, n'ayant pas vu 1218), inspection privée ; en parallèle, mesurer
+  l'auto-cohérence (H-032) entre deux patchs chevauchants issus de graines voisines.

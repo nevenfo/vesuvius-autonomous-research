@@ -1,15 +1,15 @@
 # PROGRESS
 
 ## Phase actuelle
-Refonte du 2026-11-27 faite (S1, J1) + créativité intégrée (X1 : `docs/protocols/research-loop.md` §6, idées I-001…I-008 dans `docs/hypotheses.md`). Faits aujourd'hui : V1 (EXP-022), W1.1 (EXP-023, H-028 indéterminée), P1, P2.1, P3.1, R1.1 (EXP-024), T1.1, W2.1, Y1.1, E1.6, G3.4, K3.1 (EXP-026), X1.1–X1.2.
+Refonte du 2026-11-27 faite (S1, J1) + créativité intégrée (X1). Faits aujourd'hui : V1 (EXP-022), W1.1 (EXP-023), W2.1, W2.3 (EXP-025), P1, P2.1, P3.1, R1.1 (EXP-024), T1.1, Y1.1, E1.6, G3.4, K3.1 (EXP-026), X1.1–X1.2, X2.1 (EXP-027), X2.2 (EXP-028).
 
 ## Tâche actuelle
-Deux unités en parallèle (CPU, pas de contention GPU) : X2.1 / H-032 — EXP-027 (auto-cohérence de rendus redondants de 1667, sous-agent en cours) ; W2.3 / H-031 — EXP-025 (segment propre sur PHerc1218 : streamline échoué, `default` à relancer avec normal-grids locales).
+R1.2 — rendre le surface-volume du patch propre de PHerc1218 (EXP-025 `out4`, 4,11 cm²) et y appliquer la chaîne d'encre figée n'ayant pas vu 1218 (reader-v2-LO, ink_9um), inspection privée des zones candidates.
 
 ## Dernière tâche validée
-W1.1 / EXP-023 — inventaire de couverture déterministe (35 rouleaux) ; estimateur de pas inopérant (H-028 indéterminée) ; somme des segments de 1667 = 2× la surface déroulée publiée.
+W2.3 / EXP-025 — premier segment propre sur un rouleau éligible sans segment publié (PHerc1218) : 4,11 cm² en 475 s sans intervention (VC3D `default` + normal-grids locales) ; H-031 réfutée de justesse (fidélité à m7 86,7 % < 90 %). X2.1 / EXP-027 — H-032 soutenue (auto-cohérence de rendus redondants, ρ 0,78–0,89).
 Validation :
-- `pytest tests -m "not network"` 26 verts ; deux exécutions → sha256 identiques ; commit `d95f22f` poussé.
+- `pytest tests -m "not network"` 31 verts ; `continuity-check.sh` OK ; `experiments/EXP-025/fidelity4.json`, `experiments/EXP-027/results.json`.
 
 ## Décisions actives
 - Objectif = tout lire, technologie neutre ; métriques pixel = diagnostics ; mesures glyphe (`src/vesres/reading.py`), couverture (`src/vesres/coverage.py`).
@@ -30,4 +30,4 @@ Aucun. Décisions humaines (non bloquantes) : M1.4 e-mail des commits ; envoi de
 - Runs `vesuvius-work/runs/EXP-025/` (graines, params, logs) ; références privées `vesuvius-work/refs/PHerc1667/`
 
 ## NEXT ACTION
-X2.1 — À la fin du sous-agent EXP-027 : vérifier tests, `experiments/EXP-027/results.json` et le verdict H-032, puis consigner (registre, hypothèses, plan) ; ensuite W2.3 : télécharger la fenêtre de normal-grids de PHerc1218 autour de z 11620 et relancer `vc_grow_seg_from_seed` en mode `default` avec le chemin local.
+R1.2 — `vc_render_tifxyz.exe -v <volume 1218 masqué> -s runs/EXP-025/out4 --scale 1 -g 0 -n 31 --tif-output runs/EXP-029/render`, puis `experiments/EXP-025/tifs_to_sv.py` → `runs/EXP-029/sv.zarr` et inférence `koine_machines.inference.infer` avec `runs/EXP-018/train/ckpt_040000.pth` (reader-v2-LO) ; README EXP-029 (critères écrits avant) ; inspection privée, aucune publication.

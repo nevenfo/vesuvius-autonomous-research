@@ -107,7 +107,7 @@ Tester par des expériences courtes et discriminantes les idées au meilleur rap
 ### Dépendances
 X1.
 ### Tâches
-- [ ] X2.1 I-003 → H-032, EXP-027 : auto-cohérence de rendus redondants de 1667.
+- [x] X2.1 I-003 → H-032, EXP-027 : auto-cohérence de rendus redondants de 1667. (H-032 soutenue : ρ 0,78–0,89 ; prochaine étape : carte locale de stabilité, tolérance d'appariement révisée.)
 - [x] X2.2 I-008 : masque officiel vs papyrus (tranches, PHerc1218/0800), coût très faible. (EXP-028 : H-033 réfutée, masque non amputant ; fragments détachés non départageables.)
 - [ ] X2.3 I-004 : encre 3D publiée vs rendus de surface, par glyphe, sur zone étiquetée.
 - [ ] X2.4 I-001 minimal : seuil de détectabilité du relief d'encre selon voxel/bruit sur coupe 2D simulée.
@@ -194,7 +194,7 @@ W1.
 ### Tâches
 - [x] W2.1 Fiche par outil (capacités, limites, coût, licence, sorties) depuis sources primaires et dépôts. (`docs/state-of-the-art/2026-11-27-reading-and-geometry.md` §2 ; VC3D GPL-3.0, AppImage CLI.)
 - [ ] W2.2 Tester sur une région d'un rouleau la détection de trous, doublons et sauts de feuillet par les outils existants ; décider si la géométrie est un obstacle significatif (H-009 sur surfaces difficiles).
-- [ ] W2.3 Produire avec les outils officiels (VC3D/villa, lasagna) au moins un segment tifxyz sur un rouleau éligible sans segment publié, depuis `surface-prediction-zarr`/`normal-grids` ; rendre son surface-volume ; mesurer surface obtenue, temps machine et humain, contrôles qualité.
+- [x] W2.3 Produire avec les outils officiels (VC3D/villa, lasagna) au moins un segment tifxyz sur un rouleau éligible sans segment publié, depuis `surface-prediction-zarr`/`normal-grids` ; rendre son surface-volume ; mesurer surface obtenue, temps machine et humain, contrôles qualité. (EXP-025 : PHerc1218, 4,11 cm² en 475 s, 0 intervention, fidélité 86,7 % ; rendu du surface-volume reporté à R1.2.)
 ### Validation
 Décision écrite « réutiliser / contourner / développer » avec preuves.
 
