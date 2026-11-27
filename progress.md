@@ -5,7 +5,7 @@ Phases E/F/K/N — baseline et boucle expérimentale ; quatre exigences permanen
 
 ## Tâche actuelle
 - E1.5 / H-017 — EXP-018 : entraînement interrompu le 2026-11-26 à 13212 it. (processus tué), relancé le 2026-11-27 10:58 depuis `ckpt_013000` via la tâche planifiée Windows `VESRES_EXP018` (`vesuvius-work/runs/EXP-018/launch.cmd`, survit à la session) ; ~2,3 it/s, fin estimée ~14:30.
-- N1.1 / H-022 — EXP-021 : reproduction sous WSL Ubuntu (`~/korotetskyi2026/code`, venv lock Linux des auteurs) ; recalcul `glyphs run` lancé puis **suspendu (SIGSTOP, PID 1881-1886)** car il divise par 5 le débit d'EXP-018. Reprendre après EXP-018 : `wsl -d Ubuntu --cd "~" -- pkill -CONT -f "glyphs run"` (lancer depuis un cwd local, pas UNC).
+- N1.1 / H-022 — EXP-021 : reproduction sous WSL Ubuntu (`~/korotetskyi2026/code`, venv lock Linux des auteurs, `out_supplied/` = résultats fournis, `out/` vide). Recalcul interrompu : même suspendu, il prive EXP-018 de CPU/RAM (2,3 → 0,5-1,2 it/s) ; WSL éteint. Relancer après EXP-018 : `bash experiments/EXP-021/reproduce_glyphs.sh` sous WSL (cwd local).
 
 ## Dernière tâche validée
 M1.2 (README anglais) et M1.3 (chemins configurables `VESRES_WORK`, commit `cf4e472`).
@@ -33,4 +33,4 @@ Aucun. Décision humaine attendue (non bloquante) : M1.4, e-mail personnel dans 
 - Runs : `vesuvius-work/runs/EXP-018/train/` (runner.log, ckpt_*.pth), prédictions antérieures `vesuvius-work/runs/EXP-0*` ; segments étiquetés `vesuvius-work/cache/segments/`
 
 ## NEXT ACTION
-E1.5 — À `DONE` dans `vesuvius-work/runs/EXP-018/train/runner.log` : `bash experiments/EXP-018/run_eval.sh C:/Users/FlowUP/vesuvius-work/runs/EXP-018/train/ckpt_040000.pth lo` puis `PYTHONPATH=src python experiments/EXP-018/analyze.py C:/Users/FlowUP/vesuvius-work lo experiments/EXP-018/results.json` ; conclure H-017 ; puis reprendre EXP-021 (SIGCONT).
+E1.5 — À `DONE` dans `vesuvius-work/runs/EXP-018/train/runner.log` : `bash experiments/EXP-018/run_eval.sh C:/Users/FlowUP/vesuvius-work/runs/EXP-018/train/ckpt_040000.pth lo` puis `PYTHONPATH=src python experiments/EXP-018/analyze.py C:/Users/FlowUP/vesuvius-work lo experiments/EXP-018/results.json` ; conclure H-017 ; puis relancer EXP-021 (`reproduce_glyphs.sh` sous WSL).
