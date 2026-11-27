@@ -1,0 +1,25 @@
+{
+ "PHerc1218": {
+  "pred": 403125,
+  "out": 198700,
+  "border": 76,
+  "near": 62,
+  "far": 198562,
+  "in_filled": 2,
+  "frac_out_of_pred": 0.4929,
+  "frac_plausible_papyrus": 0.0007,
+  "frac_in_filled_envelope": 0.0
+ },
+ "PHerc0800": {
+  "pred": 903739,
+  "out": 292680,
+  "border": 121,
+  "near": 14,
+  "far": 292545,
+  "in_filled": 5,
+  "frac_out_of_pred": 0.3239,
+  "frac_plausible_papyrus": 0.0005,
+  "frac_in_filled_envelope": 0.0
+ },
+ "H033": "réfutée"
+}

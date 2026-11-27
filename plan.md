@@ -108,7 +108,7 @@ Tester par des expériences courtes et discriminantes les idées au meilleur rap
 X1.
 ### Tâches
 - [ ] X2.1 I-003 → H-032, EXP-027 : auto-cohérence de rendus redondants de 1667.
-- [ ] X2.2 I-008 : masque officiel vs papyrus (tranches, PHerc1218/0800), coût très faible.
+- [x] X2.2 I-008 : masque officiel vs papyrus (tranches, PHerc1218/0800), coût très faible. (EXP-028 : H-033 réfutée, masque non amputant ; fragments détachés non départageables.)
 - [ ] X2.3 I-004 : encre 3D publiée vs rendus de surface, par glyphe, sur zone étiquetée.
 - [ ] X2.4 I-001 minimal : seuil de détectabilité du relief d'encre selon voxel/bruit sur coupe 2D simulée.
 ### Validation
