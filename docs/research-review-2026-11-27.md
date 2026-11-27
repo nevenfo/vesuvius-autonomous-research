@@ -107,3 +107,12 @@ Les leviers d'encre au pixel (calibration, fusion, TTA, durée d'entraînement) 
 
 Écartés pour l'instant (révisables) : K4/K5 (optimisation d'entraînement), nouveaux leviers d'encre au pixel,
 développement géométrique propre, super-résolution.
+
+## 6. Mise à jour après EXP-022 et EXP-024 (même jour)
+- EXP-022 : métrique glyphe validée (H-026) ; à 9 µm, 29 % [13-53] des UGR de 0841 fortement lisibles (H-027 réfutée) ;
+  canon 2,4 µm 65 % mais référence R1 → H-029 (Y1) reste la question décisionnelle sur la résolution.
+- EXP-024 : 16/17 rouleaux éligibles First Letters n'ont **aucun segment publié** ; tous ont prédiction de surface et
+  normal-grids officielles ; les lauréats ont produit leurs propres segments ; le signal R0 ne trie pas les cibles.
+- Conséquence : l'obstacle n° 2 (couverture) devient la condition directe des découvertes. Nouvelle priorité : W2.3
+  (segments propres sur rouleau éligible avec VC3D/lasagna), avant toute inférence R1.2 ; PHerc0800 audité (17 cm²,
+  aucune lettre lisible dans les prédictions officielles, `docs/compliance/target-PHerc0800.md`).

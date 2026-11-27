@@ -80,8 +80,7 @@ couverture. Toute brique est remplaçable sur preuve ; contournements de la géo
 aplati) admis comme hypothèses.
 
 ## Obstacles prioritaires et priorités courantes
-Détail argumenté : `docs/research-review-2026-11-27.md` §4–5. Ordre courant : V1 → W1 → P1/P2 → T1 → R1 → Y1 →
-V2/T2 → H1 ; N1/N2 opportunistes ; K4/K5 suspendus.
+Détail argumenté : `docs/research-review-2026-11-27.md` §4–6. Ordre courant : W1 → W2.3 (segments propres sur rouleau éligible, condition de R1) → T1 → R1.2 → Y1 → V2/T2 → H1 ; N1/N2 opportunistes ; K4/K5 suspendus. Faits : V1, P1, P2.1, R1.1.
 
 ## Traçabilité ancien → nouveau
 Validés conservés en S0. Ouverts repris sous leur ID : B1.2, E1.1, E1.3, G2.2, G3.2, G3.3, H1.1, H1.2, I1.1, I1.2,
@@ -167,6 +166,7 @@ W1.
 ### Tâches
 - [ ] W2.1 Fiche par outil (capacités, limites, coût, licence, sorties) depuis sources primaires et dépôts.
 - [ ] W2.2 Tester sur une région d'un rouleau la détection de trous, doublons et sauts de feuillet par les outils existants ; décider si la géométrie est un obstacle significatif (H-009 sur surfaces difficiles).
+- [ ] W2.3 Produire avec les outils officiels (VC3D/villa, lasagna) au moins un segment tifxyz sur un rouleau éligible sans segment publié, depuis `surface-prediction-zarr`/`normal-grids` ; rendre son surface-volume ; mesurer surface obtenue, temps machine et humain, contrôles qualité.
 ### Validation
 Décision écrite « réutiliser / contourner / développer » avec preuves.
 
@@ -188,7 +188,7 @@ Tracer données, labels, pseudo-labels, modèles, checkpoints et prédictions.
 ### Dépendances
 B2.3.
 ### Tâches
-- [ ] P1.1 `docs/data/provenance.csv` (source, relation, cible, statut, preuve) depuis `splits.md`, model cards, EXP-017/018 ; test de cohérence.
+- [x] P1.1 `docs/data/provenance.csv` (source, relation, cible, statut, preuve) depuis `splits.md`, model cards, EXP-017/018 ; test de cohérence. (`tests/test_provenance.py` 3 verts ; parentés NV : Hecate, canon, reader-v3, argus-v3, modèle de pseudo-labeling.)
 ### Validation
 Chaque modèle évalué a ses parentés ; inconnues marquées.
 
@@ -198,7 +198,7 @@ Attribuer une classe R0–R4 à chaque métrique historique et borner les conclu
 ### Dépendances
 P1.
 ### Tâches
-- [ ] P2.1 Colonne « classe de référence » dans le registre et les résultats ; corriger toute conclusion qui dépasse sa classe (EXP-017 en priorité).
+- [x] P2.1 Colonne « classe de référence » dans le registre et les résultats ; corriger toute conclusion qui dépasse sa classe (EXP-017 en priorité). (`registry.csv` colonne `ref_class` ; EXP-017 requalifiée dans `docs/hypotheses.md` et EXP-022.)
 - [ ] B1.2 Licences VC3D/lasagna ; modèle de pseudo-labeling des ink-labels (reste non vérifié).
 ### Validation
 Registre complété ; liste des conclusions révisées.
@@ -284,9 +284,9 @@ Modèle de dossier commité ; aucune publication sans accord.
 ### Objectif
 Rechercher zones d'encre et lettres candidates sur un rouleau éligible avec une chaîne n'ayant vu aucune région de ce rouleau, sans attendre la fin des travaux intermédiaires.
 ### Dépendances
-L2.2 (provenance), V1 (métriques), P1.
+L2.2 (provenance), V1 (métriques), P1 ; W2.3 (segments propres sur rouleau éligible, EXP-024).
 ### Tâches
-- [ ] R1.1 Audit PHerc0800 (intérêt, segments, qualité, éligibilité, parentés des modèles : reader-v2/LO/ink_9um sans 0800, Hecate et reader-v3 à vérifier) ; inspecter d'abord les prédictions officielles publiées.
+- [x] R1.1 Audit PHerc0800 (intérêt, segments, qualité, éligibilité, parentés des modèles : reader-v2/LO/ink_9um sans 0800, Hecate et reader-v3 à vérifier) ; inspecter d'abord les prédictions officielles publiées. (`docs/compliance/target-PHerc0800.md` : 17 cm² publiés, aucune lettre lisible ; EXP-024 : 16/17 rouleaux éligibles sans segment publié → goulot = segmentation.)
 - [ ] R1.2 Inférence de la chaîne figée, cartes privées, examen des faux positifs (fond, fibres) ; zones candidates documentées (coordonnées, méthode, incertitudes) sans publication.
 - [ ] R1.3 Si ≥ 10 lettres candidates dans 4 cm² : dossier de preuve privé et décision humaine (Discord / soumission).
 ### Validation

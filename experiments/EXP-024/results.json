@@ -1,0 +1,185 @@
+{
+ "PHerc0125": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc0175A": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc0175B": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc0191": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc0257": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc0268": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc0358": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc0483A": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc0483B": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc0490A": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc0490B": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc0800": {
+  "role": "eligible",
+  "n_segments_catalog": 6,
+  "n_segments_reader_v3": 6,
+  "pred_cm2": 17.27,
+  "median_glyph_blobs_per_cm2": 2.185,
+  "median_frac_gt05": 0.0431
+ },
+ "PHerc0813": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc0826": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc1203": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc1218": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc1545": {
+  "role": "eligible",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc0306B": {
+  "role": "winner_control",
+  "n_segments_catalog": 1,
+  "n_segments_reader_v3": 1,
+  "pred_cm2": 24.65,
+  "median_glyph_blobs_per_cm2": 1.582,
+  "median_frac_gt05": 0.0368
+ },
+ "PHerc0343": {
+  "role": "winner_control",
+  "n_segments_catalog": 1,
+  "n_segments_reader_v3": 1,
+  "pred_cm2": 11.37,
+  "median_glyph_blobs_per_cm2": 3.254,
+  "median_frac_gt05": 0.0903
+ },
+ "PHerc0846A": {
+  "role": "winner_control",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc0846B": {
+  "role": "winner_control",
+  "n_segments_catalog": 0,
+  "n_segments_reader_v3": 0,
+  "pred_cm2": 0,
+  "median_glyph_blobs_per_cm2": null,
+  "median_frac_gt05": null
+ },
+ "PHerc0211": {
+  "role": "winner_control",
+  "n_segments_catalog": 1,
+  "n_segments_reader_v3": 1,
+  "pred_cm2": 9.04,
+  "median_glyph_blobs_per_cm2": 4.975,
+  "median_frac_gt05": 0.0968
+ },
+ "criterion": {
+  "winners_median": 3.254,
+  "eligible_median": 2.185,
+  "n_winners": 3,
+  "n_eligible": 1,
+  "informative": true
+ }
+}

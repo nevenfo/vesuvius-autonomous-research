@@ -1,0 +1,36 @@
+source,relation,cible,statut,preuve
+ink_9um,trained_on,PHerc0139,V,huggingface.co/scrollprize/ink_9um (Training data)
+ink_9um,trained_on,PHerc1667,V,huggingface.co/scrollprize/ink_9um (Training data)
+ink_9um,trained_on,PHercParis4,V,huggingface.co/scrollprize/ink_9um (Training data)
+ink_9um,trained_on,PHerc0814,V,huggingface.co/scrollprize/ink_9um (Training data)
+reader-v2,trained_on,PHerc0139,V,github.com/DomRusso2/reader-v2 train_config.json
+reader-v2,trained_on,PHerc1667,V,github.com/DomRusso2/reader-v2 train_config.json
+reader-v2,trained_on,PHercParis4,V,github.com/DomRusso2/reader-v2 train_config.json
+reader-v2,trained_on,PHerc0814,V,github.com/DomRusso2/reader-v2 train_config.json
+reader-v2,trained_on,PHerc0009B,V,train_config.json (segments hors segment étiqueté)
+reader-v2,trained_on,PHerc0500P2,V,train_config.json (segment 20250825181859--1 tenu à l'écart)
+reader-v2,trained_on,PHerc0343P,V,train_config.json
+reader-v2,trained_on,PHerc0172,V,train_config.json
+reader-v2,distilled_from,canon_2.4um_maps,V,experiments/EXP-018/README.md (labels natifs = carte canon 2.4 µm)
+reader-v2,initialized_from,ft12k,A,reader-v2 scripts/v2_run.py (parent de ft12k non publié)
+reader-v2-LO,trained_on,PHerc0139,V,experiments/EXP-018/selection.json
+reader-v2-LO,trained_on,PHerc1667,V,experiments/EXP-018/selection.json
+reader-v2-LO,trained_on,PHercParis4,V,experiments/EXP-018/selection.json
+reader-v2-LO,trained_on,PHerc0814,V,experiments/EXP-018/selection.json
+reader-v2-LO,distilled_from,canon_2.4um_maps,V,experiments/EXP-018/README.md
+reader-v2-LO,initialized_from,ink_9um,V,experiments/EXP-018/make_config.py (s43 60k)
+reader-v2-LO,selected_with,PHerc0343P,V,docs/protocols/training-duration.md (validation K holdouts)
+reader-v2-LO,selected_with,PHerc0172,V,docs/protocols/training-duration.md (validation K holdouts)
+hecate,trained_on,PHercParis4,V,huggingface.co/scrollprize/hecate (3D Paris4)
+hecate,trained_on,unknown_scrolls,NV,huggingface.co/scrollprize/hecate (liste non publiée)
+canon_2.4um,trained_on,unknown_scrolls,NV,EXP-017 (recette new_canon_autoresearch_recipe non documentée)
+canon_2.4um_maps,produced_by,canon_2.4um,V,EXP-017 sources.txt
+reader-v3,trained_on,unknown_scrolls,NV,scrollprize.org/winners (Progress Prize oct. 2026)
+argus-v3,trained_on,unknown_scrolls,NV,EXP-017 sources.txt
+ink-labels-20260918,pseudo_labeled_by,unknown_model,NV,scrollprize.org/data/datasets/ink-labels-README.md (traits manuels + pseudo-labeling itératif)
+ink-labels-20260918,aligned_on,canon_render,V,metadata/history/20261119T152337Z (canonical render + ink-prediction alignment)
+PHerc0841_labels_2.403um,same_volume_other_resolution,PHerc0841_scan_9.366um,V,docs/data/splits.md (77 keV 2.403 µm vs 113 keV 9.366 µm)
+PHerc0841,consulted_by,EXP-001..EXP-022,V,experiments/registry.csv (objet rétrospectif)
+PHerc0009B,consulted_by,EXP-004..EXP-022,V,experiments/registry.csv (objet rétrospectif)
+PHerc0500P2,consulted_by,EXP-008..EXP-022,V,experiments/registry.csv (objet rétrospectif)
+korotetskyi2026_masks,produced_by,community_prediction_PHerc0172,V,Zenodo 10.5281/zenodo.24392114 make_masks.py
