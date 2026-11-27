@@ -1,6 +1,6 @@
 # EXP-029 — R1.2 : chaîne d'encre figée sur le patch propre de PHerc1218 (EXP-025 `out4`)
 
-**Statut : terminé** — H-034 soutenue au critère (accord faible mais non fortuit) ; 0 zone candidate ; aucun trait d'écriture à l'inspection privée. Préenregistré le 2026-11-27 avant tout rendu ou inférence.
+**Statut : terminé** — rendu valide = `--flip-normals` (EXP-030) : H-034 soutenue (ρ 0,372 vs nul 0,068) ; 3 zones au critère (0,96 mm²), taches rondes sans trait → **aucune lettre candidate**. Préenregistré le 2026-11-27 avant tout rendu ou inférence.
 
 ## Question
 La chaîne d'encre figée n'ayant vu aucune région de PHerc1218 produit-elle, sur le premier patch propre obtenu sans
@@ -65,3 +65,28 @@ agrégats numériques sont versionnés.
   (c) chaîne de rendu propre (VC3D tifxyz → 31 couches, scale 1) non équivalente aux surface-volumes publiés sur
   lesquels les modèles ont été validés. **(c) n'a jamais été contrôlé** : sans contrôle positif, l'absence de zone est
   ininterprétable → R1.4.
+
+## Correction d'orientation (2026-11-27, après EXP-030)
+EXP-030 a montré que le rendu VC3D par défaut d'un tifxyz à normale sortante inverse l'ordre des couches (chaîne d'encre
+aveugle : AUC 0,49 sur 0841). Le patch `out4` a une normale sortante → le rendu valide est `--flip-normals`
+(`vesuvius-work/runs/EXP-029/flip/`, `results_flip.json`) ; les résultats ci-dessus (premier rendu) sont **invalides**
+pour la question de l'encre et conservés pour traçabilité.
+
+| Mesure (`--flip-normals`) | reader-v2-LO | ink_9um |
+|---|---|---|
+| p50 / p95 / p99 | 0,27 / 0,34 / 0,44 | 0,33 / 0,60 / 0,71 |
+| ρ carte–intensité CT | 0,04 | 0,02 |
+| ρ carte–distance au bord | −0,01 | −0,04 |
+
+- Orientation : médiane maximale couche 14 (centre 15) ; accord inter-modèles ρ = **0,372** vs nul p95 0,068.
+- Zones au critère : **3** (0,27–0,36 mm², 0,96 mm² au total, probabilité moyenne 0,58–0,64), coordonnées dans
+  `private/zones.json`.
+- Inspection privée : les trois zones sont des taches rondes ≈ 0,6 mm sans structure de trait ; dans le rendu, elles
+  tombent sur des croisements de fibres et des taches sombres, pas sur des formes de lettres. Artefact de cadre
+  d'ink_9um inchangé.
+
+## Conclusion révisée
+- **H-034 soutenue** (orientation valide), accord plus fort qu'avec la mauvaise face (0,372 vs 0,278).
+- **Aucune lettre candidate** sur ces 4,11 cm² → R1.3 non déclenché. Le rendu étant contrôlé (EXP-030), l'absence est
+  informative mais pas concluante : (a) zone sans encre (marge, lacune, verso), (b) encre sous le seuil dans le domaine
+  1218. Un patch de 4 cm² ne permet pas de trancher → R1.5 (surface ≥ 40 cm²).

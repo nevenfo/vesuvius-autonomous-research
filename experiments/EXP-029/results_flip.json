@@ -1,0 +1,38 @@
+{
+ "layers": 31,
+ "shape": [
+  2440,
+  2440
+ ],
+ "valid_frac": 0.9197,
+ "orientation": {
+  "median_by_layer_argmax": 14,
+  "center": 15,
+  "ok": true
+ },
+ "lo": {
+  "p50": 0.2745,
+  "p95": 0.3373,
+  "p99": 0.4392,
+  "rho_intensity": 0.04,
+  "rho_edge": -0.012
+ },
+ "i9": {
+  "p50": 0.3255,
+  "p95": 0.5961,
+  "p99": 0.7098,
+  "rho_intensity": 0.024,
+  "rho_edge": -0.044
+ },
+ "agreement": {
+  "rho_lo_i9": 0.372,
+  "null_p95": 0.068,
+  "null_median": -0.013
+ },
+ "candidates": {
+  "n_zones": 3,
+  "total_area_mm2": 0.963,
+  "threshold_mean_p99": 0.5275
+ },
+ "H-034": "soutenue"
+}
