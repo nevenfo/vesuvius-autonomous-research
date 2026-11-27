@@ -4,8 +4,9 @@ Run with .venv python (cv2, tifffile, zarr); hecate.py is run by .venv-koine pyt
 Resample: XY cv2.INTER_AREA to round(n*um/9.6), Z linear (zs=(k+.5)/f-.5), uint8 round. Back: cv2.INTER_LINEAR to (W,H).
 """
 import os, subprocess, sys, time
+from pathlib import Path
 import cv2, numpy as np, tifffile, zarr
-W0 = 'C:/Users/FlowUP/vesuvius-work'
+W0 = os.environ.get('VESRES_WORK', str(Path.home() / 'vesuvius-work')).replace('\\', '/')
 HD = W0 + '/models/scrollprize_hecate'
 KPY = W0 + '/.venv-koine/Scripts/python.exe'
 

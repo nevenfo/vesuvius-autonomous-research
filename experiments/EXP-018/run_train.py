@@ -5,8 +5,9 @@ Relance `koine_machines.training.train` jusqu'à ce que ckpt_040000.pth existe (
 l'état complet du dernier `ckpt_*.pth` (`weights_only: false`). Journal : <out_dir>/train_<n>.log, état : <out_dir>/runner.log.
 """
 import glob, json, os, subprocess, sys, time
+from pathlib import Path
 
-W = 'C:/Users/FlowUP/vesuvius-work'
+W = os.environ.get('VESRES_WORK', str(Path.home() / 'vesuvius-work')).replace('\\', '/')
 ENV = dict(os.environ, WANDB_MODE='disabled', PYTHONIOENCODING='utf-8',
            PYTHONPATH=os.pathsep.join([f'{W}/third_party/villa/ink-detection', f'{W}/third_party/villa/vesuvius/src']))
 cfg_path = sys.argv[1]

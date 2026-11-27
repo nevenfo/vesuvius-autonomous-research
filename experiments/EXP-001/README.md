@@ -17,7 +17,7 @@
 - reader-v2 : `domenicor046/reader-v2/reader-v2-step040000.pth`, sha256 `654ec5ac…d5a6`, MIT.
 - ink_9um : `scrollprize/ink_9um/hybrid_3d2d-seed43/step-060000.pth`, sha256 `bf229faf…d270`, MIT.
 - Évaluation : `python -m vesres.eval_ink <pred.tif> <segment_dir> <out.json>` (protocole reader-v2 répliqué + AP, F1, IC bootstrap de blocs 256 px).
-- Empreintes des prédictions : `predictions.sha256` (cartes conservées hors dépôt, `C:\Users\FlowUP\vesuvius-work\runs\EXP-001`, non publiables — licence données).
+- Empreintes des prédictions : `predictions.sha256` (cartes conservées hors dépôt, `$VESRES_WORK/runs/EXP-001`, non publiables — licence données).
 
 ## Résultats
 | Modèle | Région | AUC (protocole) | Publié | AUC exacte | IC 95 % blocs | AP | F1 max | Prévalence |

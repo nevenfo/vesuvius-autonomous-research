@@ -1,9 +1,9 @@
 # Weekly VESUVIUS watch, launched by the scheduled task Windows "VesuviusResearchWatch".
 # No commit: report + state written to watch/, analysed in the next Claude Code session.
 $ErrorActionPreference = "Continue"
-$Repo = "\\100.90.138.125\ssk\VESUVIUS AUTONOMOUS RESEARCH"
-$Py   = "C:\Users\FlowUP\vesuvius-work\.venv\Scripts\python.exe"
-$LogDir = "C:\Users\FlowUP\vesuvius-work\logs"
+$Repo = Split-Path -Parent $PSScriptRoot
+$Py   = Join-Path $env:USERPROFILE "vesuvius-work\.venv\Scripts\python.exe"
+$LogDir = Join-Path $env:USERPROFILE "vesuvius-work\logs"
 New-Item -ItemType Directory -Force $LogDir | Out-Null
 $Log = Join-Path $LogDir "watch.log"
 $env:PYTHONPATH = Join-Path $Repo "src"

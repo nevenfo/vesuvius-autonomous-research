@@ -3,7 +3,7 @@
 Usage : python -m vesres.fetch_segment <scroll> <segment_long_id> <sv_name.zarr> <labels_rel_dir> <dest_dir>
 Exemple : python -m vesres.fetch_segment PHerc0841 20260220213127-w00 \
     9.366um-1.2m-113keV-volume-20250821151531.zarr 2.403um-volume-20260319124803/20260918 \
-    C:/Users/FlowUP/vesuvius-work/cache/segments/PHerc0841/20260220213127-w00
+    $VESRES_WORK/cache/segments/PHerc0841/20260220213127-w00
 
 - Surface-volume : niveau 0 seulement, copié chunk par chunk dans un zarr v2 local (mêmes attributs).
 - Labels : inklabels / supervision / validation, niveau 0, copiés en zarr v2 local.

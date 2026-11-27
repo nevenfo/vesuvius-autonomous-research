@@ -1,6 +1,6 @@
 #!/bin/bash
 # EXP-018 : inférence reader-v2-LO (checkpoint $1, étiquette $2) sur les 5 segments étiquetés, options d'EXP-001.
-cd /c/Users/FlowUP/vesuvius-work
+W=${VESRES_WORK:-$HOME/vesuvius-work}; cd "$W"
 CK=$1; TAG=${2:-lo}
 for OS in PHerc0841/20260220213127-w00 PHerc0841/20260220214732-auto_grown_20260220144552896 \
           PHerc0841/20260221022814-auto_grown_20260220174252405 \

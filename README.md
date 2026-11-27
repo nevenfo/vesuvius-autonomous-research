@@ -12,10 +12,10 @@ carbonisés du [Vesuvius Challenge](https://scrollprize.org), en réutilisant d'
 Le dépôt vit sur le NAS ; l'environnement et le cache de données vivent sur le disque local du PC :
 
 ```bash
-uv venv --python 3.12 C:/Users/FlowUP/vesuvius-work/.venv
-uv pip install --python C:/Users/FlowUP/vesuvius-work/.venv/Scripts/python.exe torch torchvision --index-url https://download.pytorch.org/whl/cu128
-uv pip install --python C:/Users/FlowUP/vesuvius-work/.venv/Scripts/python.exe -r requirements.lock
-C:/Users/FlowUP/vesuvius-work/.venv/Scripts/python.exe -m pytest -q
+uv venv --python 3.12 $VESRES_WORK/.venv
+uv pip install --python $VESRES_WORK/.venv/Scripts/python.exe torch torchvision --index-url https://download.pytorch.org/whl/cu128
+uv pip install --python $VESRES_WORK/.venv/Scripts/python.exe -r requirements.lock
+$VESRES_WORK/.venv/Scripts/python.exe -m pytest -q
 ```
 
 Cache évictable : `VESRES_CACHE` (défaut `~/vesuvius-work/cache`).

@@ -2,7 +2,7 @@
 # EXP-019 (K3.2) : inférence de checkpoints EXP-018 sur les 4 segments de validation K (holdouts reader-v2).
 # Usage : bash experiments/EXP-019/run_val.sh <run_dir> <step> [<step>...]   (ex. runs/EXP-018/train 5000 10000)
 # Options d'inférence identiques à EXP-018/run_eval.sh (EXP-001). Temps par segment journalisé (coût K).
-cd /c/Users/FlowUP/vesuvius-work
+W=${VESRES_WORK:-$HOME/vesuvius-work}; cd "$W"
 RUN=$1; shift
 for STEP in "$@"; do
   CK=$RUN/ckpt_$(printf %06d $STEP).pth

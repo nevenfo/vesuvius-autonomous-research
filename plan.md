@@ -373,7 +373,7 @@ Aucune.
 ### Tâches
 - [x] M1.1 Audit sécurité/licences de tout l'historique (`docs/open-source/audit-2026-11-26.md`) : aucun secret, aucune donnée/label/image/poids ; écarts listés.
 - [ ] M1.2 README et documentation d'entrée en anglais (objectif, résultats positifs et négatifs, protocoles, licences, citations), français conservé pour le travail interne.
-- [ ] M1.3 Chemins configurables (`VESRES_WORK`, `VESRES_REPO`) au lieu de `C:/Users/...` et de l'IP du NAS codés en dur.
+- [x] M1.3 Chemins configurables (`VESRES_WORK` ; dépôt déduit de `$PSScriptRoot`) au lieu de `C:/Users/...` et de l'IP du NAS codés en dur.
 - [ ] M1.4 Décision humaine : adresse e-mail des commits (noreply GitHub pour l'avenir ; réécriture d'historique seulement sur demande).
 ### Validation
 `rg` ne trouve plus de chemin personnel dans le code ; README anglais présent ; décision M1.4 consignée.

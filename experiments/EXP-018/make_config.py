@@ -11,11 +11,12 @@ Différences (seules) :
 - init : `scrollprize/ink_9um` hybrid_3d2d-seed43 step-060000 (corpus 0139/1667/Paris4/0814) au lieu de
   `reader-v2-init-ft12k` (affiné à 116 keV, a vu 0009B).
 """
-import json, sys
+import json, os, sys
 from pathlib import Path
 
-RV2_CFG = 'C:/Users/FlowUP/vesuvius-work/models/domenicor046_reader-v2/train_config.json'
-INIT = 'C:/Users/FlowUP/vesuvius-work/models/scrollprize_ink_9um/hybrid_3d2d-seed43/step-060000.pth'
+W = os.environ.get('VESRES_WORK', str(Path.home() / 'vesuvius-work')).replace('\\', '/')
+RV2_CFG = W + '/models/domenicor046_reader-v2/train_config.json'
+INIT = W + '/models/scrollprize_ink_9um/hybrid_3d2d-seed43/step-060000.pth'
 QUOTAS = {'0139': 12, '0814': 7, '0343P': 5, '0172': 11}
 
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 # EXP-006 / H-004 : reader-v2, fenêtre de 17 couches décalée de s ∈ [-6, +5] (défaut s=0 → couches 6..22 sur 28).
-# usage : bash run_sweep.sh   (écrit dans C:/Users/FlowUP/vesuvius-work/runs/EXP-006/<seg>/pred_s<s>.tif)
-cd /c/Users/FlowUP/vesuvius-work
+# usage : bash run_sweep.sh   (écrit dans $VESRES_WORK/runs/EXP-006/<seg>/pred_s<s>.tif)
+W=${VESRES_WORK:-$HOME/vesuvius-work}; cd "$W"
 CK=models/domenicor046_reader-v2/reader-v2-step040000.pth
 for seg in 20260220213127-w00 20260220214732-auto_grown_20260220144552896 20260221022814-auto_grown_20260220174252405; do
   O=runs/EXP-006/$seg; mkdir -p $O

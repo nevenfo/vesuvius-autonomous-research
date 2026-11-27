@@ -1,7 +1,7 @@
 """EXP-002 — H-003 (fusion moyenne reader-v2 + ink_9um) et H-008 (région validation des labels PHerc0841).
 
 Usage : PYTHONPATH=src python experiments/EXP-002/analyze.py <work_dir> <out.json>
-<work_dir> = C:/Users/FlowUP/vesuvius-work (prédictions de EXP-001/E1 et segments en cache).
+<work_dir> = $VESRES_WORK (prédictions de EXP-001/E1 et segments en cache).
 
 H-008, test : dans la zone « validation \\ supervision », les pixels non étiquetés à score élevé (top 5 % reader-v2)
 sont-ils aussi élevés pour ink_9um (modèle indépendant, entraîné sans 0841) plus souvent que dans la zone
