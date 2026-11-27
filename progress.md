@@ -31,4 +31,4 @@ Aucun. Décisions humaines (non bloquantes) : M1.4 e-mail des commits ; envoi de
 - Runs `vesuvius-work/runs/EXP-0{25,29,30}/` (EXP-029 valide : `flip/private/`) (graines, params, logs) ; références privées `vesuvius-work/refs/PHerc1667/`
 
 ## NEXT ACTION
-R1.5 — préenregistrer EXP-031 (H-036 : ≥ 40 cm² propres cumulés sur 1218 sans intervention, fidélité ≥ 85 % à 2 vx ; puis chaîne d'encre orientée) : ~10 graines via `experiments/EXP-025/seed.py` sur 3 hauteurs z et rayons 40–70 %, normal-grids locales étendues aux fenêtres z nécessaires (cache évictable), `vc_grow_seg_from_seed` `params4.json` ; rendu orienté et inférence par patch.
+R1.5 — EXP-031 préenregistré (graines `experiments/EXP-031/seeds.json`) : finir le téléchargement complet des normal-grids 1218 (`EXP-025/fetch_normal_grids.py … 3800 3800 11623 11700 32` → `vesuvius-work/cache/normal_grids/PHerc1218`), puis `bash experiments/EXP-031/run_all.sh`, `summarize.py`, inspection privée des zones et conclusion H-036.
