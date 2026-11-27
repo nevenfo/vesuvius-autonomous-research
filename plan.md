@@ -80,12 +80,39 @@ couverture. Toute brique est remplaçable sur preuve ; contournements de la géo
 aplati) admis comme hypothèses.
 
 ## Obstacles prioritaires et priorités courantes
-Détail argumenté : `docs/research-review-2026-11-27.md` §4–6. Ordre courant : W1 → W2.3 (segments propres sur rouleau éligible, condition de R1) → T1 → R1.2 → Y1 → V2/T2 → H1 ; N1/N2 opportunistes ; K4/K5 suspendus. Faits : V1, P1, P2.1, R1.1.
+Détail argumenté : `docs/research-review-2026-11-27.md` §4–6. Exploration (X) menée en parallèle, sans quota, arbitrée à chaque revue. Ordre courant : W1 → W2.3 (segments propres sur rouleau éligible, condition de R1) → T1 → R1.2 → Y1 → V2/T2 → H1 ; N1/N2 opportunistes ; K4/K5 suspendus. Faits : V1, P1, P2.1, R1.1.
 
 ## Traçabilité ancien → nouveau
 Validés conservés en S0. Ouverts repris sous leur ID : B1.2, E1.1, E1.3, G2.2, G3.2, G3.3, H1.1, H1.2, I1.1, I1.2,
 K3.1, K3.2, K4.1–K4.3, K5.1–K5.3, K6.1, K6.2, L1.2, L2.1, L2.2, M1.4, M2.1–M2.3, N1.1, N1.2, N2.1, R1.1–R1.3.
 K6.3 (cascade) → Y2.1. F1.2 → absorbé par la boucle (`research-loop.md`).
+
+# Phase X — Créativité et exploration
+
+## X1 — Cycles créatifs
+### Objectif
+Générer, critiquer et sélectionner sans sollicitation humaine des idées capables de changer la façon de lire (audit d'hypothèses implicites, anomalies, suppression d'étapes, transferts interdisciplinaires vérifiés).
+### Dépendances
+Aucune.
+### Tâches
+- [x] X1.1 Intégrer la créativité à la boucle (`docs/protocols/research-loop.md` §6) et au registre (`docs/hypotheses.md`, idées I-NNN).
+- [x] X1.2 Cycle n° 1 : idées I-001…I-008, nouveauté vérifiée, avis critique sur la piste utilisateur (`docs/research-review-2026-11-27.md` §7).
+- [ ] X1.3 Cycle n° 2 à chaque revue d'obstacles (après V3 ou trois résultats nouveaux) : réexamen des idées suspendues, nouvelles idées.
+### Validation
+Chaque idée a fiche, statut et expérience minimale ; les idées retenues deviennent des H-NNN avec critères écrits.
+
+## X2 — Expériences de faisabilité
+### Objectif
+Tester par des expériences courtes et discriminantes les idées au meilleur rapport potentiel/coût.
+### Dépendances
+X1.
+### Tâches
+- [ ] X2.1 I-003 → H-032, EXP-027 : auto-cohérence de rendus redondants de 1667.
+- [ ] X2.2 I-008 : masque officiel vs papyrus (tranches, PHerc1218/0800), coût très faible.
+- [ ] X2.3 I-004 : encre 3D publiée vs rendus de surface, par glyphe, sur zone étiquetée.
+- [ ] X2.4 I-001 minimal : seuil de détectabilité du relief d'encre selon voxel/bruit sur coupe 2D simulée.
+### Validation
+README d'EXP avec critères fixés avant ; verdict ; statut de l'idée mis à jour.
 
 # Phase S — Audit et refonte stratégique
 

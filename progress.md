@@ -1,34 +1,33 @@
 # PROGRESS
 
 ## Phase actuelle
-Refonte du 2026-11-27 faite (S1, J1). Recherche organisée autour de la lecture : V chemin bout en bout, W couverture/géométrie, P indépendance, T reconnaissance, Y résolution, R découvertes, H généralisation. Faits aujourd'hui : V1 (EXP-022), P1, P2.1, R1.1, T1.1, W2.1, Y1.1, E1.6, G3.4, EXP-024.
+Refonte du 2026-11-27 faite (S1, J1) + créativité intégrée (X1 : `docs/protocols/research-loop.md` §6, idées I-001…I-008 dans `docs/hypotheses.md`). Faits aujourd'hui : V1 (EXP-022), W1.1 (EXP-023, H-028 indéterminée), P1, P2.1, P3.1, R1.1 (EXP-024), T1.1, W2.1, Y1.1, E1.6, G3.4, K3.1 (EXP-026), X1.1–X1.2.
 
 ## Tâche actuelle
-W2.3 / H-031 — EXP-025 : segment propre sur PHerc1218 (éligible, aucun segment publié) avec VC3D `vc_grow_seg_from_seed` (streamline, graine automatique 4132 5644 11620), en cours ; W1.1 / EXP-023 (inventaire de couverture) en cours en parallèle.
+Deux unités en parallèle (CPU, pas de contention GPU) : X2.1 / H-032 — EXP-027 (auto-cohérence de rendus redondants de 1667, sous-agent en cours) ; W2.3 / H-031 — EXP-025 (segment propre sur PHerc1218 : streamline échoué, `default` à relancer avec normal-grids locales).
 
 ## Dernière tâche validée
-T1.1 / W2.1 — preprint 1667 lu (transcription Col. 1–22 = référence R3*, 1231 cm² déroulés, 860 cm² écrits, ≈ 25 h d'annotation/spire) ; fiches outils géométriques (VC3D GPL-3.0, archive Windows native).
+W1.1 / EXP-023 — inventaire de couverture déterministe (35 rouleaux) ; estimateur de pas inopérant (H-028 indéterminée) ; somme des segments de 1667 = 2× la surface déroulée publiée.
 Validation :
-- `pytest tests -m "not network"` 20 verts ; `continuity-check.sh` OK ; commit `881591d` poussé.
+- `pytest tests -m "not network"` 26 verts ; deux exécutions → sha256 identiques ; commit `d95f22f` poussé.
 
 ## Décisions actives
-- Objectif = tout lire, technologie neutre ; métriques pixel = diagnostics ; mesures glyphe (`src/vesres/reading.py`) et couverture d'abord.
-- Protocoles `docs/protocols/{reading-evaluation,coverage,independence,research-loop}.md` ; classes de référence R0–R4 dans `experiments/registry.csv` (`ref_class`) ; provenance `docs/data/provenance.csv`.
-- 5 segments historiques = rétrospectifs ; test scellé à créer (P3) ; aucun réglage sur eux.
-- Goulot des découvertes = segmentation (EXP-024) → W2.3 avant toute inférence R1.2 ; PHerc0800 audité (17 cm², rien de lisible).
-- Manuscrit de référence de lecture = PHerc. 1667 (transcription privée `vesuvius-work/refs/PHerc1667/`, jamais publiée).
-- Résolution : canon 2,4 µm ≫ 9 µm au niveau glyphe mais référence R1 → H-029 (Y1) sur référence indépendante.
-- Suspendus : K4/K5 ; opportuniste : N1.1 EXP-021 (WSL, contention CPU).
-- Outils : VC3D `a7d4f88` sous `vesuvius-work/third_party/vc3d/` (non redistribué) ; venvs `.venv`, `.venv-koine`, `.venv-tex`.
+- Objectif = tout lire, technologie neutre ; métriques pixel = diagnostics ; mesures glyphe (`src/vesres/reading.py`), couverture (`src/vesres/coverage.py`).
+- Toute métrique porte sa classe de référence (R0–R4, `ref_class` du registre) ; provenance `docs/data/provenance.csv`.
+- 5 segments historiques = rétrospectifs ; test scellé T-1667-READ (`docs/data/sealed_test.md`) ; 1667 est vu par nos modèles (P3.2 si nécessaire).
+- Goulot des découvertes = segmentation (EXP-024) ; VC3D `a7d4f88` (Windows natif, GPL-3.0, non redistribué) sous `vesuvius-work/third_party/vc3d/`.
+- Anomalie EXP-025 : 49 % de la prédiction de surface hors CT masqué sur 1218 → I-008 (X2.2).
+- Exploration sans quota, arbitrée à chaque revue ; génératif = statut max `Probable` ; I-002 suspendue.
+- Suspendus : K4/K5 ; opportuniste : N1.1 EXP-021.
 - Aucune image d'encre, coordonnée de texte, transcription ou label publié. Prix : aucune éligibilité déclarée ; questions écrites prêtes (matrice §6).
 
 ## Blocage actif
 Aucun. Décisions humaines (non bloquantes) : M1.4 e-mail des commits ; envoi des questions L1.3/T1.2 ; annotateur P4.2.
 
 ## Fichiers / zones utiles
-- `plan.md`, `docs/research-review-2026-11-27.md` (§4–6), `docs/hypotheses.md`, `experiments/registry.csv`
-- `experiments/EXP-02{2,3,4,5}/`, `src/vesres/{reading,eval_ink,watch,catalog}.py`
-- Catalogue courant `vesuvius-work/cache/catalog/metadata.min.2026-11-27.json` ; runs `vesuvius-work/runs/EXP-025/` (graine, params, log, sortie)
+- `plan.md` (phases X, V, W, P, T, R, Y), `docs/research-review-2026-11-27.md` (§4–7), `docs/hypotheses.md`, `experiments/registry.csv`
+- `experiments/EXP-02{2..7}/`, `src/vesres/{reading,coverage,eval_ink,watch}.py`
+- Runs `vesuvius-work/runs/EXP-025/` (graines, params, logs) ; références privées `vesuvius-work/refs/PHerc1667/`
 
 ## NEXT ACTION
-W2.3 — À la fin de `vc_grow_seg_from_seed` (`runs/EXP-025/grow.log`) : lire surface et temps dans `out/pherc1218_seed0/meta.json`, mesurer la fidélité (1 000 sommets vs prédiction de surface niveau 0), conclure H-031 dans `experiments/EXP-025/README.md`.
+X2.1 — À la fin du sous-agent EXP-027 : vérifier tests, `experiments/EXP-027/results.json` et le verdict H-032, puis consigner (registre, hypothèses, plan) ; ensuite W2.3 : télécharger la fenêtre de normal-grids de PHerc1218 autour de z 11620 et relancer `vc_grow_seg_from_seed` en mode `default` avec le chemin local.

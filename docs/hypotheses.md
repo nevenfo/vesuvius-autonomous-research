@@ -40,3 +40,24 @@ Contrainte de généralisation constatée : les objets étiquetés publiés (013
 
 Priorités (refonte du 2026-11-27, `docs/research-review-2026-11-27.md` §4–5) : 1) H-026/H-027 faits (EXP-022) ; 2) H-028 couverture du corpus (W1) ; 3) provenance et classes de référence (P1/P2) ; 4) références caractère (T1) ; 5) H-030 exploration PHerc0800 (R1, après audit L2.2) ; 6) H-029 résolution sur référence indépendante (Y1) ; 7) H-022/H-023/H-024 opportunistes ; H-018…H-021 suspendues ; H-025 → Y2.
 Historique : priorités du 2026-11-26 dans `docs/research-review-2026-11-26.md` ; H-017 soutenue (EXP-018) ; leviers d'encre post-hoc et TTA épuisés (EXP-012…016).
+
+## Idées exploratoires (cycle créatif n° 1, 2026-11-27 — `docs/protocols/research-loop.md` §6)
+Statuts : idée exploratoire → hypothèse → faisabilité démontrée → résultat expérimental → reproduit → méthode validée ;
+suspendue/abandonnée avec raison. Nouveauté vérifiée par recherche ciblée du 2026-11-27 (sources : `docs/research-review-2026-11-27.md` §7).
+
+| ID | Idée (provenance) | Problème visé | Nouveauté / existant | Expérience minimale discriminante | Statut |
+|---|---|---|---|---|---|
+| I-001 | Simulateur physique de papyrus à texte connu : feuille + encre (relief/densité), enroulement, compression, carbonisation, modèle direct µCT (utilisateur, reformulée) | références indépendantes (vérité parfaite), **limites physiques** de lisibilité selon résolution/bruit, données d'entraînement | aucun simulateur numérique de rouleau trouvé ; fantômes **physiques** carbonisés existants (Sci. Rep. 2016, Gibson 2021 : µCT d'absorption ne voit pas l'encre carbonée, XPCT oui) | coupe 2D : spirale + relief d'encre de quelques µm, projection bruitée, reconstruction à 2,4/4,8/9 µm → seuil de détectabilité ; validation sur fantôme réel publié ou fragment IR | idée exploratoire (priorité moyenne : forte valeur méthodologique, réalisme physique incertain) |
+| I-002 | Reconstruction générative (diffusion) conditionnée par le volume (utilisateur) | lisibilité de zones faibles | DPS en CT : hallucinations, posterior faux à peu de vues ; rien sur Herculanum | sur données I-001 : l'écart-type du posterior prédit-il l'erreur réelle ? | **suspendue** (dépend d'I-001 ; risque d'hallucination ; statut max `Probable`) |
+| I-003 | Auto-cohérence de rendus redondants du même papyrus (anomalie EXP-023 + critère papyrologique de 1667) | fiabilité sans label, zones incertaines, détection d'hallucinations | aucun outil/métrique trouvé | EXP-027 / H-032 | **hypothèse H-032, en cours** |
+| I-004 | Supprimer l'aplatissement : encre 3D dans le volume puis lecture locale (audit « il faut dérouler pour lire ») | géométrie = goulot des découvertes (EXP-024/025) | possible « sous conditions favorables » (open problems) ; types `3d-ink-prediction*` présents au catalogue (vu le 2026-11-27) ; labels d'encre 3D (Paris 4) | comparer, par glyphe, prédictions 3D publiées et rendus de surface sur la même zone étiquetée | idée exploratoire (priorité haute après I-003) |
+| I-005 | Découverte non supervisée de lettres par regroupement de formes (un scribe répète ses lettres) | preuve de lettre indépendante des labels ; First Letters | VAE/clustering pour inventaires de signes (cypro-grec) ; rien sur Vesuvius | embeddings de glyphes 1667 (Col. de développement) → pureté des clusters contre la transcription | idée exploratoire |
+| I-006 | Décomposition multi-énergie (CT bi-énergie médical) | contraste encre/papyrus | rien de publié sur la dépendance énergétique ; physique : carbone sur carbone → gain attendu faible | rapport log-atténuation encre/papyrus à deux énergies recalées sur labels | idée exploratoire (priorité basse) |
+| I-007 | Modèle de langue grec (LOGION, Ithaca) comme **vérificateur** d'alternatives, jamais preuve | niveaux 3–4 (mots, phrases) | LOGION (BERT, HF), Ithaca (Apache 2.0, poids NV) | rang de la vraie leçon sur lacunes masquées de textes herculanéens édités (Col. dev 1667) + texte permuté | idée exploratoire (après un étage de reconnaissance) |
+| I-008 | Le masque officiel exclut-il du papyrus ? (anomalie EXP-025 : 49 % de la prédiction de surface hors CT masqué) | couverture gratuite si du papyrus est masqué à tort | — | comparer, sur des tranches, CT masqué vs non masqué/prédiction de surface et inspecter les zones exclues | idée exploratoire (coût très faible) |
+
+Avis critique sur la piste utilisateur (I-001/I-002) : retenue **sous forme transformée** — le simulateur sert d'abord à
+borner ce qui est physiquement lisible et à produire des références à vérité connue (contrôles des métriques, de la
+géométrie et des méthodes génératives), pas à générer des images de papyrus « plausibles » ; la prédiction directe de
+la géométrie existe déjà (prédictions de surface m7, lasagna) → réutilisée ; la reconstruction générative est
+suspendue jusqu'à ce qu'un simulateur permette de prouver que son incertitude est calibrée.

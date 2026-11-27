@@ -42,3 +42,30 @@ reproductible avant tout téléchargement > 20 Go).
 | Preuves privées (images d'encre, coordonnées de texte) | dossiers R1 | PC + NAS, hors Git | jamais publiées sans accord écrit (licence) |
 Chaque EXP longue écrit : configuration, commit, données, checkpoints valides, résultats partiels, prochaine étape
 (dans son README) ; reprise par checkpoint ; journaux bruts hors du contexte permanent.
+
+## 6. Créativité et exploration (intégré le 2026-11-27)
+Le plan n'est pas une frontière intellectuelle. À chaque cycle (étapes 3–5 du §1), en plus des hypothèses issues des
+obstacles :
+- **Audit d'hypothèses implicites** : quelle croyance non testée limite la recherche (ex. « il faut aplatir avant de
+  lire », « le masque officiel contient tout le papyrus », « l'accord de modèles signifie quelque chose ») ?
+- **Anomalies → opportunités** : tout résultat inattendu (échec, écart, contradiction) reçoit une idée ou une hypothèse.
+- **Suppression d'étape** : quelle étape de la chaîne pourrait être supprimée plutôt qu'optimisée ?
+- **Transfert interdisciplinaire** : méthode d'un autre domaine, avec vérification écrite de la compatibilité de ses
+  hypothèses physiques/mathématiques avec des papyrus carbonisés (encre carbonée quasi iso-atténuante, relief de
+  quelques µm, compression, voxels 2,4–9 µm).
+
+**Cycle de vie et statuts** (registre unique `docs/hypotheses.md`, section « Idées exploratoires ») :
+`idée exploratoire (I-NNN)` → `hypothèse (H-NNN, critères écrits)` → `faisabilité démontrée` → `résultat expérimental`
+→ `résultat reproduit` → `méthode validée` ; ou `suspendue` / `abandonnée` avec raison et condition de réexamen.
+Fiche minimale d'une idée : problème visé, principe, différence avec l'existant (veille), hypothèses nécessaires,
+potentiel pour la lecture, risques/coûts, **expérience minimale discriminante**, critères de réussite/réfutation.
+
+**Équilibre exploration / exploitation** : pas de quota. À chaque revue, justifier par écrit la part d'effort : plus
+d'exploration quand l'exploitation plafonne (essais sans progrès, obstacle sans solution connue) ou qu'une idée a un
+fort potentiel pour une expérience courte ; plus d'exploitation quand une piste produit des gains mesurés. Préférer
+les expériences courtes et discriminantes ; une idée originale n'est pas une bonne idée par défaut, une idée
+improbable n'est pas mauvaise par défaut.
+
+**Garde-fou génératif** : toute méthode générative (diffusion, restauration, modèle de langue) produit au mieux des
+statuts `Probable`/`Restitué` ; aucune lecture n'est revendiquée sans traçabilité vers des observations physiques
+indépendantes ; contrôles obligatoires sur fond vierge, entrées permutées et données synthétiques à vérité connue.

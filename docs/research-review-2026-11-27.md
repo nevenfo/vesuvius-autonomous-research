@@ -116,3 +116,17 @@ développement géométrique propre, super-résolution.
 - Conséquence : l'obstacle n° 2 (couverture) devient la condition directe des découvertes. Nouvelle priorité : W2.3
   (segments propres sur rouleau éligible avec VC3D/lasagna), avant toute inférence R1.2 ; PHerc0800 audité (17 cm²,
   aucune lettre lisible dans les prédictions officielles, `docs/compliance/target-PHerc0800.md`).
+
+## 7. Cycle créatif n° 1 (même jour, intégré à la boucle : `docs/protocols/research-loop.md` §6)
+Hypothèses implicites remises en cause : « il faut aplatir pour lire » (I-004) ; « le masque officiel contient tout le
+papyrus » (I-008, anomalie EXP-025) ; « une référence doit être humaine pour être utile » (I-003 : la redondance de
+rendus donne une mesure sans label ; I-001 : la simulation donne une vérité parfaite) ; « la lettre se prouve par un
+label » (I-005 : répétition des formes d'un même scribe).
+Vérification de nouveauté (recherche du 2026-11-27) : aucun simulateur numérique de rouleau ni métrique de redondance
+publiés ; fantômes physiques carbonisés existants (Sci. Rep. 2016 ; Gibson et al. 2021, <https://www.nature.com/articles/s41598-020-80458-z>) ;
+encre 3D directe « possible sous conditions favorables » (<https://scrollprize.org/2026_open_problems>) ; DPS en CT sujet aux
+hallucinations (<https://arxiv.org/pdf/2407.12956>, <https://arxiv.org/pdf/2502.02771>) ; LOGION (<https://huggingface.co/cabrooks/LOGION-base>),
+Ithaca (Apache 2.0, <https://github.com/google-deepmind/ithaca>).
+Sélection (rapport potentiel/coût) : X2.1 I-003 (EXP-027, en cours) → X2.2 I-008 → X2.3 I-004 → X2.4 I-001 minimal ;
+I-002 suspendue ; I-005/I-007 après un étage de reconnaissance. Répartition courante : exploitation W2.3 (EXP-025
+essai 3) et exploration X2.1 menées en parallèle (machine : CPU, aucune contention GPU).

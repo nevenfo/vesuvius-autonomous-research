@@ -55,3 +55,8 @@ saut de feuillet dédiée à ce stade ; un patch n'est pas une couverture.
 ## Suite (dans le protocole)
 Second et dernier essai argumenté : GrowPatch `default` avec les normal-grids officielles (téléchargées localement),
 même graine, puis, si échec, réduction à 30 générations pour mesurer au moins une surface ; conclusion H-031 ensuite.
+- Essai 3 (`default`, `normal_grid_path` = URL HTTPS publique, `params3.json`) : échec immédiat « normal-grid file not
+  found » — l'outil attend un magasin **local** ; structure publique = `metadata.json` + un fichier `.grid` par tranche
+  et par plan (`xy/000000.grid`, ≈ 0,6 Mo). Échec d'**entrée d'outil**, pas de méthode : l'essai `default` reste à faire.
+- Suite : télécharger une fenêtre des normal-grids autour de la graine (≈ ± 1 500 tranches par plan, ≈ 5 Go, cache
+  évictable) et relancer `default` avec le chemin local ; H-031 conclue ensuite.
