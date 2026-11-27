@@ -1,0 +1,1 @@
+{"mode":"seed","growth_method":"streamline","generations":60,"step_size":20,"walk_step_size":2,"walk_integrator":"midpoint","thread_limit":8,"min_area_cm":0}

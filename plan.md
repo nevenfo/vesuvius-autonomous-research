@@ -209,7 +209,8 @@ Réserver des objets réellement protégés des décisions expérimentales.
 ### Dépendances
 P1, W1.
 ### Tâches
-- [ ] P3.1 Règle de choix écrite (diversité rouleau/fragment, énergie, résolution, état) ; liste et empreintes dans `docs/data/sealed_test.md` avant consultation.
+- [x] P3.1 Règle de choix écrite (diversité rouleau/fragment, énergie, résolution, état) ; liste et empreintes dans `docs/data/sealed_test.md` avant consultation. (T-1667-READ : Col. multiples de 3 scellées, sha256 3aed5363… ; aucun test d'encre scellable sans P4 ; fuite 1667 ↔ nos modèles consignée.)
+- [ ] P3.2 Modèle de lecture sans 1667 (recette EXP-018 sans 1667 ni objets de test) si V3 confirme que l'évaluation sur T-1667-READ est nécessaire ; coût ≈ 3–4 h GPU, entraînement seul sur la machine.
 - [ ] H1.1 Réserver les rouleaux de test (jamais utilisés pour décider d'un entraînement).
 ### Validation
 Fichier daté et commité avant toute ouverture ; journal des ouvertures.
