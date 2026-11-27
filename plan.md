@@ -1,258 +1,520 @@
 # PLAN — VESUVIUS AUTONOMOUS RESEARCH
 
-## Objectif final
-Construire, valider et faire progresser une chaîne informatique ouverte de bout en bout
-(scan → feuilles → déroulement → encre → localisation → transcription assistée → incertitudes)
-capable de lire virtuellement, aussi exhaustivement et fiablement que physiquement possible,
-de nouveaux manuscrits du Vesuvius Challenge, sans dépendre d'un rouleau particulier.
-« Lecture intégrale » = toute la surface récupérable reconstruite et examinée, observations,
-lectures incertaines, restaurations hypothétiques et zones irrécupérables explicitement distinguées.
+Refonte stratégique du 2026-11-27 (audit : `docs/research-review-2026-11-27.md`). Plan précédent archivé à
+l'identique : `docs/plan-archive-2026-11-27.md` (IDs, cases et preuves inchangés).
 
-Quatre exigences permanentes (2026-11-26), au service de l'objectif ci-dessus, qui reste inchangé :
-1. **Lecture intégrale généralisable** (objectif principal).
-2. **État de l'art vivant** : veille opérationnelle (Phase G) consultée avant chaque expérience importante ;
-   chaque nouveauté pertinente évaluée (apport, preuve, reproductibilité, limites, intérêt, expérience comparative).
-3. **Efficacité optimale de toute la chaîne** (Phase K) : coût total minimal — préparation, géométrie, encre,
-   entraînement, inférence, CPU/GPU/RAM/VRAM/stockage/réseau — sans perte significative de qualité,
-   reproductibilité ou généralisation.
-4. **Compatibilité Vesuvius Challenge** (Phases L, M) : formats et outils officiels, licences, matrice de
-   conformité aux prix sourcée (`docs/compliance/vesuvius-challenge-matrix.md`) ; jamais d'éligibilité déclarée sans preuve.
-Principe directeur : construire le meilleur système scientifique ouvert, évolutif, efficace et compatible pour
-lire les manuscrits, pas la meilleure IA. Priorités courantes : `docs/research-review-2026-11-26.md`.
+# PARTIE STABLE
+
+## Objectif final
+Parvenir à lire intégralement, fidèlement et de manière généralisable l'ensemble des manuscrits du Vesuvius
+Challenge, en récupérant autant d'informations que physiquement possible, indépendamment de la méthode, de la
+technologie ou de l'architecture : retrouver les caractères, identifier les mots, reconstruire les phrases, lire
+et comprendre les passages, produire des transcriptions fiables, traduire quand c'est possible, retrouver des textes
+inconnus, traiter de nouveaux manuscrits sans tout reconstruire, et cartographier précisément ce qui est récupéré,
+incertain, non examiné ou potentiellement irrécupérable.
+L'ambition de tout lire n'est pas une preuve que toute l'information subsiste dans les scans : on distingue
+impossibilité physique démontrée, limite des données, du matériel, des connaissances, de notre méthode, et région
+simplement non examinée. L'objectif n'est jamais réduit parce que les méthodes actuelles sont insuffisantes.
 
 ## Invariants
-- Neutralité de méthode : l'IA n'est jamais la solution présumée. Pour chaque problème, considérer
-  géométrie/topologie/optimisation, physique des matériaux et interaction rayons X, traitement du signal,
-  statistiques et méthodes non supervisées, apprentissage, et hybrides ; choisir sur performance démontrée,
-  généralisation, coût, fiabilité et contribution à la lecture ; à qualité comparable, la plus simple gagne.
-  Une piste prometteuse n'est jamais écartée parce qu'elle n'est pas neuronale.
-- Orientation lecture : une métrique intermédiaire n'est poursuivie que si elle sert la lecture réelle
-  (zones d'encre nouvelles, lettres candidates, passages reconstruits, validation papyrologique, généralisation).
-  Aucun caractère inventé ; restauration linguistique ≠ observation physique ; toute découverte potentielle
-  porte preuves visuelles (privées), coordonnées, provenance, méthode et incertitudes.
-- Compatibilité Vesuvius Challenge : formats/coordonnées/métadonnées officiels (OME-Zarr, Zarr, tifxyz, meshes),
-  outils officiels réutilisés quand ils suffisent, briques réutilisables hors de notre infrastructure, pas de
-  format propriétaire ; provenance des labels, pseudo-labels et modèles auditée avant toute prédiction sur un
-  rouleau cible ; l'objectif scientifique n'est jamais modifié pour un prix.
-- Dépôt public (MIT, `github.com/nevenfo/vesuvius-autonomous-research`, public depuis 2026-11) : aucun secret,
-  donnée, poids, label, image d'encre ou transcription non autorisée ; `main` présentable et scientifiquement
-  fiable, aucune fusion sans autorisation humaine ; résultats positifs et négatifs documentés.
-- Efficacité de calcul : ne jamais dépenser du calcul inutilement, mais ne jamais sacrifier un gain
-  scientifique réel pour réduire une durée. Aucun nombre d'itérations n'est optimal par défaut :
-  la durée se choisit sur un jeu de **validation** distinct de l'entraînement et des tests ; les
-  objets de test (0841, 0009B, 0500P2 et futurs rouleaux réservés H1.1) ne servent jamais à choisir
-  une durée, un checkpoint ou un hyperparamètre (courbes sur test = descriptives uniquement).
-- Science avant spectacle : texte détecté par modèle ≠ texte déchiffré ≠ lecture papyrologique validée.
-- État de l'art et réutilisation avant toute innovation ; une nouvelle méthode exige un besoin démontré
-  et un gain mesuré contre une référence, sur données séparées.
-- Évaluation par rouleau tenu à l'écart : jamais de split naïf de patches d'un même rouleau/zone ;
-  parentés données/labels/pseudo-labels/modèles tracées (`docs/data/splits.md`).
-- Licence données (dl.ash2txt.org/LICENSE.txt + CC BY-NC 4.0 + EduceLab) : aucune révélation de
-  texte caché (transcription, image d'encre, label) publiée hors Discord officiel sans accord écrit
-  de Vesuvius Challenge ; aucune redistribution de données ; citation EduceLab-Scrolls pour Scrolls 1-4/Frag 1-6.
-  Les images d'encre restent hors Git (`.gitignore`) et hors dépôt public.
-- Code original sous MIT (`LICENSE`) ; code/poids tiers gardent leur licence ; jamais d'imposition MIT à du tiers.
-- Stockage : aucun volume complet sans justification écrite ; accès par régions (HTTP Range, OME-Zarr) ;
-  cache évictable local `C:\Users\FlowUP\vesuvius-work\cache` (budget ≤ 150 Go) ; dépôt Git léger sur le NAS ;
-  artefacts uniques jamais supprimés par politique automatique.
-- PC personnel : calculs interruptibles, reprise sans corruption (écritures atomiques), VRAM ≤ ~12 Go
-  par défaut pour laisser l'usage normal ; pas de service système nouveau sans bénéfice démontré.
-- Confirmation humaine requise : dépense, action destructive/irréversible, modification système/réseau
-  importante, exposition de secret, publication externe, annonce de découverte, PR upstream, soumission à un prix,
-  réécriture d'historique Git public.
-- Chaque résultat porte un identifiant stable `EXP-NNN` et un manifeste (données, coordonnées, code, modèle,
-  paramètres, date, matériel, métriques, limites, niveau de validation) dans `experiments/`.
+- **Neutralité** : aucune technologie obligatoire (IA, géométrie, physique, signal, statistiques, linguistique,
+  hybrides…) ; à résultat comparable, la plus simple gagne ; aucune architecture conservée pour coût englouti.
+  L'objectif est fixe, le plan évolutif, l'architecture révisable, la technologie remplaçable, les preuves décident.
+- **Résultat réel** : toute optimisation importante est reliée à une hypothèse sur la quantité, la fidélité ou la
+  couverture du texte lu, ou sur un coût réduit sans perte scientifique. AUC/AP/loss = diagnostics.
+- **Rigueur avant apparence** : texte détecté ≠ caractère reconnu ≠ lecture validée ; statuts Observé / Reconnu /
+  Probable / Restitué / Inconnu / Validé (`docs/protocols/reading-evaluation.md`) ; une restitution linguistique
+  n'est jamais présentée comme observation ; aucune vérité terrain fabriquée ; résultats négatifs consignés.
+- **Indépendance** : chaque métrique porte la classe de sa référence (R0–R4, `docs/protocols/independence.md`) ;
+  évaluation par objet tenu à l'écart, jamais par patch ; objets de test jamais utilisés pour choisir durée,
+  checkpoint, seuil ou hyperparamètre ; test scellé ouvert une fois par conclusion majeure.
+- **Couverture** : jamais « 100 % » sans surface totale connue ; non examiné ≠ vide ; sans encre détectée ≠ sans
+  texte ; inaccessible ≠ irrécupérable (`docs/protocols/coverage.md`).
+- **Généralisation** : résultats par manuscrit et par région ; un échec n'est jamais masqué par une moyenne.
+- **Apprentissage collectif** : veille consultée avant toute expérience importante ; réutiliser avant d'innover ;
+  chaque nouveauté retenue évaluée (problème, méthode, preuve, données, limites, reproductibilité, négatifs,
+  compatibilité, licence, intérêt lecture, expérience comparative).
+- **Boucle autonome** : sélection, arrêt et audit selon `docs/protocols/research-loop.md` ; critères écrits avant
+  mesure ; échec attribué avant conclusion.
+- **Efficacité** : coût total mesuré ; ne jamais dépenser du calcul inutilement ni sacrifier un gain scientifique
+  réel pour une durée ; PC personnel préservé (VRAM ≤ ~12 Go, pas de job CPU lourd pendant un entraînement, calculs
+  interruptibles avec reprise sans corruption).
+- **Compatibilité Vesuvius Challenge** : formats officiels (OME-Zarr, Zarr, tifxyz, meshes), outils officiels
+  réutilisés, matrice `docs/compliance/vesuvius-challenge-matrix.md` sourcée ; jamais d'éligibilité déclarée sans
+  preuve ; une échéance de prix n'est pas une date de fin scientifique.
+- **Open source et licences** : code original MIT ; tiers sous leur licence ; dépôt public sans secret, donnée,
+  poids non redistribuable, label, image d'encre, transcription ou découverte (licence données : rien de révélé hors
+  Discord officiel sans accord écrit) ; `main` présentable, aucune fusion sans accord humain.
+- **Stockage** : accès par régions ; cache reproductible évictable (`vesuvius-work/cache`) ; artefacts uniques
+  copiés sur le NAS avec manifeste sha256 ; GitHub n'est pas un stockage de données.
+- **Confirmation humaine** : dépense, action destructive/irréversible, modification système/réseau importante,
+  exposition de secret, publication externe, annonce de découverte, contact de tiers, PR upstream, soumission à un
+  prix, réécriture d'historique public.
+- Chaque résultat porte un `EXP-NNN` et un manifeste (données, coordonnées, code, modèle, paramètres, date,
+  matériel, métriques, coût, classe de référence, limites) dans `experiments/`.
 
-## Critères globaux de réussite (jalons, sur preuve uniquement)
-- J1 État de l'art comparé et vérifiable (`docs/state-of-the-art/`).
-- J2 Une baseline réelle reproduite et évaluée sur notre matériel.
-- J3 Pipeline de bout en bout produisant des sorties traçables.
-- J4 Nouvelle lecture intégrale de la portion récupérable d'un rouleau confirmée par des spécialistes.
-- J5 Performances reproductibles sur ≥ 3 rouleaux indépendants.
-- J6 Traitement systématique des manuscrits éligibles avec lectures ou diagnostics.
-- J7 Recherche et veille périodiques actives alimentant les expériences.
-- J8 Recette d'entraînement de référence ramenée à une durée et un coût minimaux mesurés, non
-  inférieure à la référence 40k (marge et protocole K2), appliquée par défaut aux entraînements futurs.
-- J9 Au moins une méthode non neuronale ou hybride évaluée hors échantillon contre la référence neuronale sur ≥ 3 objets.
-- J10 Matrice de conformité Vesuvius Challenge à jour (≤ 1 mois) et dépôt public reproductible depuis zéro par un tiers.
+## Critères globaux de réussite (jalons, cochés sur preuve uniquement)
+Non séquentiels ; dépendances réelles dans les unités ci-dessous.
+- [x] J1 État de l'art et acquis historiques audités (S1 : `docs/research-review-2026-11-27.md`).
+- [ ] J2 Référence de lecture de bout en bout reproductible (V1–V3).
+- [ ] J3 Mesures de couverture et de lisibilité opérationnelles (V1, W1, W3).
+- [ ] J4 Protocole d'évaluation indépendant et contrôle de circularité appliqués (P1–P3).
+- [ ] J5 Principaux obstacles identifiés expérimentalement (V3).
+- [ ] J6 Amélioration réelle et mesurable de la capacité de lecture (niveau glyphe ou caractère, référence R2+).
+- [ ] J7 Premières lettres inédites avec preuves (R1).
+- [ ] J8 Passage inédit transcrit et validé indépendamment (R2, T5).
+- [ ] J9 Généralisation sur plusieurs rouleaux indépendants (H1 ; 3 = minimum intermédiaire).
+- [ ] J10 Première lecture intégrale d'un nouveau manuscrit dans les limites physiques démontrées.
+- [ ] J11 Extension progressive au corpus accessible.
+- [ ] J12 Optimisation, reproductibilité externe et contribution continue (K, M2, I1).
+Anciens jalons (archive) : J1→J1, J2 (baseline reproduite, atteint par EXP-001)→S0, J3→J2, J4→J8/J10, J5→J9,
+J6→J11, J7→G, J8→K (suspendu), J9→N/J6, J10→L/M2.
 
-# Phase A — Inspection et fondations
+# PARTIE ÉVOLUTIVE
 
-## A1 — Inspection de l'existant
+## Architecture de référence (révisable, 2026-11-27)
+Chemin v0 : segments communautaires (tifxyz, autoseg VC) → surface-volume officiel 8,6–9,4 µm → encre (fusion
+reader-v2(-LO) + Hecate ; comparateurs reader-v3, canon 2,4 µm) → unités graphiques et lisibilité locale
+(`src/vesres/reading.py`) → **[manquant] identification de caractères** → [manquant] mots/phrases → statuts et
+couverture. Toute brique est remplaçable sur preuve ; contournements de la géométrie (détection 3D sur volume non
+aplati) admis comme hypothèses.
+
+## Obstacles prioritaires et priorités courantes
+Détail argumenté : `docs/research-review-2026-11-27.md` §4–5. Ordre courant : V1 → W1 → P1/P2 → T1 → R1 → Y1 →
+V2/T2 → H1 ; N1/N2 opportunistes ; K4/K5 suspendus.
+
+## Traçabilité ancien → nouveau
+Validés conservés en S0. Ouverts repris sous leur ID : B1.2, E1.1, E1.3, G2.2, G3.2, G3.3, H1.1, H1.2, I1.1, I1.2,
+K3.1, K3.2, K4.1–K4.3, K5.1–K5.3, K6.1, K6.2, L1.2, L2.1, L2.2, M1.4, M2.1–M2.3, N1.1, N1.2, N2.1, R1.1–R1.3.
+K6.3 (cascade) → Y2.1. F1.2 → absorbé par la boucle (`research-loop.md`).
+
+# Phase S — Audit et refonte stratégique
+
+## S0 — Acquis historiques (2026-11-12 → 2026-11-27)
 ### Objectif
-Connaître matériel, outils, projets existants et contexte antérieur avant toute création.
+Conserver la trace des unités validées avant la refonte.
 ### Dépendances
 Aucune.
 ### Tâches
-- [x] A1.1 Vérifier identité/capacités PC (DESKTOP-0JR01AG, RTX 5080 16 Go, 31 Go RAM, C: 475 Go libres, WSL Ubuntu GPU OK).
-- [x] A1.2 Vérifier stockage NAS via partage `Y:` (278 Go libres) ; aucun projet Vesuvius préexistant (fd, gh repo list).
-- [x] A1.3 Lire le Second Brain ciblé (`wiki/concepts/envie-contribution-vesuvius-challenge.md`).
+- [x] S0.1 Validés : A1.1–A1.3, A2.1–A2.2, B1.1, B2.1–B2.3, B3.1–B3.2, C1.1–C1.2, C2.1–C2.3, D1.1–D1.3, E1.2, E1.4, E1.5, G1.1–G1.2, G2.1, G3.1, K1.1–K1.2, K2.1–K2.2, K3.0, L1.1, M1.1–M1.3 ; EXP-001…018 (preuves : `docs/plan-archive-2026-11-27.md`, `experiments/registry.csv`).
 ### Validation
-Relevés `nvidia-smi`, `Get-PSDrive`, `wsl nvidia-smi -L`, `gh repo list | rg vesuv` vide, 2026-11-12.
+Archive verbatim présente ; registre EXP-001…018 inchangé.
 
-## A2 — Dépôt et continuité
+## S1 — Audit et refonte du 2026-11-27
 ### Objectif
-Dépôt Git versionné, poussé sur un remote GitHub privé, avec plan/progress conformes.
+Auditer acquis et limites, traiter les douze défauts, réorienter le plan vers la lecture.
 ### Dépendances
-A1.
+S0.
 ### Tâches
-- [x] A2.1 `git init`, `.gitignore` (données/poids/images d'encre exclus), `LICENSE` MIT, structure `src/ tests/ docs/ experiments/ watch/`.
-- [x] A2.2 Créer le remote GitHub privé `nevenfo/vesuvius-autonomous-research`, pousser `main` puis travailler sur `ai/<phase>`.
+- [x] S1.1 Audit par expérience (objectif, démontré, limites, indépendance, intérêt lecture, réutilisable, réévaluation) et constats transverses → `docs/research-review-2026-11-27.md` §1.
+- [x] S1.2 Veille ciblée sur les lacunes décisionnelles (références caractère, OCR, couverture, PHerc0800, résolution, nouveautés) → §3.
+- [x] S1.3 Protocoles : `docs/protocols/{reading-evaluation,coverage,independence,research-loop}.md`.
+- [x] S1.4 Refonte de `plan.md`, `docs/hypotheses.md`, `progress.md` ; capitalisation Second Brain.
 ### Validation
-`bash ~/.agents/continuity-check.sh .` PASS ; `gh repo view --json visibility` = PRIVATE ; `git status` propre après push.
+`bash ~/.agents/continuity-check.sh .` PASS ; `pytest` vert ; commit poussé.
 
-# Phase B — Audit scientifique
+# Phase V — Chemin de lecture de bout en bout
 
-## B1 — État de l'art
+## V1 — Chemin v0 et lisibilité au niveau glyphe
 ### Objectif
-Synthèse traçable des méthodes, modèles, résultats, limites et inconnues, sources datées.
+Assembler la meilleure chaîne existante jusqu'aux unités graphiques et mesurer lisibilité et couverture des références.
 ### Dépendances
-A1.
+S1.
 ### Tâches
-- [x] B1.1 Revue initiale (villa, VC3D, Lasagna, spiral fitting, ScrollFiesta, modèles d'encre, autoresearch, PHerc. 1667, problèmes ouverts 2026) → `docs/state-of-the-art/2026-11-12.md`.
-- [ ] B1.2 Vérifier sur sources primaires les points marqués « non vérifié » utiles à la décision courante (licences VC3D/lasagna, données d'entraînement de reader-v2, nature humaine/pseudo des ink-labels 20260918). (Labels : provenance/alignement établis, modèle de pseudo-labeling non publié — `docs/data/splits.md` ; reste : licences VC3D/lasagna.)
+- [x] V1.1 Module `src/vesres/reading.py` (UGR, AUC locale, candidats en fond, couverture, contrôles) + tests.
+- [x] V1.2 EXP-022 : H-026 (validité par contrôles) et H-027 (≥ 70 % d'UGR lisibles sur 0841, fusion LO+Hecate) ; toutes chaînes par objet. (H-026 soutenue 100 %/0 % ; H-027 réfutée 29 % [13-53].)
 ### Validation
-Chaque affirmation du document porte une URL et un statut (vérifié / auto-déclaré / non vérifié).
+`experiments/EXP-022/results.json` ; verdicts H-026/H-027 consignés ; sorties par UGR privées hors Git.
 
-## B2 — Inventaire du corpus
+## V2 — Étage de reconnaissance v0
 ### Objectif
-Catalogue déterministe et régénérable des 45 échantillons, répondant : références, généralisation, opportunités.
+Prolonger le chemin jusqu'à des caractères avec statut et abstention.
 ### Dépendances
-A1.
+V1, T1, T2.
 ### Tâches
-- [x] B2.1 `src/vesres/catalog.py` génère `docs/data/corpus_inventory.{csv,md}` depuis `metadata.min.json` officiel.
-- [x] B2.2 Lister les segments avec `ink-labels` (PHerc0139, 0814, 0841, 1667, Paris4, 0500P2, 0009B) → `docs/data/README.md`.
-- [x] B2.3 Politique de splits par rouleau et matrice de parenté modèles↔données (`docs/data/splits.md`) : seul PHerc0841 est un rouleau étiqueté tenu à l'écart des modèles 9 µm publiés.
+- [ ] V2.1 Brancher le meilleur classifieur T2 sur les UGR du chemin v0 ; sorties « Reconnu/Probable/Inconnu » avec probabilité et alternatives.
+- [ ] V2.2 Mesurer CER/abstention sur la seule référence R2+ disponible ; contrôles fond vierge et fibres.
 ### Validation
-`python -m vesres.catalog` reproduit les fichiers à l'identique ; test `tests/test_catalog.py` PASS.
+Tableau CER/abstention/faux caractères par cm², classe de référence indiquée.
 
-## B3 — Hypothèses classées
+## V3 — Bilan d'obstacles mesurés
 ### Objectif
-Liste priorisée d'hypothèses falsifiables (impact, coût, incertitude).
+Décomposer les pertes de lecture par étage (couverture, géométrie, encre, glyphes, reconnaissance) sur une référence connue.
 ### Dépendances
-B1, B2.
+V1, W1 ; V2 si disponible.
 ### Tâches
-- [x] B3.1 Rédiger `docs/hypotheses.md` (H-001…).
-- [x] B3.2 Réviser `docs/hypotheses.md` après EXP-006…009 (4 hypothèses réfutées d'affilée → audit protocole/métrique selon la règle d'arrêt F1.1) : audit écrit du protocole (contrôle positif de la chaîne tuiles/Brier, puissance du test), puis ≥ 3 nouvelles hypothèses falsifiables classées. (EXP-010 ; H-010…H-013.)
+- [ ] V3.1 Pour un manuscrit de référence (choix argumenté : qualité, indépendance, outils, coût ; 0841 en v0, 1667 si références), attribuer les UGR non lisibles à leur cause (hors segment, géométrie, encre faible, référence douteuse).
 ### Validation
-Chaque hypothèse a référence, données, métrique, critère d'échec, coût estimé.
+Tableau des pertes par étage avec incertitudes ; obstacles reclassés dans la revue suivante.
 
-# Phase C — Environnement reproductible
+# Phase W — Couverture et géométrie
 
-## C1 — Environnement Python/CUDA
+## W1 — Inventaire de couverture du corpus
 ### Objectif
-Environnement isolé, réversible, versionné, compatible sm_120.
+Pour chaque manuscrit : surface identifiée (borne haute), reconstruite, examinée, et estimation physique avec intervalle.
 ### Dépendances
-A1.
+B2.1.
 ### Tâches
-- [x] C1.1 venv uv Python 3.12 hors NAS (`C:\Users\FlowUP\vesuvius-work\.venv`), torch 2.11.0+cu128, matmul GPU OK.
-- [x] C1.2 `pyproject.toml` + `requirements.lock` ; env d'inférence séparé `.venv-koine` (torch 2.10.0+cu128, koine_machines + vesuvius 0.2.4 en --no-deps) figé dans `experiments/EXP-001/env-koine.lock`.
+- [ ] W1.1 EXP-023 : lire les méta-données des segments publiés (aire, dimensions tifxyz) et des scans ; méthode d'estimation physique écrite avant calcul → `docs/data/coverage_inventory.{csv,md}` régénérable.
 ### Validation
-`python -c "import torch; torch.cuda.is_available()"` True ; `pytest` PASS ; lockfile commité.
+Script déterministe ; deux exécutions identiques ; inconnues explicites par manuscrit.
 
-## C2 — Accès aux données par région
+## W2 — Outils géométriques existants
 ### Objectif
-Lire des crops de surface-volumes distants (TIFF Range / OME-Zarr) avec cache atomique et provenance.
+Évaluer VC3D, autosegmentation officielle, fibres, spiral fitting, contrôles de cohérence par leur contribution à la couverture et leur coût, avant tout développement propre.
 ### Dépendances
-C1.
+W1.
 ### Tâches
-- [x] C2.1 `src/vesres/remote_tiff.py` (bandes de lignes via HTTP Range sur TIFF non compressés).
-- [x] C2.2 Lecteur OME-Zarr distant (zarr/fsspec, S3 anonyme) pour `layers-zarr` et `ink-labels`.
-- [x] C2.3 Tests unitaires (TIFF synthétique local, cache, bornes) ; test réseau manuel validé (crop Frag1).
+- [ ] W2.1 Fiche par outil (capacités, limites, coût, licence, sorties) depuis sources primaires et dépôts.
+- [ ] W2.2 Tester sur une région d'un rouleau la détection de trous, doublons et sauts de feuillet par les outils existants ; décider si la géométrie est un obstacle significatif (H-009 sur surfaces difficiles).
 ### Validation
-`pytest -m "not network"` PASS ; lecture d'un crop réel identique à la lecture complète sur une petite zone.
+Décision écrite « réutiliser / contourner / développer » avec preuves.
 
-# Phase D — Premier chemin vertical
-
-## D1 — Inférence zéro-shot d'un modèle d'encre publié sur un crop étiqueté tenu à l'écart
+## W3 — Cartes de couverture par segment
 ### Objectif
-Petit échantillon réel → chargement vérifié → modèle existant → carte de probabilité → métriques contre labels → manifeste EXP-001.
+Produire pour chaque segment traité les catégories de `coverage.md` (examiné, encre potentielle, lisible, incertain, non traité).
 ### Dépendances
-C1, C2.
+V1, W1.
 ### Tâches
-- [x] D1.1 Choisir le crop (PHerc0841, rouleau déclaré non vu par reader-v2 ; layers-zarr 9.366 µm + ink-labels 2.403 µm rééchantillonnés) et figer les coordonnées.
-- [x] D1.2 Télécharger le checkpoint (reader-v2 et/ou scrollprize/ink_9um), vérifier licence et empreinte.
-- [x] D1.3 Inférence locale (VRAM/temps mesurés), AUC/AP/F1 vs labels, manifeste `experiments/EXP-001/`.
+- [ ] W3.1 Étendre `reading.coverage` aux catégories de lisibilité et l'intégrer au manifeste de chaque EXP d'inférence.
 ### Validation
-Manifeste complet ; métriques recalculables par `python -m vesres.eval` ; comparaison chiffrée à la valeur auto-déclarée (AUC 0,824 vs labels humains sur PHerc0841).
+Carte (privée) et tableau (public, agrégé) pour les segments de R1.
 
-# Phase E — Baseline scientifique
+# Phase P — Indépendance, provenance, fuites
 
-## E1 — Reproduction contrôlée
+## P1 — Graphe de provenance
 ### Objectif
-Reproduire une méthode officielle et comparer aux résultats connus, limites matérielles identifiées.
+Tracer données, labels, pseudo-labels, modèles, checkpoints et prédictions.
 ### Dépendances
-D1.
+B2.3.
 ### Tâches
-- [ ] E1.1 Étendre D1 à plusieurs segments/rouleaux étiquetés (0139, 0814, 1667, Paris4) en respectant les parentés d'entraînement. (0841 × 3 segments fait : EXP-001b ; 0009B segment étiqueté fait : EXP-004.)
-- [x] E1.2 Comparer ink_9um vs reader-v2 vs pipeline 2,4 µm (`vesuvius.ink_detection`) sur mêmes crops. (EXP-017 : prédictions officielles canon 2,4 µm publiées vs nos modèles sur les 5 segments étiquetés ; inférence 2,4 µm locale écartée, 33 Go/segment — `docs/data/scoping-2.4um.md`.)
-- [x] E1.4 Hecate 9,6 µm (MIT) sur les 3 segments 0841 (rééchantillonnage 9,366→9,6 µm exigé par la model card) ; tester H-003 avec ce partenaire. (EXP-003 : 6/6 AUC reproduites ; H-003 soutenue.)
-- [x] E1.5 Ré-entraînement leave-one-scroll-out (recette `aligned21_hybrid_3d2d.json`) si nécessaire pour disposer de ≥ 3 rouleaux de test indépendants (J5). (Cadrage EXP-018 : ink_9um déjà leave-out de 0841/0009B/0500P2 ; ré-entraînement retenu = recette reader-v2 sans 0009B/0500P2 → reader-v2-LO, validé par entraînement complet 40k + évaluation sur les 5 segments : EXP-018, H-017 soutenue.)
-- [ ] E1.3 Reproduction partielle PHerc. 1667 (crop représentatif, 2,4 µm) vs prédictions publiées.
+- [ ] P1.1 `docs/data/provenance.csv` (source, relation, cible, statut, preuve) depuis `splits.md`, model cards, EXP-017/018 ; test de cohérence.
 ### Validation
-Tableau comparatif avec seeds, coûts, variance ; baseline déclarée validée seulement si sorties et métriques contrôlées.
+Chaque modèle évalué a ses parentés ; inconnues marquées.
 
-# Phase F — Expérimentation autonome
-
-## F1 — Boucle expérimentale
+## P2 — Requalification des métriques historiques
 ### Objectif
-Enchaîner hypothèse → protocole → expérience → comparaison → décision, sans boucle improductive.
+Attribuer une classe R0–R4 à chaque métrique historique et borner les conclusions.
 ### Dépendances
-E1, B3.
+P1.
 ### Tâches
-- [ ] F1.1 Registre `experiments/registry.csv` + gabarit de manifeste + règle d'arrêt (3 essais sans gain → audit métrique/protocole).
-- [ ] F1.2 Exécuter l'hypothèse la mieux classée de `docs/hypotheses.md`.
+- [ ] P2.1 Colonne « classe de référence » dans le registre et les résultats ; corriger toute conclusion qui dépasse sa classe (EXP-017 en priorité).
+- [ ] B1.2 Licences VC3D/lasagna ; modèle de pseudo-labeling des ink-labels (reste non vérifié).
 ### Validation
-Chaque EXP a manifeste, conclusion (intégrer/rejeter/suspendre) et lien vers hypothèse.
+Registre complété ; liste des conclusions révisées.
 
-# Phase G — Veille scientifique
-
-## G1 — Détection incrémentale des changements
+## P3 — Test scellé
 ### Objectif
-Script déterministe idempotent qui détecte les nouveautés (villa, HF scrollprize, catalogue S3, arXiv, pages scrollprize).
+Réserver des objets réellement protégés des décisions expérimentales.
 ### Dépendances
-C1.
+P1, W1.
 ### Tâches
-- [x] G1.1 `src/vesres/watch.py` : état `watch/state.json`, rapport `watch/reports/YYYY-MM-DD.md`, erreurs réseau tolérées, verrou anti-concurrence.
-- [x] G1.2 Tests (idempotence : deux passages successifs → aucun doublon).
+- [ ] P3.1 Règle de choix écrite (diversité rouleau/fragment, énergie, résolution, état) ; liste et empreintes dans `docs/data/sealed_test.md` avant consultation.
+- [ ] H1.1 Réserver les rouleaux de test (jamais utilisés pour décider d'un entraînement).
 ### Validation
-Deux exécutions consécutives : la seconde ne rapporte aucune nouveauté ; rapport écrit atomiquement.
+Fichier daté et commité avant toute ouverture ; journal des ouvertures.
 
-## G2 — Planification et analyse
+## P4 — Références indépendantes
 ### Objectif
-Déclenchement hebdomadaire réel, rattrapage des exécutions manquées, transformation en hypothèses.
+Obtenir des références R2/R3 au lieu de R1.
 ### Dépendances
-G1.
+T1.
 ### Tâches
-- [x] G2.1 Tâche planifiée utilisateur Windows `VesuviusResearchWatch` (lundi 09:00, StartWhenAvailable, IgnoreNew) → `watch/run_watch.ps1` ; déclenchement planifié vérifié 2026-11-12 23:37:36, LastTaskResult 0.
-- [ ] G2.2 Vérifier un déclenchement réel et son rapport ; synthèse mensuelle `docs/state-of-the-art/` + mise à jour `docs/hypotheses.md`.
+- [ ] P4.1 Localiser et évaluer les photos IR des fragments alignées sur les surface-volumes (R3) et leur couverture de nos objets.
+- [ ] P4.2 Protocole d'annotation indépendante (`independence.md` §5) prêt à l'emploi ; exécution = décision humaine (annotateur).
 ### Validation
-`schtasks /query /tn` montre Last Result 0 et un rapport daté produit par le déclenchement planifié.
+Inventaire des références R2/R3 avec licence et emprise ; protocole relu.
 
-## G3 — Veille renforcée et décisionnelle
+# Phase T — Reconnaissance du texte
+
+## T1 — Références et état de l'art de la reconnaissance
 ### Objectif
-Veille fiable (sans trou ni défaillance silencieuse) couvrant toutes les sources pertinentes, et branchée sur les décisions expérimentales.
+Identifier les références caractère/mot utilisables et les méthodes OCR/HTR pertinentes, sans imposer d'architecture.
 ### Dépendances
-G1, G2.1.
+S1.
 ### Tâches
-- [x] G3.1 Réessais HTTP avec backoff, arXiv 200 résultats / 120 s (rattrapage des passages manqués), sources Zenodo et pages règlement/licence (`rules_pages`), défaillances ≥ 2 passages signalées (commit `e35201f`, 12 tests verts ; Zenodo a trouvé Korotetskyi & Haindl 2026 dès le premier essai).
-- [ ] G3.2 Règle d'expérience : avant toute expérience importante, consulter les rapports de veille depuis la dernière décision et noter dans le README de l'EXP « veille consultée : <date>, impact : … ».
-- [ ] G3.3 Chaque nouveauté retenue reçoit une fiche (apport, niveau de preuve, reproductibilité, limites, intérêt, expérience comparative) dans l'analyse du rapport, et une hypothèse si une comparaison est pertinente.
+- [ ] T1.1 Lire arXiv:2606.29085 (transcriptions, alignements, couverture 1667) ; ICDAR 2023 papyrus grecs, AL-PUB, lectures First Letters publiées : fiche (preuve, licence, intérêt, expérience comparative).
+- [ ] T1.2 Rédiger la question écrite aux auteurs/organisateurs (transcription 1667 alignée, usage interne) — envoi = action humaine (L1.3).
 ### Validation
-Passage planifié suivant sans erreur persistante ; une expérience au moins dont le README cite la veille consultée.
+Fiches dans `docs/state-of-the-art/` ; décision sur la référence de V2.
+
+## T2 — Identification de glyphes v0
+### Objectif
+Mesurer si des glyphes de cartes d'encre sont identifiables, avec abstention et contrôles.
+### Dépendances
+T1, V1.
+### Tâches
+- [ ] T2.1 Hypothèse et protocole (classifieur simple vs pré-entraîné sur lettres grecques ; écart de domaine photo→CT mesuré) ; contrôles fond vierge, fibres, glyphes tournés.
+### Validation
+Résultats par classe avec IC et classe de référence ; aucun caractère sans statut.
+
+## T3 — Mots, phrases, langue
+### Objectif
+Utiliser la linguistique comme information complémentaire, jamais comme preuve d'encre.
+### Dépendances
+T2.
+### Tâches
+- [ ] T3.1 Lectures concurrentes, contradictions observation/lecture, tests texte permuté ; grec et latin sans présupposer la langue.
+### Validation
+Taux de restitutions présentées comme observations = 0 (audit) ; WER si référence.
+
+## T4 — Transcription et traduction
+### Objectif
+Produire transcriptions diplomatique et normalisée distinctes, traduction et lacunes quand les preuves le permettent.
+### Dépendances
+T3.
+### Tâches
+- [ ] T4.1 Format de sortie (statuts, coordonnées, alternatives, lacunes) et exemple sur passage connu.
+### Validation
+Format relu contre `reading-evaluation.md` ; exemple sur référence publiée.
+
+## T5 — Validation papyrologique externe
+### Objectif
+Procédure opérationnelle de validation indépendante des lectures nouvelles.
+### Dépendances
+R1.
+### Tâches
+- [ ] T5.1 Dossier de preuve type (images privées, coordonnées, méthode, incertitudes, statuts) et circuit (Discord officiel / organisateurs) — exécution = décision humaine.
+### Validation
+Modèle de dossier commité ; aucune publication sans accord.
+
+# Phase R — Découvertes réelles
+
+## R1 — Lettres candidates sur un rouleau non lu
+### Objectif
+Rechercher zones d'encre et lettres candidates sur un rouleau éligible avec une chaîne n'ayant vu aucune région de ce rouleau, sans attendre la fin des travaux intermédiaires.
+### Dépendances
+L2.2 (provenance), V1 (métriques), P1.
+### Tâches
+- [ ] R1.1 Audit PHerc0800 (intérêt, segments, qualité, éligibilité, parentés des modèles : reader-v2/LO/ink_9um sans 0800, Hecate et reader-v3 à vérifier) ; inspecter d'abord les prédictions officielles publiées.
+- [ ] R1.2 Inférence de la chaîne figée, cartes privées, examen des faux positifs (fond, fibres) ; zones candidates documentées (coordonnées, méthode, incertitudes) sans publication.
+- [ ] R1.3 Si ≥ 10 lettres candidates dans 4 cm² : dossier de preuve privé et décision humaine (Discord / soumission).
+### Validation
+Rapport privé par segment ; aucune image publiée ; décision humaine consignée.
+
+## R2 — Passage inédit validé
+### Objectif
+Transcrire un passage inédit et le faire valider indépendamment.
+### Dépendances
+R1, T4, T5.
+### Tâches
+- [ ] R2.1 Transcription avec statuts et dossier T5.
+### Validation
+Validation R4 obtenue (humaine).
+
+# Phase Y — Résolution et signal
+
+## Y1 — Gain réel de résolution
+### Objectif
+Mesurer ce que 2,4 µm (ou plus) apporte vs 9 µm en lisibilité, couverture et coût, sur référence non circulaire.
+### Dépendances
+V1, P2.
+### Tâches
+- [x] Y1.1 Requalifier EXP-017 au niveau glyphe (EXP-022 inclut canon/reader-v3/argus-v3) et selon la classe de référence. (Canon +35 points d'UGR sur 0841, McNemar p = 0,03 vs fusion rv2+H ; référence R1, circularité maximale pour canon → H-029.)
+- [ ] Y1.2 Comparaison sur une référence R2/R3 (P4) : 9 vs 2,4 µm, coût par cm².
+- [ ] E1.3 Reproduction partielle PHerc. 1667 (crop 2,4 µm) vs prédictions publiées.
+### Validation
+Gain par objet avec IC et classe de référence ; aucune super-résolution comme preuve.
+
+## Y2 — Calcul progressif
+### Objectif
+Tester analyse globale peu coûteuse → raffinement ciblé, avec contrôle du texte manqué.
+### Dépendances
+Y1, N1 ou N2.
+### Tâches
+- [ ] Y2.1 H-025 cascade (ex-K6.3) : rappel ≥ 99 % des UGR à l'étage rapide, économie ≥ 40 %.
+### Validation
+Adoptée seulement si rappel et lisibilité préservés.
 
 # Phase H — Généralisation
 
-## H1 — Évaluation inter-rouleaux
+## H1 — Évaluation représentative du corpus
 ### Objectif
-Mesurer la robustesse sur ≥ 3 rouleaux indépendants aux conditions différentes.
+Mesurer la lecture sur plusieurs manuscrits indépendants et différents, par objet, région et difficulté.
 ### Dépendances
-E1, B2.3.
+P3, W1.
 ### Tâches
-- [ ] H1.1 Réserver des rouleaux de test (jamais utilisés pour décider d'un entraînement).
-- [ ] H1.2 Évaluer la meilleure chaîne sur ces rouleaux ; rapport par rouleau, résolution, énergie.
+- [ ] H1.2 Évaluer la meilleure chaîne sur les objets scellés ; rapport par rouleau, résolution, énergie, difficulté ; coût des adaptations et interventions humaines.
+- [ ] E1.1 Étendre l'évaluation aux autres segments étiquetés (0139, 0814, 1667, Paris4) en respectant les parentés (comparateurs, non indépendants).
 ### Validation
-Résultats par rouleau avec intervalles (bootstrap par région), sans fuite documentée.
+Résultats par objet avec IC, classe de référence et fuites documentées.
+
+# Phase N — Méthodes non neuronales et hybrides
+
+## N1 — Texture 3D sans entraînement
+### Objectif
+Reproduire Korotetskyi & Haindl 2026 puis l'évaluer hors échantillon (priorité abaissée : masques R0, faible intérêt lecture direct).
+### Dépendances
+B2, C1 ; machine libre (contention CPU).
+### Tâches
+- [ ] N1.1 EXP-021 / H-022 : reproduction (MCC 0,457 ± 0,02), opportuniste quand aucun calcul n'est en cours.
+- [ ] N1.2 H-023 : configuration figée sur nos 5 segments ; mesure aussi au niveau glyphe.
+### Validation
+Tableau publié/reproduit ; évaluation avec IC, sans réglage sur les objets de test.
+
+## N2 — Baseline physique simple
+### Objectif
+Mesurer ce que la physique seule apporte à 9 µm.
+### Dépendances
+B2.
+### Tâches
+- [ ] N2.1 H-024 : profil le long de la normale + classifieur léger en leave-one-object-out ; aussi au niveau glyphe.
+### Validation
+AUC sup. et lisibilité glyphe par objet tenu à l'écart ; coût.
+
+# Phase E — Baseline d'encre (acquise, maintenue)
+
+## E1 — Reproduction contrôlée
+### Objectif
+Maintenir les comparateurs d'encre publiés ; aucune optimisation pixel sans obstacle démontré par V3.
+### Dépendances
+D1.
+### Tâches
+- [x] E1.6 Évaluer reader-v3 (référence communautaire First Letters) sur nos 5 segments au niveau glyphe (prédictions officielles déjà locales, EXP-022). (0841 : 4/17 ≈ fusion ; 0009B 7/10 ; absent pour 0500P2.)
+### Validation
+Inclus dans EXP-022 ou EXP dédiée.
+
+# Phase G — Veille décisionnelle
+
+## G2 — Planification et synthèse
+### Objectif
+Déclenchement hebdomadaire réel et synthèse transformée en décisions.
+### Dépendances
+G1.
+### Tâches
+- [ ] G2.2 Vérifier un déclenchement réel et son rapport ; synthèse mensuelle `docs/state-of-the-art/` + mise à jour des hypothèses.
+### Validation
+`schtasks /query /tn VesuviusResearchWatch` Last Result 0 et rapport daté du déclenchement.
+
+## G3 — Veille branchée sur les décisions
+### Objectif
+Aucune expérience importante sans veille consultée ; chaque nouveauté retenue a une fiche.
+### Dépendances
+G1, G2.1.
+### Tâches
+- [ ] G3.2 « Veille consultée : <date>, impact » dans chaque README d'EXP importante (première application : EXP-022).
+- [ ] G3.3 Fiche par nouveauté retenue (12 questions de l'invariant) et hypothèse si comparaison pertinente.
+- [ ] G3.4 Sources de veille ajoutées : page `winners`, Hugging Face `scrollprize` + modèles communautaires cités (§3 de la revue).
+### Validation
+Deux EXP au moins citant la veille ; fiches présentes.
+
+## G4 — Recherche interdisciplinaire
+### Objectif
+Importer des méthodes d'autres disciplines quand un obstacle le justifie, sous forme d'hypothèses falsifiables.
+### Dépendances
+V3.
+### Tâches
+- [ ] G4.1 Pour chaque obstacle V3 : recherche ciblée (physique, imagerie médicale, signal, graphique, statistiques, linguistique, papyrologie), compatibilité physique vérifiée, hypothèse `H-NNN`.
+### Validation
+Au moins une hypothèse issue d'une autre discipline testée ou écartée par argument écrit.
+
+# Phase K — Efficacité
+
+## K3 — Courbes performance/temps EXP-018
+### Objectif
+Situer le rendement décroissant de la référence 40k à coût faible (sans nouvel entraînement).
+### Dépendances
+E1.5, K2.1.
+### Tâches
+- [ ] K3.1 Perte et débit depuis les journaux EXP-018 ; coût réel par phase.
+- [ ] K3.2 Inférence de checkpoints échantillonnés sur la validation K ; test en descriptif seulement.
+### Validation
+EXP avec courbes, coûts, statut descriptif des courbes sur test.
+
+## K4 — Durée minimale (suspendue)
+### Objectif
+Recette plus courte non inférieure — suspendue tant qu'aucune recette neuronale n'est retenue dans le système de lecture.
+### Dépendances
+K3, V3.
+### Tâches
+- [ ] K4.1 Entraînements courts recuits, non-infériorité sur validation K2.1.
+- [ ] K4.2 Confirmation unique sur test après décision.
+- [ ] K4.3 Arrêt anticipé si plateau exploitable.
+### Validation
+Non-infériorité (IC 95 % < δ) ou résultat négatif consigné.
+
+## K5 — Débit (suspendue)
+### Objectif
+Réduire le temps par itération — même condition que K4.
+### Dépendances
+K1.1, V3.
+### Tâches
+- [ ] K5.1 Profilage GPU / DataLoader / I/O ; cache de recherche de patches.
+- [ ] K5.2 Leviers un à un (≥ 10 % de gain, métriques dans δ).
+- [ ] K5.3 Intégration à la recette par défaut.
+### Validation
+Tableau avant/après par levier.
+
+## K6 — Coût de la chaîne
+### Objectif
+Mesurer le coût total de la chaîne de lecture par cm² et réutiliser les artefacts.
+### Dépendances
+K1.1.
+### Tâches
+- [ ] K6.1 Manifeste de coût standard par EXP ; coût par cm² du chemin v0.
+- [ ] K6.2 Inventaire des artefacts réutilisables et règles de compatibilité.
+### Validation
+Tableau de coûts reproductible.
+
+# Phase L — Compatibilité Vesuvius Challenge
+
+## L1 — Matrice de conformité
+### Objectif
+Matrice sourcée à jour (≤ 1 mois) ; inconnues explicites.
+### Dépendances
+Aucune.
+### Tâches
+- [x] L1.1 Matrice initiale (2026-11-26).
+- [ ] L1.2 Revue mensuelle et à chaque alerte `rules_pages` (actualisée 2026-11-27 avec la veille ; relire la formulation exacte de `prizes`).
+- [ ] L1.3 Questions écrites prêtes (agents IA, pays, licence ↔ open source, transcription 1667) dans la matrice ; envoi = action humaine.
+### Validation
+Date ≤ 1 mois ; chaque ligne sourcée ; questions rédigées.
+
+## L2 — Interopérabilité
+### Objectif
+Sorties utilisables par VC3D/villa ; audit de provenance par rouleau cible.
+### Dépendances
+L1.1, P1.
+### Tâches
+- [ ] L2.1 Export carte d'encre OME-Zarr/TIFF sur grille tifxyz + image programmatique (barre 1 cm), privé.
+- [ ] L2.2 Audit de provenance par rouleau cible (PHerc0800 d'abord) avant toute prédiction.
+### Validation
+Chargement VC3D/villa sans conversion manuelle ; audit écrit par rouleau.
+
+# Phase M — Open source, reproductibilité, stockage
+
+## M1 — Dépôt public
+### Objectif
+Dépôt public sûr et lisible.
+### Dépendances
+Aucune.
+### Tâches
+- [ ] M1.4 Décision humaine : e-mail des commits (noreply pour l'avenir ; réécriture d'historique seulement sur demande).
+### Validation
+Décision consignée.
+
+## M2 — Reproductibilité externe
+### Objectif
+Rejouer une expérience clé depuis zéro sans notre infrastructure.
+### Dépendances
+M1.3.
+### Tâches
+- [ ] M2.1 Environnements verrouillés documentés + `Dockerfile`.
+- [ ] M2.2 Rejouer EXP-001 depuis un clone propre.
+- [ ] M2.3 Contributions communautaires candidates (métrique glyphe sans fuite, inventaire de couverture, évaluation par classe de référence) — soumission sur autorisation humaine.
+### Validation
+Rejeu EXP-001 identique (12/12).
+
+## M3 — Stockage scientifique et sauvegarde
+### Objectif
+Distinguer cache et artefacts uniques ; sauvegarder et vérifier ces derniers.
+### Dépendances
+Aucune.
+### Tâches
+- [ ] M3.1 Manifeste sha256 des artefacts uniques (checkpoints EXP-018, sorties privées) et copie sur le NAS ; test de restauration d'un fichier.
+- [ ] M3.2 Politique d'espace : C: libre en baisse (229 Gio) → éviction du cache reproductible avant tout téléchargement > 20 Go.
+### Validation
+Manifeste commité (sans données) ; restauration vérifiée par sha256.
 
 # Phase I — Contribution scientifique
 
@@ -267,162 +529,14 @@ H1 ou résultat original démontré.
 ### Validation
 Reproduction indépendante réussie ; confirmation humaine explicite avant toute publication.
 
-# Phase K — Efficacité d'entraînement (objectif secondaire permanent)
+# Phase F — Boucle expérimentale
 
-## K1 — État de l'art de l'efficacité d'entraînement
+## F1 — Règles de la boucle
 ### Objectif
-Recenser les méthodes établies (choix de durée, arrêt anticipé, schedules sans horizon fixe, débit GPU/données) avant tout développement propre.
+Hypothèse → protocole → expérience → décision, sans boucle improductive.
 ### Dépendances
-Aucune.
+E1, B3.
 ### Tâches
-- [x] K1.1 Synthèse sourcée `docs/state-of-the-art/training-efficiency.md` : early stopping, WSD / schedule-free, moyenne de poids (EMA/SWA), non-infériorité, débit PyTorch (précision, compile, channels_last, DataLoader, zarr), pratiques villa/reader-v2/nnU-Net.
-- [x] K1.2 Classer les leviers en hypothèses `H-NNN` (gain attendu, effort, risque, impact scientifique) dans `docs/hypotheses.md`.
+- [x] F1.1 Registre `experiments/registry.csv`, manifestes par EXP, règle d'arrêt proportionnée (`docs/protocols/research-loop.md`).
 ### Validation
-Document avec URL et niveau de preuve par point ; hypothèses K inscrites avec critère de réfutation fixé avant mesure.
-
-## K2 — Protocole de durée optimale
-### Objectif
-Définir, avant toute mesure, comment déterminer la durée minimale non inférieure à une référence sans contaminer les tests.
-### Dépendances
-K1.1.
-### Tâches
-- [x] K2.1 `docs/protocols/training-duration.md` : jeu de validation tenu à l'écart (segments entiers des rouleaux d'entraînement, jamais un objet de test), métriques (AUC/AP sup. sur validation), marge de non-infériorité δ (par défaut 0,01 AUC sup., révisée si la variance inter-seeds mesurée l'exige) testée par bootstrap par région (IC 95 % unilatéral), coût total mesuré (préparation, recherche de patches, entraînement, validation, en heures GPU et murales), règle d'arrêt anticipé.
-- [x] K2.2 Préciser l'effet du schedule : un checkpoint intermédiaire d'un run cosine 40k n'équivaut pas à un run court recuit ; protocole de rattrapage (décroissance courte depuis checkpoint, ou schedule sans horizon) défini avant mesure.
-### Validation
-Protocole relu contre `docs/data/splits.md` (aucun objet de test dans validation ou sélection) et commité avant la première mesure K3.
-
-## K3 — Courbes performance/temps sur la référence EXP-018
-### Objectif
-Exploiter les 40 checkpoints de la référence reader-v2-LO 40k (EXP-018, non modifiée) pour situer le rendement décroissant.
-### Dépendances
-E1.5 (entraînement terminé et évalué), K2.1.
-### Tâches
-- [x] K3.0 Construire les 4 segments de validation K (`role == holdout` de `selection.json`, 0343P ×2, 0172 ×2) avec `build.py`, mêmes seuils ; vérifier labels non vides. (4/4, `data/v2lo_val_build.log` : encre 4–17 %, supervision 67–94 %.)
-- [ ] K3.1 Courbe perte d'entraînement et débit (it/s, utilisation GPU) par itération depuis les journaux EXP-018 ; coût réel de chaque phase.
-- [ ] K3.2 Inférence de checkpoints échantillonnés (5k, 10k, 20k, 30k, 40k) sur la validation K ; sur objets de test uniquement en descriptif, après la conclusion H-017, sans en tirer de durée.
-### Validation
-`experiments/EXP-NNN/` avec courbes, coûts et mention explicite du statut descriptif des courbes sur test.
-
-## K4 — Durée minimale validée et arrêt anticipé
-### Objectif
-Démontrer une recette plus courte non inférieure à la référence, et un arrêt anticipé adaptatif si pertinent.
-### Dépendances
-K2, K3.
-### Tâches
-- [ ] K4.1 Entraînements courts recuits (durées choisies d'après K3 et K1), même données, même seed puis ≥ 2 seeds sur la durée retenue ; non-infériorité sur validation K2.1.
-- [ ] K4.2 Confirmation unique sur les objets de test de la durée retenue (après décision sur validation) vs référence 40k.
-- [ ] K4.3 Arrêt anticipé (patience sur validation périodique) intégré au lanceur si K4.1 montre un plateau exploitable.
-### Validation
-Non-infériorité démontrée (borne IC 95 % < δ) sur validation, confirmée sur test, gain de temps total chiffré ; sinon recette 40k conservée et résultat négatif consigné.
-
-## K5 — Débit par itération et coût des données
-### Objectif
-Réduire le temps par itération et le coût de préparation sans changer les résultats au-delà de δ.
-### Dépendances
-K1.1.
-### Tâches
-- [ ] K5.1 Profilage d'une fenêtre d'entraînement (GPU vs DataLoader vs I/O zarr) ; coût de la recherche de patches (≈ 40 min par lancement observé 2026-11-26) et réutilisation de son cache.
-- [ ] K5.2 Leviers mesurés un à un (précision bf16/fp16, `torch.compile`, channels_last, workers/prefetch, taille de lot + LR, cache des données) ; chacun gardé seulement si gain de temps ≥ 10 % et métriques validation dans δ.
-- [ ] K5.3 Intégrer les leviers démontrés à la recette par défaut (lanceur, `make_config.py`) et au manifeste des expériences (coût total).
-### Validation
-Tableau avant/après (it/s, heures totales, métriques validation) par levier, reproductible depuis les scripts commités.
-
-## K6 — Efficacité de toute la chaîne et calcul adaptatif
-### Objectif
-Mesurer et réduire le coût total de la chaîne (données, géométrie, encre, inférence, ressources), et tester une cascade rapide → coûteuse.
-### Dépendances
-K1.1 ; N1/N2 pour l'étage rapide de la cascade.
-### Tâches
-- [ ] K6.1 Manifeste de coût standard pour chaque EXP (heures murales/GPU, pic RAM/VRAM, stockage, volume réseau) ; tableau de coût de la chaîne de référence (téléchargement, recherche de patches, inférence par cm², évaluation).
-- [ ] K6.2 Réutilisation : inventaire des artefacts intermédiaires réutilisables (prédictions, caches de patches, surfaces) avec règles de compatibilité de protocole.
-- [ ] K6.3 H-025 cascade : étage rapide (descripteurs N1/N2 ou modèle léger) calibré pour un rappel ≥ 99 % de l'encre sur validation, étage coûteux sur les zones restantes ; mesurer économie de calcul et perte de rappel/AP vs modèle seul sur objets de test (config figée).
-### Validation
-Tableau de coûts reproductible ; cascade adoptée seulement si rappel ≥ 99 % et AP dans δ, sinon résultat négatif consigné.
-
-# Phase L — Compatibilité Vesuvius Challenge
-
-## L1 — Matrice de conformité aux prix
-### Objectif
-Maintenir une matrice sourcée exigences × état × preuves × actions pour chaque prix actif.
-### Dépendances
-Aucune.
-### Tâches
-- [x] L1.1 Matrice initiale `docs/compliance/vesuvius-challenge-matrix.md` (Grand Prize 2027, First Letters, Paris 4 Title, Progress ; licence ↔ open source ; sources officielles lues le 2026-11-26).
-- [ ] L1.2 Revue mensuelle et à chaque alerte `rules_pages` de la veille ; points ❔ (agents IA, pays, préentraînés, délai open source) à poser par écrit aux organisateurs — action humaine.
-### Validation
-Date de vérification ≤ 1 mois ; chaque ligne cite sa source.
-
-## L2 — Interopérabilité technique
-### Objectif
-Sorties directement utilisables par VC3D/villa et briques réutilisables hors de notre infrastructure.
-### Dépendances
-L1.1.
-### Tâches
-- [ ] L2.1 Export d'une carte d'encre en OME-Zarr/TIFF aligné sur la grille tifxyz du segment + image programmatique (barre 1 cm, sans retouche) conforme aux prix, sorties privées (licence).
-- [ ] L2.2 Audit de provenance par rouleau cible (modèles, labels, résolution source) avant toute prédiction sur un rouleau éligible (règles « pas de chevauchement » et « pas de scan plus résolu du même volume »).
-### Validation
-Fichier ouvert dans VC3D ou chargé par les outils villa sans conversion manuelle ; audit écrit pour chaque rouleau cible.
-
-# Phase M — Open source et reproductibilité externe
-
-## M1 — Sécurité et présentation du dépôt public
-### Objectif
-Dépôt public sûr, conforme aux licences et lisible par la communauté.
-### Dépendances
-Aucune.
-### Tâches
-- [x] M1.1 Audit sécurité/licences de tout l'historique (`docs/open-source/audit-2026-11-26.md`) : aucun secret, aucune donnée/label/image/poids ; écarts listés.
-- [x] M1.2 README et documentation d'entrée en anglais (objectif, résultats positifs et négatifs, protocoles, licences, citations), français conservé pour le travail interne.
-- [x] M1.3 Chemins configurables (`VESRES_WORK` ; dépôt déduit de `$PSScriptRoot`) au lieu de `C:/Users/...` et de l'IP du NAS codés en dur.
-- [ ] M1.4 Décision humaine : adresse e-mail des commits (noreply GitHub pour l'avenir ; réécriture d'historique seulement sur demande).
-### Validation
-`rg` ne trouve plus de chemin personnel dans le code ; README anglais présent ; décision M1.4 consignée.
-
-## M2 — Reproductibilité sur une autre machine
-### Objectif
-Installer et rejouer une expérience clé depuis zéro sans notre infrastructure.
-### Dépendances
-M1.3.
-### Tâches
-- [ ] M2.1 Environnements verrouillés documentés (`.venv`, `.venv-koine`, `.venv-tex`) + `Dockerfile` CPU/GPU.
-- [ ] M2.2 Rejouer EXP-001 depuis un clone propre dans un dossier neuf (données publiques téléchargées par script).
-- [ ] M2.3 Liste des contributions communautaires candidates (évaluation sans fuite, détecteur explicable, export programmatique) avec preuve d'intérêt — soumission/PR seulement sur autorisation humaine.
-### Validation
-Rejeu EXP-001 identique (12/12) depuis un clone propre.
-
-# Phase N — Méthodes non neuronales et hybrides
-
-## N1 — Détection d'encre par texture 3D sans entraînement
-### Objectif
-Reproduire Korotetskyi & Haindl 2026 puis l'évaluer hors échantillon contre notre référence neuronale.
-### Dépendances
-B2 (segments étiquetés), C1.
-### Tâches
-- [ ] N1.1 EXP-021 / H-022 : reproduction de leurs résultats (MCC fusion 0,457 in-sample, 25 glyphes PHerc. 172) depuis le paquet Zenodo, CPU.
-- [ ] N1.2 H-023 : configuration figée appliquée à nos 5 segments étiquetés (0841 × 3, 0009B, 0500P2) ; AUC/AP sup. vs reader-v2, Hecate, intensité brute ; fusion avec reader-v2 ; coût CPU.
-### Validation
-Tableau publié/reproduit ; évaluation `eval_ink` avec IC par blocs, sans réglage sur les objets de test.
-
-## N2 — Baseline physique simple
-### Objectif
-Mesurer ce que la physique seule (profil d'intensité le long de la normale) apporte à 9 µm.
-### Dépendances
-B2.
-### Tâches
-- [ ] N2.1 H-024 : features par pixel du surface-volume (profil 65 couches, différences, gradient, variance locale) + classifieur léger (régression logistique / gradient boosting) en leave-one-object-out ; comparer à reader-v2 et N1.
-### Validation
-AUC sup. par objet tenu à l'écart avec IC ; coût mesuré.
-
-# Phase R — Orientation vers des découvertes réelles
-
-## R1 — Lettres candidates sur un rouleau non lu
-### Objectif
-Rechercher des zones d'encre et lettres candidates sur un rouleau éligible First Letters, avec une chaîne n'ayant vu aucune région de ce rouleau.
-### Dépendances
-E1.5 (modèles LO), L2.2 (provenance), N1/N2 (signal complémentaire).
-### Tâches
-- [ ] R1.1 Choisir le rouleau (candidat : PHerc0800, 12 segments au catalogue) et des segments selon qualité de surface et couverture ; audit L2.2.
-- [ ] R1.2 Inférence de la meilleure chaîne, cartes privées, inspection ; toute zone candidate documentée (coordonnées, méthode, incertitudes) sans publication.
-- [ ] R1.3 Si ≥ 10 lettres candidates dans 4 cm² : dossier de preuve privé et décision humaine (Discord / soumission).
-### Validation
-Rapport privé par segment (zones, scores, faux positifs plausibles) ; aucune image publiée ; décision humaine consignée.
+Chaque EXP a manifeste, conclusion et lien vers hypothèse.

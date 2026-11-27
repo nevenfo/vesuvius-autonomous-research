@@ -1,37 +1,34 @@
 # PROGRESS
 
 ## Phase actuelle
-Phases E/F/K/N — baseline et boucle expérimentale ; quatre exigences permanentes intégrées le 2026-11-26 (lecture intégrale, état de l'art vivant, efficacité de la chaîne, compatibilité Vesuvius Challenge). Validés : A, B1.1, B2.1-3, B3.1-2, C, D1, E1.2, E1.4, G1, G2.1, G3.1, K1, K2, K3.0, L1.1, M1.1-M1.3, E1.5 ; E1.1 partiel.
+Refonte stratégique du 2026-11-27 faite (S1) : plan réorganisé autour de la lecture (V chemin bout en bout, W couverture/géométrie, P indépendance, T reconnaissance du texte, Y résolution, R découvertes, H généralisation) ; ancien plan archivé (`docs/plan-archive-2026-11-27.md`). Jalon J1 atteint ; J2–J12 ouverts.
 
 ## Tâche actuelle
-N1.1 / H-022 — EXP-021 : reproduction Korotetskyi & Haindl 2026 sous WSL Ubuntu (`~/korotetskyi2026/code`, venv lock Linux des auteurs, `out_supplied/` = résultats fournis, `out/` vide) ; recalcul section 6 à lancer (machine libre, EXP-018 terminé).
+W1.1 / H-028 — EXP-023 : inventaire de couverture du corpus (surface identifiée par les segments publiés vs estimation physique avec intervalle).
 
 ## Dernière tâche validée
-E1.5 / H-017 — EXP-018 reader-v2-LO entraîné 40k (`vesuvius-work/runs/EXP-018/train/ckpt_040000.pth`) et évalué : H-017 soutenue (perte AUC sup. 0,008 sur objets vus, 0,027 sur 0841, DiD −0,019).
+V1.2 / EXP-022 — chemin de lecture v0 et lisibilité par unité graphique : H-026 soutenue (contrôles 100 %/0 %), H-027 réfutée (fusion LO+Hecate 5/17 UGR lisibles sur 0841 = 29 % [13-53] ; canon 2,4 µm 11/17, réf. R1) ; références fiables = 7–22 % des segments.
 Validation :
-- `run_eval.sh` 5/5 exit 0 ; `analyze.py` → `experiments/EXP-018/results.json` ; `pytest tests/` 12 verts.
+- `pytest tests -m "not network"` 17 verts ; `experiments/EXP-022/analyze.py` → `experiments/EXP-022/results.json` (50 s) ; `continuity-check.sh` OK.
 
 ## Décisions actives
-- Dépôt public MIT sur NAS ; venvs `.venv` (outils, torch 2.11), `.venv-koine` (inférence/entraînement officiels, torch 2.10), `.venv-tex` (N1) + cache, modèles, runs sur `C:\Users\FlowUP\vesuvius-work` (hors Git).
-- Inférence d'encre = `koine_machines.inference.infer` (villa `merge-ink-pipelines` @ 47a9c37f) sans patch ; Hecate via `experiments/EXP-003/hecate_run.py` ; évaluation = `vesres.eval_ink` (région `supervision`, IC par blocs).
-- Chaîne de référence = fusion moyenne reader-v2+Hecate (EXP-003/004/011) ; leviers post-hoc épuisés (EXP-012…016) ; prédictions officielles 2,4 µm = comparateurs indicatifs (EXP-017).
-- Objets de test 0841 × 3, 0009B, 0500P2 : jamais utilisés pour choisir durée, checkpoint, hyperparamètre ou configuration (N1.2 : configuration figée).
-- Phase K : validation K = 4 holdouts reader-v2 (0343P ×2, 0172 ×2, `vesuvius-work/data/v2lo_val/`), R = EXP-018 (terminé, checkpoints / 1000 disponibles), δ = 0,01 AUC sup., candidat WSD (`experiments/EXP-020/train_wsd.py`, test GPU 200 it. à faire) ; EXP-019 prêt ; aucune inférence pendant l'entraînement (mesure de débit K3.1).
-- Priorités : `docs/research-review-2026-11-26.md` (N1 → N2 → R1 PHerc0800 → K → cascade ; E1.5 fait).
-- Pas de job CPU lourd (WSL inclus) pendant un entraînement : débit EXP-018 divisé par ~5 (mesuré).
-- `experiments/EXP-018/select.py` renommé `select_segments.py` (masquait le module standard `select`).
-- Prix : aucune éligibilité déclarée ; contradiction licence ↔ open source documentée (`docs/compliance/vesuvius-challenge-matrix.md`) ; permissions et Discord = actions humaines.
-- Veille : tâche planifiée → `watch/run_watch.ps1` (sans commit) ; rapports analysés et committés en session ; consulter avant toute expérience importante (G3.2).
-- Aucune image d'encre / transcription / label publié (licence données).
+- Objectif = tout lire, technologie neutre ; métriques pixel = diagnostics ; mesures glyphe (`src/vesres/reading.py`) et couverture d'abord.
+- Protocoles : `docs/protocols/{reading-evaluation,coverage,independence,research-loop}.md` ; toute métrique porte sa classe de référence (R0–R4) ; toutes nos références actuelles sont R0/R1.
+- Les 5 segments historiques (0841 × 3, 0009B, 0500P2) sont rétrospectifs, plus une validation finale ; test scellé à créer (P3) ; jamais de réglage sur eux.
+- Chaîne de référence 9 µm = fusion reader-v2(-LO) + Hecate ; reader-v3 ≈ fusion au niveau glyphe ; canon 2,4 µm nettement supérieur mais circularité non exclue (H-029, Y1).
+- Suspendus : K4/K5 (optimisation d'entraînement) ; opportuniste : N1.1 EXP-021 (WSL, seulement machine libre, contention CPU mesurée).
+- R1 PHerc0800 découplé de N : après audit L2.2 ; inspecter d'abord les prédictions officielles publiées.
+- Venvs `.venv` (outils), `.venv-koine` (inférence/entraînement officiels), `.venv-tex` ; travail hors Git dans `C:\Users\FlowUP\vesuvius-work` (≈ 98 Gio ; C: 229 Gio libres, en baisse).
+- Aucune image d'encre, coordonnée de texte, transcription ou label publié ; sorties par UGR dans `vesuvius-work/runs/EXP-022/` (privé).
+- Prix : aucune éligibilité déclarée ; questions écrites prêtes (`docs/compliance/vesuvius-challenge-matrix.md` §6), envoi = action humaine.
 
 ## Blocage actif
-Aucun. Décision humaine attendue (non bloquante) : M1.4, e-mail personnel dans les métadonnées des commits publics.
+Aucun. Décisions humaines attendues (non bloquantes) : M1.4 (e-mail des commits) ; envoi des questions L1.3 ; annotateur pour P4.2.
 
 ## Fichiers / zones utiles
-- `experiments/registry.csv`, `experiments/EXP-0{01..20}/`, `docs/hypotheses.md`, `docs/data/splits.md`, `docs/protocols/training-duration.md`
-- `docs/research-review-2026-11-26.md`, `docs/compliance/vesuvius-challenge-matrix.md`, `docs/open-source/audit-2026-11-26.md`, `docs/state-of-the-art/`
-- `src/vesres/{fetch_segment,eval_ink,watch,remote_tiff,catalog}.py`
-- Runs : `vesuvius-work/runs/EXP-018/train/` (runner.log, ckpt_*.pth), prédictions antérieures `vesuvius-work/runs/EXP-0*` ; segments étiquetés `vesuvius-work/cache/segments/`
+- `plan.md`, `docs/research-review-2026-11-27.md`, `docs/hypotheses.md`, `experiments/registry.csv`
+- `src/vesres/{reading,eval_ink,catalog,fetch_segment,watch}.py`, `experiments/EXP-022/`, `experiments/EXP-013/analyze.py` (chargeur des 5 segments)
+- Catalogue local `vesuvius-work/cache/catalog/metadata.min.json` ; segments `vesuvius-work/cache/segments/` ; prédictions `vesuvius-work/runs/`
 
 ## NEXT ACTION
-N1.1 — Sous WSL (cwd local) : `KH=~/korotetskyi2026 WORKERS=12 bash experiments/EXP-021/reproduce_glyphs.sh` (copie du script dans WSL), puis lire `logs/compare.txt` et le MCC moyen ACF+WAV+LRE de `out/fusion_subsets10/report.txt` ; conclure H-022 (± 0,02 de 0,457).
+W1.1 — Écrire `experiments/EXP-023/README.md` (méthode d'estimation physique et critère H-028 avant calcul), puis un script qui lit les méta-données tifxyz (`meta.json`) des segments publiés par rouleau (S3 anonyme) et produit `docs/data/coverage_inventory.{csv,md}` ; valider par deux exécutions identiques.

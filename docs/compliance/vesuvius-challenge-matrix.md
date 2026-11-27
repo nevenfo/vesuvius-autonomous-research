@@ -1,4 +1,4 @@
-# Matrice de compatibilité Vesuvius Challenge (L1, vérifiée le 2026-11-26)
+# Matrice de compatibilité Vesuvius Challenge (L1, vérifiée le 2026-11-26, actualisée le 2026-11-27 §5–6)
 
 Sources : <https://scrollprize.org/prizes> (non datée, échéance Progress 2026-11-30 affichée),
 <https://scrollprize.substack.com/p/a-new-1m-grand-prize-for-2027> (2026-07-15), <https://scrollprize.org/data#licenses>,
@@ -44,3 +44,24 @@ comportant des artefacts dérivés de données.
   par les rouleaux First Letters / Grand Prize, avec modèles n'ayant vu aucune région de ces rouleaux.
 - Progress Prizes : une brique réutilisable mesurée sur données réelles (ex. évaluation sans fuite, détecteur
   non neuronal explicable, export programmatique) est la contribution la plus accessible à court terme.
+
+## 5. Actualisation du 2026-11-27 (recherche ciblée ; formulation exacte de `prizes` à relire, résumé outillé)
+| Point | Source | Statut | Effet sur la matrice |
+|---|---|---|---|
+| First Letters 2026 attribués : 306B, 343 (oct.), 846A, 846B, 211 partiel (nov.) ; reader-v3 majoritaire | <https://scrollprize.org/winners> | V | 0800 reste sans lettre annoncée ; vérifier avant R1 que 0800 est toujours éligible (max 5 rouleaux ❔) |
+| Préentraînés et données externes autorisés si licence ; scans plus résolus **du même rouleau** interdits | <https://scrollprize.org/prizes> | V (résumé) | reader-v2/LO distillés de cartes 2,4 µm d'**autres** objets : compatibles a priori pour 0800 ; audit L2.2 requis |
+| Données d'entraînement/pseudo-labels publiés CC BY-NC 4.0 ; seeds et runs W&B partagés ; code permissif, publication non requise à la soumission ; divulgation interdite avant annonce | idem | V (résumé) | inchangé : contradiction licence ↔ open source toujours ouverte |
+| Aucune règle explicite sur IA générative / agents ni sur recouvrement entraînement/prédiction pour First Letters | idem | V (absence constatée) | reste ❔ → question écrite |
+| Grand Prize 2027 : 100 % du recto (fragments détachés inclus, morceaux externes < 10 % omissibles), ≥ 70 % des caractères conservés lisibles par colonne sans interpolation, ≤ 8 h d'intervention humaine | idem + substack 2026-07-15 | V (résumé) | aligne nos métriques : couverture (`docs/protocols/coverage.md`) et lisibilité glyphe (EXP-022) |
+
+## 6. Questions écrites prêtes (L1.3) — envoi = action humaine (Discord officiel ou GitHub Issues ScrollPrize)
+1. « Un projet open source (MIT) mené en grande partie par un agent IA supervisé par un humain est-il éligible aux
+   First Letters / Grand Prize, l'humain étant le soumissionnaire ? »
+2. « Les prix exigent la publication des datasets, pseudo-labels et poids, alors que LICENSE.txt interdit la
+   redistribution et la publication d'images d'ink labels sans accord écrit : quelle procédure suivre pour publier
+   ces artefacts au moment d'une soumission ? »
+3. « Pour First Letters, un modèle entraîné sur des cartes 2,4 µm d'autres rouleaux (pas du rouleau cible) est-il
+   conforme à la règle sur les scans plus résolus ? »
+4. « La transcription de PHerc. 1667 (arXiv:2606.29085) existe-t-elle alignée sur les segments, et peut-elle être
+   utilisée en interne, sans publication, comme référence d'évaluation de lecture ? »
+5. « Y a-t-il des restrictions de pays de résidence ou d'âge pour recevoir un prix ? »
